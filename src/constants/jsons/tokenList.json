@@ -1,0 +1,126 @@
+[
+    {
+        "address": "0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4",
+        "symbol": "USDC",
+        "decimals": 6,
+        "logoURI": "https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=025",
+        "name": "USD Coin",
+        "chainId": 324
+    },
+    {
+        "address": "0x0e97C7a0F8B2C9885C8ac9fC6136e829CbC21d42",
+        "symbol": "MUTE",
+        "decimals": 18,
+        "logoURI": "https://firebasestorage.googleapis.com/v0/b/token-library.appspot.com/o/mute.svg?alt=media&token=91b36efd-93fe-4e05-86dd-b97890f5f137",
+        "name": "Mute.io",
+        "chainId": 324
+    },
+    {
+        "address": "0xc2B13Bb90E33F1E191b8aA8F44Ce11534D5698E3",
+        "symbol": "COMBO",
+        "decimals": 18,
+        "logoURI": "https://firebasestorage.googleapis.com/v0/b/token-library.appspot.com/o/combo.svg?alt=media&token=beb166a2-a1bf-4935-9a7f-60219174feec",
+        "name": "Furucombo",
+        "chainId": 324
+    },
+    {
+        "address": "0x0faF6df7054946141266420b43783387A78d82A9",
+        "symbol": "PERP",
+        "decimals": 18,
+        "logoURI": "https://firebasestorage.googleapis.com/v0/b/token-library.appspot.com/o/perp.svg?alt=media&token=03fa3dd9-123d-4a42-9885-6ae8e982a596",
+        "name": "Perpetual",
+        "chainId": 324
+    },
+    {
+        "address": "0x116BDAC75BB21edc50ea54baa6feb33A022a6abc",
+        "symbol": "SP",
+        "decimals": 18,
+        "logoURI": "https://firebasestorage.googleapis.com/v0/b/token-library.appspot.com/o/link.svg?alt=media&token=1985e3d8-3aa7-4d04-8839-565d4c341615",
+        "name": "DAI",
+        "chainId": 324
+    },
+    {
+        "address": "0x9c3c9283d3e44854697cd22d3faa240cfb032889",
+        "symbol": "WMATIC",
+        "decimals": 18,
+        "logoURI": "https://seeklogo.com/images/P/polygon-matic-logo-1DFDA3A3A8-seeklogo.com.png",
+        "name": "Wrapped Matic",
+        "chainId": 80001
+    },
+    {
+        "address": "0x400de4eC1f3B697aAb2f60dFEb089859c85db58d",
+        "symbol": "USDC",
+        "decimals": 18,
+        "logoURI": "https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=025",
+        "name": "USD Coin",
+        "chainId": 280,
+        "type": "faucet"
+    },
+    {
+        "address": "0xDf9acc0a00Ae6Ec5eBc8D219d12A0157e7F18A68",
+        "symbol": "USDT",
+        "decimals": 18,
+        "logoURI": "https://raw.githubusercontent.com/forbitspace/icons/main/token/usdt.jpg",
+        "name": "USDT Coin",
+        "chainId": 280,
+        "type": "faucet"
+    },
+    {
+        "address": "0x14b92edf57277eBd00c3B7C3C3C714f7F7aa45AB",
+        "symbol": "DAI",
+        "decimals": 18,
+        "logoURI": "https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.svg?v=025",
+        "name": "DAI",
+        "chainId": 280,
+        "type": "faucet"
+    },
+    {
+        "address": "0x9CB9f4b656C81De33378E34A58fd78889Cb54d52",
+        "symbol": "BTC",
+        "decimals": 18,
+        "logoURI": "/images/btc.svg",
+        "name": "Bitcoin",
+        "chainId": 280,
+        "type": "faucet"
+    },
+    {
+        "address": "0x61Ed2c581cf6985FaFF0178617967f659AfaF27A",
+        "symbol": "ZKS",
+        "decimals": 18,
+        "logoURI": "https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/",
+        "name": "zkSync Era token",
+        "chainId": 280
+    },
+    {
+        "address": "0xeb456fBD8ED9ad79F4F72B13514Aa7fD37Ea2f91",
+        "symbol": "BTC",
+        "decimals": 18,
+        "logoURI": "/images/btc.svg",
+        "name": "Bitcoin",
+        "chainId": 5
+    },
+    {
+        "address": "0x161d04115afA19Ce3eEe85cca184E7e07811Ce8b",
+        "symbol": "DAI",
+        "decimals": 18,
+        "logoURI": "https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.svg?v=025",
+        "name": "DAI",
+        "chainId": 5
+    },
+    {
+        "address": "0xC4a71a882D95B97d4356B0FA1169f9d262A0396b",
+        "symbol": "USDC",
+        "decimals": 18,
+        "logoURI": "https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=025",
+        "name": "USD Coin",
+        "chainId": 5
+    },
+    {
+        "address": "0xA6fB84257E1Abf6903d9d8d8c5CA4ce8bE9B2920",
+        "symbol": "USDT",
+        "decimals": 18,
+        "logoURI": "https://raw.githubusercontent.com/forbitspace/icons/main/token/usdt.jpg",
+        "name": "USDT Coin",
+        "chainId": 5
+    }
+]

@@ -1,0 +1,20 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    color: #f4eeff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
+
+body {
+    background: #1c243b;
+    background-size: cover;
+    background-attachment: fixed;
+    min-width: 100vw;
+    min-height: 100vh;
+}
