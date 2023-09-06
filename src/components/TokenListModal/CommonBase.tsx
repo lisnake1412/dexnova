@@ -17,7 +17,6 @@ const CommonBase = ({ token, onUserSelect }: CommonBaseProps) => {
         </WrapperCommonBase>
     )
 }
-
 const WrapperCommonBase = styled(Row)`
     background: none;
     padding: 6px 10px;
@@ -27,9 +26,12 @@ const WrapperCommonBase = styled(Row)`
     align-items: center;
     border: 1px solid var(--border1);
     transition: all ease-in-out 0.3s;
+    div{
+        color:#000;
+    }
 
     &:hover {
-        background: #19a5f739;
+        background-image: linear-gradient(#0dccea,#0d70ea);
     }
 `
 

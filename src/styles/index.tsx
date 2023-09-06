@@ -17,21 +17,21 @@ export const GlobalStyle = createGlobalStyle`
     :root{
         --color-text: rgb(18, 101, 171);
         --color-border-button: linear-gradient(44.7deg, #00FF00 14.53%, #00F322 20.2%, #00D378 33.65%, #00A5F7 51.36%, #171AFE 80.39%, #1B00FF 85.35%);
-        --bg1: #151d2e;
-        --bg2: linear-gradient(rgb(28, 36, 58) 0%, rgb(30, 50, 79) 100%);
-        --bg3: #151d2e;
+        --bg1: #fff;
+        --bg2: #f5f6fc;
+        --bg3: #feeaf1;
         --bg4: #fff;
         --bg5: #fff;
-        --bg6: #4b67b5;
-        --btn1: #4b67b5;
+        --bg6: #fb118e;
+        --btn1: linear-gradient(#0dccea,#0d70ea);
         --btn2: #ffffff1c;
-        --border1: #524b63;
-        --border2: #524b63;
-        --border3: #524b63;
+        --border1: #d2d9ee;
+        --border2: #adccdd;
+        --border3: #04161d;
         --hover1: #c9c9c9;
         --hover2: #c9c9c921;
-        --text1: #dbe1f0;
-        --text2: #ffb21c;
+        --text1: #000;
+        --text2: #000;
         --text3: #fff;
         --text4: #ff0085;
     }
@@ -51,7 +51,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     a {
-        color: var(--text1);
+        color: #000;
         text-decoration: none;
 
         :hover {

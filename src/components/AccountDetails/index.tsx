@@ -415,23 +415,13 @@ const WrapConnectModal = styled(Container)`
     max-width: 300px;
     left: unset;
     right: 20px;
-    top: 90px;
+    top: 55px;
     transform: unset;
     margin: unset;
     overflow: unset;
+    color: #000;
 
-    // @media screen and (max-width: 1100px) {
-    //     right: 10px;
-    //     top: unset;
-    //     bottom: 60px;
-    // }
-    // @media screen and (max-width: 492px) {
-    //     width: 90%;
-    //     margin: auto;
-    //     font-size: 12px;
-    //     right: 10px;
-    //     max-width: 300px;
-    // }
+
 `
 
 const GlobalStyle = createGlobalStyle`

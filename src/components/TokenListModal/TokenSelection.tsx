@@ -99,6 +99,9 @@ const WrapperSelection = styled(Row)`
         }
         .token-symbol {
             font-size: 12.5px;
+            color: #000;
+            font-weight: 600;
+
         }
     }
 
@@ -110,6 +113,7 @@ const WrapperSelection = styled(Row)`
         white-space: nowrap;
         flex-direction: column;
         padding-right: 2px;
+        color: #000;
         .add-btn:hover {
             text-decoration: underline;
         }

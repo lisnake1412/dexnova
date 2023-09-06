@@ -63,11 +63,12 @@ export const HeaderWrapper = styled.div`
     display: grid;
     grid-template-columns: 100px 1fr 1fr;
     grid-gap: 30px;
-    background: var(--bg3);
     align-items: center;
     padding: 0 10px 0 10px;
     min-height: 45px;
-    border-bottom: 1px solid var(--border3);
+    background: linear-gradient(0deg, rgb(61, 122, 190) 0%, rgb(40, 175, 229) 100%);
+    padding-top: 0px;
+    padding-bottom: 0px;
     @media(max-width: 768px) {
         grid-template-columns: 1fr 0 250px;
         padding: 10px;

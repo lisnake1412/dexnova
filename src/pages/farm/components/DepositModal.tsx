@@ -27,7 +27,7 @@ const DepositModal = ({ lp, onDeposit, isOpen, setIsOpen, value, setValue }: {
     const ModalContent = (onClose: () => void) => {
         return (
             <>
-                <ModalHeader jus="center">
+                <ModalHeader jus="center" className='Stake_Token'>
                     <span>Stake Lp Token</span>
                 </ModalHeader>
                 <ModalBody>
@@ -76,6 +76,8 @@ const ModalBody = styled(Columns)`
 
 const ModalHeader = styled(Row)`
     font-size: 24px;
+    color:#000;
+    font-weight:600;
 
 `
 

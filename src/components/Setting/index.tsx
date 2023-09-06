@@ -162,11 +162,11 @@ const InputTime = styled.input`
     max-width: 80px;
     padding: 11px 11px;
     backdrop-filter: blur(2.9465px);
-    border-radius: 6px;
+    border-radius: 4px;
     text-align: right;
-    color: #fff;
+    color: #000;
     ::placeholder {
-        color: #fff;
+        color: #000;
     }
 `
 const TransactionSetting = styled.div`
@@ -267,7 +267,7 @@ const Item = styled.div<{ setting: boolean }>`
 const IconQuestion = styled.div`
     background: ${({ theme }) => theme.bg3};
     border-radius: 50%;
-    border: 1px solid #ffffff;
+    border: 1px solid var(--border1);
     height: 18px;
     width: 18px;
     display: flex;
@@ -373,7 +373,7 @@ const Input = styled.input`
     color: var(--text1);
     align-items: center;
     height: 2rem;
-    border-radius: 12px;
+    border-radius: 4px;
     font-size: 1rem;
     text-align: right;
     width: auto;

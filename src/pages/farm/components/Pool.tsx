@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Columns, Row } from 'components/Layouts'
 import { useToken, useTokenApproval } from 'hooks/useToken'
 import { Field, IFarmingPool } from 'interfaces'
-import Chevron from 'assets/icons/chevron-grey.svg'
+import Chevron from 'assets/icons/arrows.png'
 import { FARMING_ADDRESSES } from 'constants/addresses'
 import { useTokenBalance } from 'hooks/useCurrencyBalance'
 import { useActiveWeb3React } from 'hooks'
@@ -209,19 +209,49 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                 {
                     !isColumnView && (
                         <>
+                         <Columns al="flex-end">
+                                <Row gap="5px">
+                                    <Core>
+                                        <img src={CoreIcon} alt="core icon" />
+                                        <span>Core</span>
+                                    </Core>
+                                    
+                                </Row>
+                            </Columns>
                             <Columns al="flex-end">
-                                <div>
+                                <div className='title_lable'>
                                     Earned
                                 </div>
-                                <div>
+                                <div  className='info-f'>
                                     {pendingReward} ZKS
                                 </div>
                             </Columns>
+                           
+
+
                             <Columns al="flex-end">
-                                <div>
+                                <div className='title_lable'>
+                                Liquidity
+                                </div>
+                                <div  className='info-f'>
+                                {Number(divNumberWithDecimal(pool.totalStaked.toString(), 18)).toFixed(4)} {pool.isStakePool ? 'ZKS' : 'ZKS-LP'}
+                                </div>
+                            </Columns>
+                            <Columns al="flex-end">
+                                <div className='title_lable'>
+                                Multiplier
+                                </div>
+                                <div  className='info-f'>
+                                {pool.multiplier?.toString()}x
+                                </div>
+                            </Columns>
+   
+
+                            <Columns al="flex-end">
+                                <div className='title_lable'>
                                     APR
                                 </div>
-                                <Row>
+                                <Row  className='info-f'>
                                     <span className="to" style={{maxWidth: 90, display: "block"}}>
                                         {apr.toFixed(0)}
                                     </span>
@@ -243,20 +273,20 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                             isColumnView && (
                                 <>
                                     <Row jus="space-between">
-                                        <div>APR</div>
-                                        <div>{apr.toFixed(0) || 0}%</div>
+                                        <div className='title_lable'>APR</div>
+                                        <div className='info-f'>{apr.toFixed(0) || 0}%</div>
                                     </Row>
                                     <Row jus="space-between">
-                                        <div>Earn</div>
-                                        <div>{ZKS_TOKEN[chainId || 324].symbol} + Fees</div>
+                                        <div className='title_lable' >Earn</div>
+                                        <div className='info-f'>{ZKS_TOKEN[chainId || 324].symbol} + Fees</div>
                                     </Row>    
                                 </>
                             )
                         }
                         <WrapperActions isColumnView={isColumnView}>
                             <WrapperAction isColumnView={isColumnView}>
-                                <Row gap="8px">
-                                    <span style={{fontSize: 12, color: 'var(--text2)'}}>{ZKS_TOKEN[chainId || 324].symbol}</span>
+                                <Row gap="8px" className='title-gdLdzk'>
+                                    <span style={{fontSize: 12}}>{ZKS_TOKEN[chainId || 324].symbol}</span>
                                     <span style={{fontSize: 12}}>EARNED</span>
                                 </Row>
                                 <Row jus="center" al="center">
@@ -265,15 +295,15 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                                 </Row>
                             </WrapperAction>
                             <WrapperAction isColumnView={isColumnView}>
-                                <span style={{fontSize: 12}}>{
+                                <span style={{fontSize: 12}} className='title-gdLdzk'>{
                                     pool.amount ? 
                                         <>
-                                            <span style={{fontSize: 12, color: 'var(--text2)'}}>{pairName}</span>
-                                            <span> STAKED</span>
+                                            <span style={{fontSize: 12}} className='title-gdLdzk'>{pairName}</span>
+                                            <span className='title-gdLdzk'> STAKED</span>
                                         </>
                                     : 'START FARMING'
                                 }</span>
-                                <Row>
+                                <Row className='stake'>
                                     <span className='earn to'>
                                         {Number(divNumberWithDecimal(pool.amount.toString(), 18)).toFixed(4)}
                                     </span>
@@ -281,24 +311,8 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                                 </Row>
                             </WrapperAction>
                         </WrapperActions>
-                        {
-                            !isColumnView && (
-                                <>
-                                    <Row jus="space-between">
-                                        <div>APR</div>
-                                        <div>{apr.toFixed(0) || 0}%</div>
-                                    </Row>
-                                    <Row jus="space-between">
-                                        <div>Multiplier</div>
-                                        <div>{pool.multiplier?.toString()}x</div>
-                                    </Row>    
-                                </>
-                            )
-                        }
-                        <Row jus="space-between">
-                            <div>Liquidity</div>
-                            <div>{Number(divNumberWithDecimal(pool.totalStaked.toString(), 18)).toFixed(4)} {pool.isStakePool ? 'ZKS' : 'ZKS-LP'}</div>
-                        </Row>
+                        <div className="wp-link">
+
                     {
                         isPair && pair && (
                             <Link 
@@ -324,6 +338,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                             </a>
                         )
                     }
+                    </div>
                     </PoolBody>
                 )
             }
@@ -332,7 +347,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
 }
 
 const Core = styled(Row)`
-    border: 1px solid var(--text2);
+    border: 2px solid #289cd1;
     padding: 4px 10px;
     width: fit-content;
     border-radius: 16px;
@@ -348,21 +363,28 @@ const Core = styled(Row)`
 
 const Multiplier = styled(Row)`
     padding: 4px 10px;
-    background: var(--text2);
     border-radius: 16px;
     width: fit-content;
     align-items: center;
     justify-content: center;
     font-size: 14px;
+    background-image: linear-gradient(#0dccea,#0d70ea);
+    color: #fff;
 
 `
 
 const WrapperActions = styled(Row)<{isColumnView?: boolean}>`
     gap: 20px;
     font-weight: 900;
+    .wp-link{
+        a{
+            margin-right:8px;
+        }
+    }
 
     @media(max-width: 700px) {
         flex-direction: column;
+
         gap: 10px;
     }
 
@@ -379,9 +401,9 @@ const WrapperAction = styled(Columns)<{isColumnView?: boolean}>`
     height: 130px;
     background: #1e1d20;
     border-radius: 10px;
-    border: 1px solid #232f51;
     padding: 25px 15px;
-    gap: 15px;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
     .earn {
         max-width: 360px;
@@ -413,13 +435,16 @@ const PoolBody = styled(Columns)`
     height: auto;
     overflow: hidden;
     padding: 20px;
-    border-top: 1px solid var(--border3);
-    background: #1e1d20;
+    border: none;
+    background: #e7e7e7;
+    display: grid;
+    gap:0;
 
     .link {
         font-size: 16px;
         font-weight: 600;
         color: #4862ab;
+        margin-right: 10px;
         img {
             width: 12px;
             margin-left: 10px;
@@ -430,10 +455,12 @@ const PoolBody = styled(Columns)`
 const PoolHeader = styled.div<{isColumnView?: boolean}>`
     display: grid;
     align-items: center;
-    grid-template-columns: minmax(200px, 2fr) minmax(100px, 1fr) minmax(100px, 1fr) minmax(50px, 1fr);
+    grid-template-columns: 200px 150px 150px 200px 200px 200px auto;
     width: 100%;
     padding: 20px;
-    background: var(--bg3);
+    .sc-iGgWBj.gNtvMT{
+        align-items: flex-start;
+    }
 
     .pool-img {
         width: 50px;
@@ -445,13 +472,16 @@ const PoolHeader = styled.div<{isColumnView?: boolean}>`
         }
     }
     .pool-name {
-        font-weight: 600;
+        font-weight: 700;
         font-size: 18px;
     }
     .chevron {
-        width: 20px;
+        width: 26px;
+        transform: rotate(-90deg);
+        transition: 0.5s;
         &.isOpenDetail {
-            transform: rotate(180deg);
+            transform: rotate(0deg);
+            transition: 0.5s;
         }
     }
 
@@ -483,36 +513,21 @@ const PoolWrapper = styled.div<{
 }>`
     display: ${({isHidden}) => isHidden ? 'none' : 'block'};
     width: 100%;
-    border: 1px solid var(--border3);
     border-top: none;
     overflow: hidden;
+    border:none;
+    background: #F2F4F3;
+    margin-bottom: 10px;
+    border-radius: 12px;
     @media(max-width: 576px) {
         font-size: 14px;
     }
 
     ${({isColumnView}) => isColumnView && 
         `
-            border: 2.5px solid #5ac3c8;
             border-radius: 20px;
-            animation: rainbow linear infinite 2s;
-            border-color: red;
             max-width: 340px;
             width: 100%;
-
-            @keyframes rainbow {
-                0% {
-                    border-color: #5ac3c8;
-                }
-                25% {
-                    border-color: yellow;
-                }
-                50% {
-                    border-color: #13d9a8;
-                }
-                100% {
-                    border-color: #5ac3c8;
-                }
-            }
         `
     }
 `

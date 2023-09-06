@@ -70,7 +70,6 @@ export const Button = styled.button<{
         disabled ? 'not-allowed !important' : 'pointer'};
     opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
     color: var(--text3);
-    font-family: Inter, sans-serif;
     span {
         font-weight: 400;
     }

@@ -35,14 +35,14 @@ const LabelToken = styled.div`
     .right {
         position: relative;
         left: -8px;
-        max-width: 40px;
+        max-width: 50px;
         img {
             width: 100%;
         }
     }
 
     .left {
-        max-width: 20px;
+        max-width: 30px;
         img {
             width: 100%;
         }

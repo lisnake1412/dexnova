@@ -94,34 +94,8 @@ const PoolPriceBar = ({
                     dropDown={dropDown}
                 >
                     <ContentOutput>
-                        <ItemOutput>
-                            <div>
-                                <div>Expected output</div>
-                            </div>
-                            <div>
-                                <div>
-                                    {outputAmount
-                                        ? Number(outputAmount).toFixed(8)
-                                        : 0}{' '}
-                                    {tokenOut?.symbol}
-                                </div>
-                            </div>
-                        </ItemOutput>
-                        <ItemOutput>
-                            <div>
-                                <div>Price impact</div>
-                            </div>
-                            <div>
-                                <div>
-                                    {priceImpact
-                                        ? Number(priceImpact).toFixed(2)
-                                        : 0}{' '}
-                                    %
-                                </div>
-                            </div>
-                        </ItemOutput>
-                        <Hr />
-                        <ItemOutput>
+
+                    <ItemOutput>
                             <div>
                                 {swapType === Field.INPUT ? (
                                     <div>Minimum received</div>
@@ -147,7 +121,20 @@ const PoolPriceBar = ({
                         </ItemOutput>
                         <ItemOutput>
                             <div>
-                                <span>Fee</span>
+                                <div>Price impact</div>
+                            </div>
+                            <div>
+                                <div>
+                                    {priceImpact
+                                        ? Number(priceImpact).toFixed(2)
+                                        : 0}{' '}
+                                    %
+                                </div>
+                            </div>
+                        </ItemOutput>
+                        <ItemOutput>
+                            <div>
+                                <span>Trading Fee</span>
                             </div>
                             <div>
                                 <span>
@@ -155,6 +142,35 @@ const PoolPriceBar = ({
                                 </span>
                             </div>
                         </ItemOutput>
+                        <ItemOutput>
+                            <div>
+                                <div>Expected output</div>
+                            </div>
+                            <div>
+                                <div>
+                                    {outputAmount
+                                        ? Number(outputAmount).toFixed(8)
+                                        : 0}{' '}
+                                    {tokenOut?.symbol}
+                                </div>
+                            </div>
+                        </ItemOutput>
+                        <ItemOutput>
+                             <div>
+                                <div>Price</div>
+                            </div>
+                            <div>
+                                <div>
+                                    1 {tokenOut?.symbol} ≈ {Number(rate).toFixed(6)}{' '}
+                                    {tokenIn?.symbol} (including fee)
+                                </div>
+                            </div>
+                            
+                        </ItemOutput>
+                       
+                        
+                       
+                        
                     </ContentOutput>
                 </WrapExpectedOutput>
             </PoolPriceWrapper>
@@ -175,6 +191,7 @@ const WrapFee = styled.div<{ dropDown: boolean }>`
     cursor: pointer;
     font-weight: 500;
     font-size: 14px;
+    display:none;
     @media screen and (max-width: 390px) {
         padding: 5px;
     }
@@ -191,12 +208,13 @@ const WrapFee = styled.div<{ dropDown: boolean }>`
 
 const WrapExpectedOutput = styled.div<{ dropDown: boolean }>`
     transition: all 0.1s ease-in-out;
-    overflow: hidden;
     height: 0;
     margin: 10px 0;
+    padding-top: 25px;
+    border-top: 2px solid #0dcaea;
 
     &.active {
-        height: 118px;
+        height: auto;
         @media (max-width: 576px) {
             height: 130px;
         }
@@ -204,13 +222,18 @@ const WrapExpectedOutput = styled.div<{ dropDown: boolean }>`
 `
 
 const ContentOutput = styled.div`
-    padding: 15px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    background: none;
-    border: 1px solid var(--border2);
+padding: 0;
+border-radius: 0;
+display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-flex-direction: column;
+-ms-flex-direction: column;
+flex-direction: column;
+gap: 6px;
+background: none;
+border: none;
 
     img {
         height: 20px;
@@ -225,10 +248,13 @@ const ItemOutput = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--text2);
+    color: #000;
+    padding: 5px 0;
+    font-size: 14px;
     div {
         display: flex;
         align-items: center;
+        
     }
     div:first-child {
         gap: 5px;

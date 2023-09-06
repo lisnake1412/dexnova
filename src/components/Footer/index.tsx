@@ -4,18 +4,33 @@ import { useTokenBalance } from "hooks/useCurrencyBalance"
 import { useWeb3React } from "@web3-react/core"
 import Logo from "assets/brand/logo.png"
 import { Columns, Row } from "components/Layouts"
-import Twitter from "assets/icons/twitter.svg"
-import Discord from "assets/icons/discord.svg"
+import imgIconDiscord from "assets/icons/imgIconDiscord.png";
+import imgIconTele from "assets/icons/imgIconTele.png";
+import imgIconTw from "assets/icons/imgIconTw.png";
+import imgIconWeb from "assets/icons/imgIconWeb.png";
+import imgIconYt from "assets/icons/imgIconYt.png";
 import PrimaryButton from "components/Buttons/PrimaryButton"
 import { useNavigate } from "react-router-dom"
 
 const links = [
     {
-        img: Twitter,
+        img: imgIconDiscord,
         url: "/",
     },
     {
-        img: Discord,
+        img: imgIconTele,
+        url: "/",
+    },
+    {
+        img: imgIconTw,
+        url: "/",
+    },
+    {
+        img: imgIconWeb,
+        url: "/",
+    },
+    {
+        img: imgIconYt,
         url: "/",
     }
 ]
@@ -61,15 +76,15 @@ const Bottom = styled(Row)`
 const Top = styled(Columns)`
     border-bottom: 1px solid var(--border1);
     padding: 20px;
-    gap: 30px;
+    gap: 20px;
     .logo {
-        max-width: 120px;
+        max-width: 150px;
         img {
             width: 100%;
         }
     }
     .icon {
-        width: 20px;
+        width: 30px;
         transition: all ease-in-out .1s;
         cursor: pointer;
 
@@ -81,7 +96,7 @@ const Top = styled(Columns)`
 
 const FooterWrapper = styled.div`
     min-height: 300px;
-    background: var(--bg1);
+    background-color: #2A9BD6;
     padding: 20px;
 `
 

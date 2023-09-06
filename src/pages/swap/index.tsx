@@ -8,7 +8,7 @@ import { useSwapActionHandlers, useSwapState } from 'states/swap/hooks'
 import PoolPriceBar from './PoolPriceBar'
 import PrimaryButton from 'components/Buttons/PrimaryButton'
 import LabelButton from 'components/Buttons/LabelButton'
-import SwapIcon from 'assets/icons/swap-icon.svg'
+import SwapIcon from 'assets/icons/swap-icon.png'
 import { useActiveWeb3React } from 'hooks'
 import { usePair } from 'hooks/useAllPairs'
 import Setting from 'components/HeaderLiquidity'
@@ -572,6 +572,7 @@ const Swap = () => {
                     initDataTransaction.isOpenResultModal ||
                     initDataTransaction.isOpenWaitingModal) && <Blur />}
             </>
+            <div className="wp-container">
             <SwapContainer ref={ref}>
                 {!account && isOpenWalletModal && (
                     <>
@@ -590,9 +591,6 @@ const Swap = () => {
                             to="/swap"
                         >
                             Swap
-                        </Link>
-                        <Link to="/add">
-                            Add
                         </Link>
                     </Nav>
                     <Setting />
@@ -635,6 +633,7 @@ const Swap = () => {
                 )}
                 <SwapButton />
             </SwapContainer>
+            </div>
         </>
     )
 }
@@ -642,15 +641,17 @@ const Swap = () => {
 const SwapContainer = styled(Columns)`
     margin: 0 auto 40px;
     height: fit-content;
-    max-width: 520px;
-    background: var(--bg1) !important;
+    width: 520px;
+    background-color: rgb(255 255 255 / 80%);
     border: 1.5px solid var(--border2);
     border-radius: 12px;
-    padding: 20px 25px;
-    background-color: #00000073;
-    gap: 15px;
+    padding: 30px 30px;
+    gap: 30px;
     position: relative;
     z-index: 0;
+    .wp-left {
+        text-align: right;
+    }
 
     @media (max-width: 576px) {
         width: 96%;
@@ -663,7 +664,10 @@ const Nav = styled(Row)`
     a {
         padding: 5px 8px;
         border-radius: 4px;
+        -webkit-text-decoration: none !important;
         text-decoration: none !important;
+        font-size: 24px;
+        font-weight: 600;
         :hover {
             text-decoration: none !important;
         }
@@ -675,24 +679,37 @@ const Nav = styled(Row)`
 `
 
 const Icon = styled.div`
-    width: 35px;
-    height: 35px;
-    margin: -10px auto;
+        width: 60px;
+    height: 60px;
+    margin: -20px auto;
     cursor: pointer;
     border-radius: 50%;
+    -webkit-transition: all ease-in-out 0.3s;
     transition: all ease-in-out 0.3s;
-    background: var(--bg4);
-    border: 2px solid var(--border3);
+    /* background: var(--bg4); */
+    border: none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    background-image: url(./src/assets/icons/bg-swap-icon.png);
     z-index: 1;
+    background-size: contain;
+    background-position: center center;
 
     :hover {
         transform: rotate(180deg);
     }
     img {
-        width: 20px;
+        width: 25px;
     }
 `
 

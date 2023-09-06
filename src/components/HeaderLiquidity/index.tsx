@@ -5,7 +5,10 @@ import { useAppState } from 'states/application/hooks'
 import styled from 'styled-components'
 // import imgSetting from "../../assets/svg/setting.svg";
 // import imgSettingLight from "../../assets/svg/setting-light.svg";
-import SettingIcon from 'assets/icons/setting.svg'
+import SettingIcon from 'assets/icons/setting.png'
+import ChartIcon from 'assets/icons/chart.png'
+import { Link, useLocation } from 'react-router-dom'
+
 
 const HeaderLiquidity = () => {
     const [setting, setSetting] = useState(false)
@@ -13,16 +16,18 @@ const HeaderLiquidity = () => {
     return (
         <>
             <HeaderTitle>
-                <WrapNav>
-                    {/* <label>{name}</label> */}
+                <WrapNav className='wp-icon-head'>
+                <Link to="/add">
+                    <img src={ChartIcon}  />
+                        </Link>
                     <img
                         onClick={() => {
-                            console.log('asjfkhakjshdfkajsh')
                             setSetting(true)
                         }}
                         src={userDarkMode ? SettingIcon : SettingIcon}
                         alt=""
                     />
+                    
                 </WrapNav>
                 {setting && (
                     <Transaction setting={setting} setSetting={setSetting} />
@@ -39,10 +44,16 @@ const HeaderTitle = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .wp-icon-head {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:15px;
+    }
     img {
-        height: 20px;
         cursor: pointer;
         position: relative;
+        width:30px;
     }
     span {
         :last-child {

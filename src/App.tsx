@@ -14,6 +14,8 @@ import Footer from 'components/Footer'
 const Home = React.lazy(() => import('pages/home'))
 const Swap = React.lazy(() => import('pages/swap'))
 const AddLiquidity = React.lazy(() => import('pages/add'))
+const LaunchpadS1 = React.lazy(() => import('pages/launchpads1'))
+const LaunchpadS2 = React.lazy(() => import('pages/launchpads2'))
 const Pools = React.lazy(() => import('pages/pool'))
 const Farms = React.lazy(() => import('pages/farm'))
 
@@ -43,6 +45,8 @@ const App = () => {
                         <Route path="/pools" element={<Farms />} />
                         <Route path="/add" element={<AddLiquidity />} />
                         <Route path="/add/:token0/:token1" element={<AddLiquidity />} />
+                        <Route path="/private_sale" element={<LaunchpadS1 />} />
+                        <Route path="/public_sale" element={<LaunchpadS2 />} />
                         <Route path="/position" element={<Pools />} />
                         <Route path="/farms" element={<Farms />} />
                         <Route path="*" element={<Navigate to="/" />} />

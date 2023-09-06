@@ -75,6 +75,22 @@ export const navs = [
             }
         ],
     },
+    
+    {
+        name: "Launchpad",
+        paths: [
+            {
+                path: "/private_sale",
+                name: "Private Sale",
+                isExternal: false
+            },
+            {
+                path: "/public_sale",
+                name: "PubLic Sale",
+                isExternal: false
+            }
+        ]
+    },
     {
         name: "Info",
         paths: [
@@ -92,9 +108,14 @@ const Navigator = ({ burgerNav, setBurgerNav }: NavigationProps) => {
 
     const NavItem = (nav: typeof navs[0], index: number) => {
         return (
+
+
             <WrapperNavItem key={index + 1} onMouseEnter={() => setCurrentOpen(index)}  onMouseLeave={() => setCurrentOpen(-1)}>
                 <Lable style={{color: index === navs.length - 1 ? 'var(--text2)' : ''}}>
-                    {nav.name}
+                   
+                    { 
+                     nav.name
+                    }
                 </Lable>
                 {
                     currentOpen === index && (
@@ -134,6 +155,7 @@ const Navigator = ({ burgerNav, setBurgerNav }: NavigationProps) => {
 
 const Lable = styled.div`
     padding: 15px;
+    
 `
 
 const WrapperNavItem = styled.div`
@@ -145,21 +167,24 @@ const NavModal = styled.div`
     position: absolute;
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--border1);
+    border: 1px solid #fff;
     top: 48px;
     left: -20px;
     padding: 10px;
     min-width: 200px;
     border-radius: 12px;
-    background: var(--bg1);
+    background-color: rgb(255 255 255 );
+    
 
     a {
         height: 30px;
         display: flex;
         align-items: center;
         padding: 20px;
+        color: #000;
         :hover {
-            background: #343547;
+            background-image: linear-gradient(#0dccea,#0d70ea);
+            color: #fff;
             text-decoration: none;
         }
     }

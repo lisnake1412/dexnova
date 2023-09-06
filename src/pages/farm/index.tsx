@@ -150,10 +150,7 @@ const Farm = () => {
             {(initDataTransaction.isOpenConfirmModal ||
                 initDataTransaction.isOpenResultModal ||
                 initDataTransaction.isOpenWaitingModal) && <Blur />}
-            <FarmTabs>
-                <Link to='/farms' className={isFarm ? 'active' : ''}>Farms</Link>
-                <Link to='/pools' className={isFarm ? '' : 'active'}>Pools</Link>
-            </FarmTabs>
+
             <FarmHero>
                 <div className='title'>
                     {
@@ -162,7 +159,7 @@ const Farm = () => {
                 </div>
                 <div className='sub-title'>Stake LP tokens to earn</div>
             </FarmHero>
-            <InfoWrapper jus="space-between" al="center">
+            <InfoWrapper jus="space-between" al="center" className='wp-top-farm'>
                 <Columns gap="10px" al="center">
                     <span className='label'>TVL</span>
                     <span className='num'>$2,195,924</span>
@@ -176,6 +173,7 @@ const Farm = () => {
                     <span className='num'>$1,552,921</span>
                 </Columns>
             </InfoWrapper>
+            <div className='wp-farm'>
             <ToolWrapper>
                 <Row al="center" gap="10px">
                     <Row gap="10px" al="center">
@@ -202,7 +200,6 @@ const Farm = () => {
                     </Row>
                 </Row>
                 <Columns gap="10px">
-                    <span className="label">SEARCH</span>
                     <input className='search' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder='Search Farms' />
                 </Columns>
             </ToolWrapper>
@@ -331,23 +328,36 @@ const Farm = () => {
                     />
                 )
             }
+            </div>
         </Container>
     )
 }
 
 const InfoWrapper = styled(Row)`
-    background: var(--btn1);
+    background-color: rgb(255 255 255 / 80%);
+    border: 1.5px solid var(--border2);
     width: 100%;
     border-radius: 12px;
     padding: 10px 40px;
+    .sc-iGgWBj{
+        position: relative;
+        margin-bottom: 25px;
+        padding-top: 20px;
+        padding-left: 0px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
 
     .label {
         font-size: 14px;
+        color: #000;
     }
 
     .num {
         font-size: 30px;
         font-weight: 900;
+        color: #00b3cc;
     }
 
     @media(max-width: 650px) {
@@ -363,6 +373,9 @@ const ToolWrapper = styled.div`
     margin: 15px 0;
     align-items: center;
     justify-content: space-between;
+    .sc-dcJsrY.XFyXO {
+        color: #000;
+    }
 
     .list {
         cursor: pointer;
@@ -389,20 +402,25 @@ const ToolWrapper = styled.div`
 
     .label {
         font-size: 14px;
+        color:#000;
     }
 
     .search {
-        border: 1px solid var(--border5);
+        border: 1px solid #080808;
         border-radius: 10px;
         outline: none;
         padding: 8px;
         font-size: 16px;
         background: #232f51;
         color: var(--text1);
-        min-width: 100px;
+        min-width: 138px;
+        margin: 5px;
+        height: 40px;
+        background: #ffffff;
+        border-radius: 8px;
 
         ::placeholder {
-            color: var(--text1);
+            color: #6a6a6a;
         }
     }
     @media(max-width: 576px) {
@@ -431,7 +449,9 @@ const ConnectWrapper = styled(Columns)`
 
 const ListPoolWrapper = styled(Columns)<{isColumnView: boolean}>`
     margin: 0 auto;
-    border-top: 1px solid var(--border3);
+    color: #000;
+    border: none;
+    border: none;
     ${({isColumnView}) => isColumnView && (
         `
             flex-direction: row;
@@ -448,7 +468,7 @@ const Container = styled.div`
     height: fit-content;
     font-weight: 300;
     margin: 0 auto 50px;
-    max-width: 1100px;
+    max-width: 1200px;
 
     .add-btn {
         margin-bottom: 20px;
@@ -474,11 +494,10 @@ const FarmTabs = styled(Row)`
 `
 
 const FarmHero = styled(Columns)`
-    background: var(--bg2);
     height: 140px;
     justify-content: center;
-    gap: 15px;
     margin-bottom: 20px;
+    text-align: center;
 
 
     div {
@@ -488,9 +507,14 @@ const FarmHero = styled(Columns)`
     }
 
     .title {
-        font-size: 45px;
-        font-weight: 900;
-        color: var(--text2);
+        text-align: center;
+        font-size: 48px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        font-family: "Poppins", sans-serif;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 0px -4px 10px rgba(255,255,255,0.3);
     }
 
     .sub-title {

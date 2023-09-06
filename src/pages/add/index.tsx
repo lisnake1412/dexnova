@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Row, Columns } from 'components/Layouts'
 import Setting from 'components/HeaderLiquidity'
 import CurrencyInputPanel from 'components/CurrencyInputPanel'
@@ -9,7 +9,7 @@ import PrimaryButton from 'components/Buttons/PrimaryButton'
 import LabelButton from 'components/Buttons/LabelButton'
 import PlusIcon from 'assets/icons/plus.svg'
 import { ROUTERS } from 'constants/addresses'
-import { useToken, useTokenApproval } from 'hooks/useToken'
+import { useTokenApproval } from 'hooks/useToken'
 import {
     ALL_SUPPORTED_CHAIN_IDS,
     WRAPPED_NATIVE_COIN,
@@ -55,7 +55,6 @@ const Add = () => {
     const { addTxn } = useTransactionHandler()
     const pair = usePair(chainId, tokenIn, tokenOut)
     const ref = useRef<any>()
-    const navigate = useNavigate()
 
     useOnClickOutside(ref, () => {
         setIsOpenWalletModal(false)
@@ -592,7 +591,7 @@ const Add = () => {
                     </>
                 )}
                 <Row jus="space-between">
-                    <BackLink onClick={() => navigate(-1)}>
+                    <BackLink to="/pools">
                         <img src={BackArrow} alt="back arrow" />
                     </BackLink>
                     <Title>Add Liquidity</Title>
@@ -644,24 +643,22 @@ const Tip = styled(Row)`
     text-align: left;
     padding: 15px;
     border-radius: 12px;
-    border: 0.2px solid var(--border1);
-    background: var(--bg3);
-    color: var(--text3);
+    color: #fff;
+    background-image: linear-gradient(#0dccea,#0d70ea);
 `
 
 const SwapContainer = styled(Columns)`
     margin: 0 auto 40px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     max-width: 520px;
-    background: var(--bg1) !important;
+    background: var(--bg5) !important;
     border: 1.5px solid var(--border2);
     border-radius: 12px;
     padding: 20px 25px;
-    background: linear-gradient(
-        to top right,
-        rgba(0, 28, 44, 0.3),
-        rgba(0, 28, 44, 0.3)
-    );
+    margin-top: 150px;
+    background: linear-gradient( to top right, rgba(0,28,44,0.3), rgba(0,28,44,0.3) );
     gap: 15px;
     position: relative;
     z-index: 0;
@@ -768,7 +765,7 @@ const ButtonGroup = styled(Row)`
     gap: 5px;
 `
 
-const BackLink = styled.div`
+const BackLink = styled(Link)`
     img {
         width: 30px;
     }

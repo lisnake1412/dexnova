@@ -52,6 +52,7 @@ const NetworkSelector = () => {
             </NetworkButton>
             <DropdownModal networkModal={networkModal} ref={networkRef}>
                 <ul>
+                <li className='select_options'>Select a Network</li>
                     {ListNetwork.map((item, index) => {
                         return (
                             <li
@@ -113,7 +114,7 @@ const NetworkSelectorWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 1100px) {
         position: fixed;
         bottom: 0;
         left: 0;
@@ -126,20 +127,22 @@ const NetworkSelectorWrapper = styled.div`
 `
 
 const NetworkButton = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    background: var(--btn1);
-    padding: 0 10px;
-    border: none;
-    border-radius: 16px;
-    color: white;
-    justify-content: space-between;
-    cursor: pointer;
-    align-items: center;
-    height: 30px;
-    padding: 0px 8px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 10px;
+background-image: linear-gradient(#0dccea,#0d70ea);
+padding: 0 10px;
+border: none;
+border-radius: 4px;
+color: white;
+justify-content: space-between;
+cursor: pointer;
+align-items: center;
+font-family: Montserrat,sans-serif;
+box-shadow: rgba(0,0,0,0.3) 0 5px 15px;
+height: 30px;
+padding: 0px 8px;
     @media(max-width: 576px) {
         font-size: 12px;
         height: 30px;
@@ -150,30 +153,48 @@ const NetworkButton = styled.div`
         align-items: center;
         > img {
             width: 30px;
-            height: 27px;
-            border-radius: 50%;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
         }
     }
 `
 const DropdownModal = styled.div<{ networkModal: boolean }>`
-    position: absolute;
-    z-index: 3;
-    height: fit-content;
-    border: 1px solid var(--border1);
-    width: 160px;
-    backdrop-filter: blur(10px);
-    background: var(--bg1);
-    border-radius: 6px;
-    top: 40px;
-    right: 0;
-    cursor: pointer;
-    @media screen and (max-width: 576px) {
+z-index: 3;
+border: 1px solid #ffffff;
+width: 200px;
+-webkit-backdrop-filter: blur(10px);
+backdrop-filter: blur(10px);
+position: absolute;
+background: var(--bg1);
+border-radius: 15px;
+top: 52px;
+right: -37px;
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+cursor: pointer;
+    @media screen and (max-width: 1100px) {
         bottom: 54px;
         top: unset;
         right: 10px;
     }
+    li.select_options{
+        position: relative;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+    li.select_options:before {
+        content: "";
+        position: absolute;
+        left: 2px;
+        bottom: -5px;
+        width: 95%;
+        height: 2px;
+        background: rgb(7 99 128);
+}
+
+    }
     ul {
-        padding: 10px;
+        padding: 15px;
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -193,22 +214,23 @@ const DropdownModal = styled.div<{ networkModal: boolean }>`
         display: flex;
         justify-content: space-between;
         align-items: center;
+        color:#000;
         span {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 5px;
+            gap: 10px;
             img {
-                height: 24px;
-                width: 36px;
+                height: 20px;
+                width: 20px;
             }
         }
         span:nth-child(3) {
             width: 40px;
         }
         img {
-            height: 12px;
-            width: 12px;
+            height: 20px;
+            width: 20px;
         }
     }
 
@@ -225,7 +247,8 @@ const DropdownModal = styled.div<{ networkModal: boolean }>`
         }
         100% {
             opacity: 1;
-            height: 76px;
+           height: 150px;
+
             overflow: hidden;
         }
     }
@@ -251,3 +274,4 @@ const DropdownModal = styled.div<{ networkModal: boolean }>`
     }
 `
 export default NetworkSelector
+
