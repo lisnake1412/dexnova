@@ -88,6 +88,8 @@ const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
     [ChainId.MUMBAI]: 'mumbai.polygonscan.com',
     [ChainId.ZKMAINNET]: 'explorer.zksync.io',
     [ChainId.ZKTESTNET]: 'goerli.explorer.zksync.io',
+    [ChainId.BASETESTNET]: 'goerli.explorer.zksync.io',
+    [ChainId.LINEATESTNET]: 'goerli.explorer.zksync.io'
 }
 
 export function getEtherscanLink(

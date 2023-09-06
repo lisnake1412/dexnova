@@ -21,7 +21,9 @@ export enum ChainId {
     ZKMAINNET = 324,
     ZKTESTNET = 280,
     GOERLI = 5,
-    MUMBAI = 80001,
+    MUMBAI = 80001,    
+    BASETESTNET = 84531,
+    LINEATESTNET = 59140,
 }
 
 export interface IFarmingPool {

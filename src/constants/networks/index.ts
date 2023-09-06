@@ -40,6 +40,42 @@ export const ListNetwork = [
             },
         ],
     },
+    {
+        name: 'Base Testnet',
+        chainId: 84531,
+        logo: LogoETH,
+        switchNetwork: [
+            {
+                chainId: 84531,
+                chainName: 'Base Testnet',
+                nativeCurrency: {
+                    name: 'ETH',
+                    symbol: 'ETH',
+                    decimals: 18,
+                },
+                rpcUrls: ['https://base-goerli.public.blastapi.io'],
+                blockExplorerUrls: ['https://goerli.base.org'],
+            },
+        ],
+    },
+    {
+        name: 'LINEA Testnet',
+        chainId: 59140,
+        logo: LogoETH,
+        switchNetwork: [
+            {
+                chainId: 59140,
+                chainName: 'LINEA Testnet',
+                nativeCurrency: {
+                    name: 'ETH',
+                    symbol: 'ETH',
+                    decimals: 18,
+                },
+                rpcUrls: ['https://base-goerli.public.blastapi.io'],
+                blockExplorerUrls: ['https://goerli.base.org'],
+            },
+        ],
+    },
 ]
 
 export const InfoNetwork: {
@@ -59,6 +95,14 @@ export const InfoNetwork: {
     },
     [ChainId.GOERLI]: {
         name: 'Goerli',
+        logo: LogoETH,
+    },
+    [ChainId.BASETESTNET]: {
+        name: 'Base Testnet',
+        logo: LogoETH,
+    },
+    [ChainId.LINEATESTNET]: {
+        name: 'LINEA Testnet',
         logo: LogoETH,
     },
 }

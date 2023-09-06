@@ -46,6 +46,10 @@ export const MAINNET_CHAINS: any = {
         urls: ['https://mainnet.era.zksync.io'].filter(Boolean),
         name: 'Mainnet',
     },
+    84531 : {
+        urls: ['https://rpc.goerli.linea.build'].filter(Boolean),
+        name: 'Base Testnet',
+    }
 }
 
 export const TESTNET_CHAINS: any = {
@@ -63,6 +67,15 @@ export const TESTNET_CHAINS: any = {
         urls: ['https://zksync2-testnet.zksync.dev'].filter(Boolean),
         name: 'ZkSync Testnet',
     },
+    59140 : {
+        urls: ['https://goerli.lineascan.build/'].filter(Boolean),
+        name: 'Linea Testnet',
+    },
+    84531 : {
+        urls: ['https://rpc.goerli.linea.build'].filter(Boolean),
+        name: 'Base Testnet',
+    }
+
 }
 
 export const CHAINS: any = {

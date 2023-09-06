@@ -122,5 +122,55 @@
         "logoURI": "https://raw.githubusercontent.com/forbitspace/icons/main/token/usdt.jpg",
         "name": "USDT Coin",
         "chainId": 5
+    },   
+    {
+        "address": "0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4",
+        "symbol": "USDC",
+        "decimals": 6,
+        "logoURI": "https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=025",
+        "name": "USD Coin",
+        "chainId": 84531
+    },
+    {
+        "address": "0x116BDAC75BB21edc50ea54baa6feb33A022a6abc",
+        "symbol": "SP",
+        "decimals": 18,
+        "logoURI": "https://firebasestorage.googleapis.com/v0/b/token-library.appspot.com/o/link.svg?alt=media&token=1985e3d8-3aa7-4d04-8839-565d4c341615",
+        "name": "DAI",
+        "chainId": 84531
+    },    
+    {
+        "address": "0x14b92edf57277eBd00c3B7C3C3C714f7F7aa45AB",
+        "symbol": "DAI",
+        "decimals": 18,
+        "logoURI": "https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.svg?v=025",
+        "name": "DAI",
+        "chainId": 84531,
+        "type": "faucet"
+    },
+    {
+        "address": "0x9CB9f4b656C81De33378E34A58fd78889Cb54d52",
+        "symbol": "BTC",
+        "decimals": 18,
+        "logoURI": "/images/btc.svg",
+        "name": "Bitcoin",
+        "chainId": 84531,
+        "type": "faucet"
+    },
+    {
+        "address": "0x61Ed2c581cf6985FaFF0178617967f659AfaF27A",
+        "symbol": "ZKS",
+        "decimals": 18,
+        "logoURI": "https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/",
+        "name": "zkSync Era token",
+        "chainId": 84531
+    },
+    {
+        "address": "0x61Ed2c581cf6985FaFF0s178617967f659AfaF27A",
+        "symbol": "ZKsS",
+        "decimals": 18,
+        "logoURI": "https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/",
+        "name": "zkSync Erass token",
+        "chainId": 84531
     }
 ]
