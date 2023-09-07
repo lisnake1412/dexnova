@@ -43,10 +43,22 @@ const CurrencyInputPanel = ({
                         token={token}
                         disabledSelect={disabledSelect}
                     />
+                    
+                    
                 )}
+                 
                 <div className="wp-left">
-                <Input value={value} field={field} onUserInput={onUserInput} />
-               
+                    <Input value={value} field={field} onUserInput={onUserInput} />
+                    <div className="t2 balance">
+                    <span className="to">
+                        Balance: {balance ? balance?.toString() : 0}
+                    </span>
+                    {!hideMaxButton && (
+                        <span className="max-btn" onClick={handleOnMax}>
+                            Max
+                        </span>
+                    )}
+                </div>
                 </div>
                 
             </Row>

@@ -247,7 +247,7 @@ cursor: pointer;
         }
         100% {
             opacity: 1;
-           height: 150px;
+           height: 180px;
 
             overflow: hidden;
         }
