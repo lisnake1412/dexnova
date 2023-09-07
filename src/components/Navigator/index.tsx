@@ -112,7 +112,6 @@ const Navigator = ({ burgerNav, setBurgerNav }: NavigationProps) => {
 
             <WrapperNavItem key={index + 1} onMouseEnter={() => setCurrentOpen(index)}  onMouseLeave={() => setCurrentOpen(-1)}>
                 <Lable style={{color: index === navs.length - 1 ? 'var(--text2)' : ''}}>
-                   
                     { 
                      nav.name
                     }

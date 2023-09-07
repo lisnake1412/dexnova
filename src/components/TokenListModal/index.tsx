@@ -217,7 +217,8 @@ const Hr = styled.div`
 const ModalContentWrapper = styled(Columns)`
     .title {
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 700;
+        color:#000;
     }
 
     .close-btn {

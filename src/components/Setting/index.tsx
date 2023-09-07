@@ -212,6 +212,7 @@ const Wrap = styled.div`
     background: var(--bg2);
     backdrop-filter: blur(10px);
     border: 1px solid var(--border1);
+    color: #000;
 
     @media screen and (max-width: 390px) {
         /* max-width: 370px; */

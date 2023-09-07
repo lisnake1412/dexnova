@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import imgClose from 'assets/icons/x.svg'
+import imgClose from 'assets/icons/closes.png'
 
 const Popup = ({ setIsOpenPopup }) => {
   return (

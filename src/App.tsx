@@ -11,7 +11,6 @@ import ToastMessage from 'components/ToastMessage'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 
-const Home = React.lazy(() => import('pages/home'))
 const Swap = React.lazy(() => import('pages/swap'))
 const AddLiquidity = React.lazy(() => import('pages/add'))
 const LaunchpadS1 = React.lazy(() => import('pages/launchpads1'))
@@ -40,7 +39,6 @@ const App = () => {
                 <AppContainer>
                     <ToastMessage />
                     <Routes>
-                        <Route path="/" element={<Home />} />
                         <Route path="/swap" element={<Swap />} />
                         <Route path="/pools" element={<Farms />} />
                         <Route path="/add" element={<AddLiquidity />} />
@@ -49,9 +47,8 @@ const App = () => {
                         <Route path="/public_sale" element={<LaunchpadS2 />} />
                         <Route path="/position" element={<Pools />} />
                         <Route path="/farms" element={<Farms />} />
-                        <Route path="*" element={<Navigate to="/" />} />
+                        <Route path="*" element={<Navigate to="/swap" />} />
                     </Routes>
-                    <Polling />
                 </AppContainer>
             </Suspense>
             <Footer />

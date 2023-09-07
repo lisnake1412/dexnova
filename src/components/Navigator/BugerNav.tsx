@@ -72,13 +72,13 @@ const Container = styled.div<{ burgerNav: boolean }>`
     top: 0;
     bottom: 0;
     left: 0;
-    background: var(--bg1);
+    background: linear-gradient(0deg,rgb(61,122,190) 0%,rgb(40,175,229) 100%);
     backdrop-filter: blur(10px);
     width: 300px;
     height: 100vh;
     z-index: 16;
     list-style: none;
-    padding: 20px;
+    padding: 0px;
     display: flex;
     flex-direction: column;
     text-align: start;
@@ -101,9 +101,12 @@ const Logo = styled.div`
         width: unset;
     }
     @media screen and (max-width: 390px) {
+        padding: 25px 25px;
+        text-align: center;
         img {
-            height: 35px;
+            height: 30px;
         }
+        
     }
 `
 
@@ -122,6 +125,12 @@ const Blur = styled.div`
 const Lable = styled(Row)`
     padding: 15px;
     justify-content: space-between;
+    line-height: 24px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    border-top: 1px solid rgb(255 255 255 / 6%);
 `
 
 const WrapperNavItem = styled.div`
@@ -133,7 +142,6 @@ const NavModal = styled.div`
     display: flex;
     flex-direction: column;
     min-width: 200px;
-    background: var(--bg1);
 
     a {
         height: 30px;
@@ -141,6 +149,7 @@ const NavModal = styled.div`
         align-items: center;
         padding-top: 10px;
         padding-left: 30px;       
-        color: var(--text2);
+        color: #fff;
+        font-size: 14px;
     }
 `

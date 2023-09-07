@@ -1,7 +1,6 @@
 const Timeline = () => {
     return (
       <div className="timeline">
-        <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <h3 className="title_timeline">How It's Work</h3>
@@ -90,7 +89,6 @@ fundraising model, and the overflowed tokens will be returned </p>
               </div>
             </div>
           </div>
-        </div>
       </div>
     );
   }

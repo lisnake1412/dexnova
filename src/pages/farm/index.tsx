@@ -284,7 +284,7 @@ const Farm = () => {
                         }
                     </>
                 ) : (
-                    <ConnectWrapper>
+                    <ConnectWrapper className='havest-section'>
                         <div>Please connect wallet to see farming pools</div>
                         <PrimaryButton
                             name="Connect wallet"
@@ -339,7 +339,7 @@ const InfoWrapper = styled(Row)`
     width: 100%;
     border-radius: 12px;
     padding: 10px 40px;
-    .sc-iGgWBj{
+    >div{
         position: relative;
         margin-bottom: 25px;
         padding-top: 20px;

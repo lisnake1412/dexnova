@@ -8,6 +8,7 @@ import Timeline from "components/Timeline";
 import LogoAco from 'assets/icons/logoaco.png'
 import imgDownArrowDark from 'assets/icons/icondown.png'
 
+
 const getUrl = window.location;
 console.log(getUrl);
 

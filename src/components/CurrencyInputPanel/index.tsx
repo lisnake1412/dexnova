@@ -74,7 +74,7 @@ const Row = styled.div`
         align-items: center;
     }
     .wp-left{
-        .dYHHkK {
+        input {
             width: 100%;
             font-size: 30px;
             font-weight: 500;

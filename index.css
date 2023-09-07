@@ -65,13 +65,6 @@ span.title-gdLdzk {
   justify-content: center;
   align-items: center;
 }
-.hobVkQ .sc-iGgWBj {
-  width: 100%;
-  border-radius: 10px;
-  background: transparent;
-  box-shadow:inherit;
-  border: none;
-}
 
 .info-f {
   font-size: 16px;
@@ -863,9 +856,27 @@ div#dexscreener-embed {
 
 @media (max-width: 767px) {
     .launchpad .top-content .title h3 {
-        font-size: 42px;
+        font-size: 32px;
         margin-bottom: 15px;
     }
+    .wp-container {
+      margin-top: 55px;
+  }
+    
+section.launchpad {
+  margin-top: 30px;
+}
+.box-2 .item {
+  max-width: 90%;
+}
+
+.timeline .timeline-continue::after {
+  display: none;
+}
+.box-2 h3 {
+  font-size: 16px;
+  padding: 10px 10px;
+}
     .launchpad .top-content .title p {
         max-width: 100%;
         font-size: 14px;
@@ -897,9 +908,13 @@ div#dexscreener-embed {
     }
     .box-2 .item:last-child{
         order: -1;
-        margin-bottom: 10px;
-        padding: 10px 5px;
+        margin-bottom: 20px;
+        padding: 10px 10px;
     }
+    .box-2 .item:last-child .content input {
+
+      margin-bottom: 15px;
+  }
     .banner-countdown-wrap .coming-time .time-count {
         min-width: 65px;
         min-height: 65px;
@@ -1228,6 +1243,7 @@ div#dexscreener-embed {
     font-weight: 400;
     margin-bottom: 0;
   }
+
   
   @media (max-width: 768px) {
     .timeline .timeline-continue::after {
@@ -1275,4 +1291,82 @@ div#dexscreener-embed {
       left: 30px;
       margin-left: 0;
     }
+    .timeline-right p.timeline-date {
+      position: relative;
+      right: inherit;
+      z-index: 9;
+  }
+  .row.timeline-right .col-md-6:first-child{
+    width: 20%;
+    max-width: 20%;
+
+  }
+  .row.timeline-right .col-md-6:last-child{
+    width: 80%;
+    max-width:80%;
+
+  }
+  .row.timeline-left .col-md-6:first-child{
+    width: 80%;
+    max-width: 80%;
+
+  }
+  .row.timeline-left .col-md-6:last-child{
+    width: 20%;
+    max-width:20%;
+
+  }
+   .col-md-6{
+    flex:inherit;
+
+  }
+  .timeline .timeline-box .timeline-text {
+    position: relative;
+    width: calc(100%);
+    float: left;
+}
+.timeline .timeline-box, .timeline .row.timeline-right .timeline-date, .timeline .row.timeline-left .timeline-date {
+  margin-left: 20px;
+}
+
+.row.timeline-right .timeline-box {
+  margin-left: 60px;
+}
+.timeline-left p.timeline-date {
+  position: relative;
+  left: 0;
+  z-index: 9;
+}
+.timeline-left .col-md-6:first-child{
+  order: 2;
+}
+.row.timeline-left .timeline-box {
+  margin-right: 0;
+  margin-left: 60px;
+}
+.row.timeline-right .timeline-box {
+  margin-left: 60px;
+  margin-right: 0;
+}
+.timeline .timeline-text p {
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.wp-popups {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  padding: 20px 20px;
+  animation: 0.3s linear 0s 1 normal none running;
+  max-width: 350px;
+  overflow: hidden;
+}
+.main-item ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  overflow: hidden;
+}
   }

@@ -283,7 +283,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                                 </>
                             )
                         }
-                        <WrapperActions isColumnView={isColumnView}>
+                        <WrapperActions isColumnView={isColumnView} className="havest-section">
                             <WrapperAction isColumnView={isColumnView}>
                                 <Row gap="8px" className='title-gdLdzk'>
                                     <span style={{fontSize: 12}}>{ZKS_TOKEN[chainId || 324].symbol}</span>
@@ -376,6 +376,7 @@ const Multiplier = styled(Row)`
 const WrapperActions = styled(Row)<{isColumnView?: boolean}>`
     gap: 20px;
     font-weight: 900;
+   
     .wp-link{
         a{
             margin-right:8px;
@@ -392,6 +393,14 @@ const WrapperActions = styled(Row)<{isColumnView?: boolean}>`
         `
             flex-direction: column;
             gap: 0;
+            >div{
+                width: 100%;
+                border-radius: 10px;
+                background: transparent;
+                box-shadow:inherit;
+                border: none;
+            }
+            
         `
     )}
 `
@@ -436,7 +445,7 @@ const PoolBody = styled(Columns)`
     overflow: hidden;
     padding: 20px;
     border: none;
-    background: #e7e7e7;
+    background: #fff;
     display: grid;
     gap:0;
 
@@ -488,14 +497,25 @@ const PoolHeader = styled.div<{isColumnView?: boolean}>`
 
     @media(max-width: 576px) {
         font-size: 12px;
-        grid-template-columns: minmax(120px, 1fr) minmax(80px, 1fr) minmax(80px, 1fr) minmax(20px, 1fr);
+        grid-template-columns: auto auto;
         padding: 10px;
+    
+
         .pool-name {
             font-size: 12px;
         }
 
         .chevron {
             width: 10px;
+        }
+        .dshdHH{
+            align-items: flex-start;
+            &:last-child{
+                margin-top:15px;
+               img{
+                width:24px
+               }
+            }
         }
     }
 

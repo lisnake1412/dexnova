@@ -7,6 +7,7 @@ import BrandLogo from 'assets/brand/logo.png'
 import { Columns } from 'components/Layouts'
 import { useNavigate } from 'react-router-dom'
 import imgClose from 'assets/icons/x.svg'
+import iconMenu from 'assets/icons/menu.png'
 
 const Header = () => {
     const [burgerNav, setBurgerNav] = useState(false)
@@ -32,14 +33,12 @@ const Header = () => {
                         {!burgerNav ? (
                             <>
                                 <MenuIcon>
-                                    <span />
-                                    <span />
-                                    <span />
+                                <img src={iconMenu} alt="" className='nav_menu' />
                                 </MenuIcon>
                             </>
                         ) : (
                             <MenuIcon>
-                                <img src={imgClose} alt="" />
+                                <img src={imgClose} alt="" className='close_menu'  />
                             </MenuIcon>
                         )}
                     </WrapperNavigator>
@@ -70,8 +69,9 @@ export const HeaderWrapper = styled.div`
     padding-top: 0px;
     padding-bottom: 0px;
     @media(max-width: 768px) {
-        grid-template-columns: 1fr 0 250px;
+        grid-template-columns: 120px 0 190px;
         padding: 10px;
+        z-index:999;
     }
 
     @media(max-width: 375px) {
@@ -81,20 +81,15 @@ export const HeaderWrapper = styled.div`
 
 const WrapperNavigator = styled.div`
     display: none;
-    width: 30px;
-    height: 30px;
-    background: var(--bg1);
     justify-content: center;
     font-weight: 600;
     font-style: normal;
-    border-radius: 6px;
-    border: 1px solid var(--border1);
     @media(max-width: 1000px) {
         display: flex;
     }
     @media(max-width: 576px) {
-        width: 30px;
-        height: 30px;
+        width: 35px;
+        height: 35px;
         border-radius: 10px;
     }
 `
@@ -104,7 +99,7 @@ export const Logo = styled.div`
     width: 100px;
     cursor: pointer;
     @media(max-width: 576px) {
-        width: 50px;
+        width: 110px;
     }
     img {
         width: 100%;
@@ -119,21 +114,24 @@ export const Connector = styled.div`
 `
 
 const MenuIcon = styled(Columns)`
-    height: 30px;
-    width: 30px;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
-
-    img {
-        width: 15px;
-        height: 15px;
+    .close_menu{
+        width: 20px;
+        height: 20px;
+    }
+    .nav_menu{
+        max-width: 35px;
+        max-height: 35px;
     }
     span {
-        height: 2px;
-        background: var(--text2);
-        width: 50%;
+        height: 3px;
+        background: #fff;
+        width: 70%;
         margin: 0 auto;
     }
     @media(max-width: 576px) {
