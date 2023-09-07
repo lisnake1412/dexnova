@@ -42,6 +42,22 @@ export const NATIVE_COIN: { [chainId in number]: Token } = {
         logoURI: ETH_LOGO,
         decimals: 18,
     },
+    [ChainId.BASETESTNET]: {
+        address: '0x0000000000000000000000000000000000000000',
+        symbol: 'ETH',
+        chainId: ChainId.BASETESTNET,
+        name: 'Ethereum',
+        logoURI: ETH_LOGO,
+        decimals: 18,
+    },
+    [ChainId.LINEATESTNET]: {
+        address: '0x0000000000000000000000000000000000000000',
+        symbol: 'ETH',
+        chainId: ChainId.LINEATESTNET,
+        name: 'Ethereum',
+        logoURI: ETH_LOGO,
+        decimals: 18,
+    },
 }
 
 export const URLSCAN_BY_CHAINID: { [chainId in number]: { url: string } } = {
@@ -56,6 +72,12 @@ export const URLSCAN_BY_CHAINID: { [chainId in number]: { url: string } } = {
     },
     [ChainId.ZKTESTNET]: {
         url: 'https://goerli.explorer.zksync.io/',
+    },
+    [ChainId.BASETESTNET]: {
+        url: 'https://goerli.basescan.org/',
+    },
+    [ChainId.LINEATESTNET]: {
+        url: 'https://goerli.lineascan.build/',
     },
 }
 
@@ -92,6 +114,22 @@ export const WRAPPED_NATIVE_COIN: { [chainId in number]: Token } = {
         logoURI: ETH_LOGO,
         decimals: 18,
     },
+    [ChainId.BASETESTNET]: {
+        address: WRAPPED_NATIVE_ADDRESSES[ChainId.BASETESTNET],
+        symbol: 'ETH',
+        chainId: ChainId.BASETESTNET,
+        name: 'Ethereum',
+        logoURI: ETH_LOGO,
+        decimals: 18,
+    },
+    [ChainId.LINEATESTNET]: {
+        address: WRAPPED_NATIVE_ADDRESSES[ChainId.LINEATESTNET],
+        symbol: 'ETH',
+        chainId: ChainId.LINEATESTNET,
+        name: 'Ethereum',
+        logoURI: ETH_LOGO,
+        decimals: 18,
+    },
 }
 
 export const CommonBaseTokens: { [chainId in number]: Token[] } = {
@@ -119,6 +157,18 @@ export const CommonBaseTokens: { [chainId in number]: Token[] } = {
             .filter((token) => token.chainId === ChainId.ZKTESTNET)
             .slice(0, 5),
     ],
+    [ChainId.BASETESTNET]: [
+        NATIVE_COIN[ChainId.BASETESTNET],
+        ...tokenList
+            .filter((token) => token.chainId === ChainId.BASETESTNET)
+            .slice(0, 5),
+    ],
+    [ChainId.LINEATESTNET]: [
+        NATIVE_COIN[ChainId.LINEATESTNET],
+        ...tokenList
+            .filter((token) => token.chainId === ChainId.LINEATESTNET)
+            .slice(0, 5),
+    ],
 }
 
 export const PRICE_TOKEN: { [chainId in number]: Token } = {
@@ -138,6 +188,22 @@ export const PRICE_TOKEN: { [chainId in number]: Token } = {
         "name": "Ethereum",
         "chainId": 324
     },
+    [ChainId.BASETESTNET]: {
+        "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+        "symbol": "ETH",
+        "decimals": 18,
+        "logoURI": ETH_LOGO,
+        "name": "Ethereum",
+        "chainId": 84531
+    },
+    [ChainId.LINEATESTNET]: {
+        "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+        "symbol": "ETH",
+        "decimals": 18,
+        "logoURI": ETH_LOGO,
+        "name": "Ethereum",
+        "chainId": 59140
+    },
 }
 
 export const DEFAULT_TOKEN_LIST: { [chainId in number]: TokenList } = {
@@ -145,6 +211,9 @@ export const DEFAULT_TOKEN_LIST: { [chainId in number]: TokenList } = {
     [ChainId.MUMBAI]: [NATIVE_COIN[ChainId.MUMBAI], ...tokenList],
     [ChainId.ZKMAINNET]: [NATIVE_COIN[ChainId.ZKMAINNET], ...tokenList],
     [ChainId.ZKTESTNET]: [NATIVE_COIN[ChainId.ZKTESTNET], ...tokenList],
+    [ChainId.BASETESTNET]: [NATIVE_COIN[ChainId.BASETESTNET], ...tokenList],
+    [ChainId.LINEATESTNET]: [NATIVE_COIN[ChainId.LINEATESTNET], ...tokenList],
+
 }
 
 export const ALL_SUPPORTED_CHAIN_IDS: ChainId[] = [
@@ -152,6 +221,8 @@ export const ALL_SUPPORTED_CHAIN_IDS: ChainId[] = [
     ChainId.ZKTESTNET,
     ChainId.GOERLI,
     ChainId.MUMBAI,
+    ChainId.BASETESTNET,
+    ChainId.LINEATESTNET,
 ]
 
 export const POOLS_SUBGRAPH_URL: { [chainId in number]: string } = {
@@ -159,6 +230,8 @@ export const POOLS_SUBGRAPH_URL: { [chainId in number]: string } = {
     [ChainId.MUMBAI]: '',
     [ChainId.ZKTESTNET]: '',
     [ChainId.ZKMAINNET]: '',
+    [ChainId.BASETESTNET]: '',
+    [ChainId.LINEATESTNET]:'',
 }
 
 export const ZKS_TOKEN: { [chainId in number]: Token } = {
@@ -193,7 +266,23 @@ export const ZKS_TOKEN: { [chainId in number]: Token } = {
         logoURI: 'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
         decimals: 18,
         chainId: 324
-    }
+    },
+    [ChainId.BASETESTNET]: {
+        address: '0x61Ed2c581cf6985FaFF0178617967f659AfaF27A',
+        symbol: 'ZKS',
+        name: 'zkSync Token',
+        logoURI: 'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
+        decimals: 18,
+        chainId: 84531
+    },
+    [ChainId.LINEATESTNET]: {
+        address: '0x61Ed2c581cf6985FaFF0178617967f659AfaF27A',
+        symbol: 'ZKS',
+        name: 'zkSync Token',
+        logoURI: 'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
+        decimals: 18,
+        chainId: 59140
+    },
 }
 
 export const SUPPORTED_SYNCSWAP_TOKENS: { [chainId in number]: string[] } = {
@@ -201,4 +290,6 @@ export const SUPPORTED_SYNCSWAP_TOKENS: { [chainId in number]: string[] } = {
     [ChainId.MUMBAI]: [''],
     [ChainId.ZKTESTNET]: ['USDC', 'ETH', 'WETH'],
     [ChainId.ZKMAINNET]: ['USDC', 'ETH', 'WETH'],
+    [ChainId.BASETESTNET]: [''],
+    [ChainId.LINEATESTNET]: [''],
 }

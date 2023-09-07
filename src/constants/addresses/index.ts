@@ -8,6 +8,8 @@ const MULTICALL_NETWORKS: { [chainId: number]: string } = {
     [ChainId.ZKTESTNET]: '0xb6d65a6e0AA575e2280427D58375Ee5cED42A764',
     [ChainId.GOERLI]: '0x77dca2c955b15e9de4dbbcf1246b4b85b651e50e',
     [ChainId.MUMBAI]: '0xB151dC6839fD13aefE69593FD12327d4F459E6eB',
+    [ChainId.BASETESTNET]: '0x208037eBfCc7b11aFDaa4F1A0D66d6e454F4B2ac',
+    [ChainId.LINEATESTNET]: '0xa477f812870aC05A8F7bA9227a698739EF4D37CF',
 }
 
 const FACTORIES: { [chainId: number]: string } = {
@@ -15,6 +17,8 @@ const FACTORIES: { [chainId: number]: string } = {
     [ChainId.ZKTESTNET]: '0xc1F7B91CeDd8308064ABAC2975BE33D7b51B7A26',
     [ChainId.GOERLI]: '0x216d07bD1C0F24740b8c88Ee9088b34FFae4b445',
     [ChainId.MUMBAI]: '0x0D6E4ed8C702c387E2B0735f39d895990e5963b7',
+    [ChainId.BASETESTNET]: '0xAED6f811108EfF6717656689F7A5b1a47C881539',
+    [ChainId.LINEATESTNET]: '0x9523C1E37B2EE4539928F30a87A1a9f2d4250329',
 }
 
 const ROUTERS: { [chainId: number]: string } = {
@@ -22,6 +26,8 @@ const ROUTERS: { [chainId: number]: string } = {
     [ChainId.ZKTESTNET]: '0xFa847ca3E26C614eC62583b50d2C68383E91a362', 
     [ChainId.GOERLI]: '0x78CFcb22e41dD58B92fF09bb54Ab1238c25ce0b1',
     [ChainId.MUMBAI]: '0xd6E887A268b0422851c10e88D7e1CaA5F03Ee2E2', 
+    [ChainId.BASETESTNET]: '0xD1825B645a4daeb932f2B3aa7ffE5e07EdbEea05',     
+    [ChainId.LINEATESTNET]: '0x9B044036CB007f6cC16B1591ee884B05B93D6c23', 
 }
 
 const SYNCSWAP_ROUTERS: { [chainId: number]: string } = {
@@ -44,6 +50,9 @@ const FARMING_ADDRESSES: { [chainId: number]: string } = {
     [ChainId.ZKTESTNET]: '0xA7B7C444bFa89C0c42A60479029A359f2FAD1008', 
     [ChainId.GOERLI]: '',
     [ChainId.MUMBAI]: '', 
+    [ChainId.BASETESTNET]: '', 
+    [ChainId.LINEATESTNET]: '', 
+
 } 
 
 const INIT_CODE_HASHES: { [chainId: number]: string } = {
@@ -55,6 +64,10 @@ const INIT_CODE_HASHES: { [chainId: number]: string } = {
         '0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f',
     [ChainId.MUMBAI]:
         '0x0c18c0437decb2e9aeb8498fc7fd556cac1a8baef62ab1920708dc852189c9d7',
+     [ChainId.BASETESTNET]:
+        '0x0c18c0437decb2e9aeb8498fc7fd556cac1a8baef62ab1920708dc852189c9d7',
+    [ChainId.LINEATESTNET]:
+        '0x0c18c0437decb2e9aeb8498fc7fd556cac1a8baef62ab1920708dc852189c9d7',
 }
 
 export const WRAPPED_NATIVE_ADDRESSES: { [chainId: number]: string } = {
@@ -62,6 +75,8 @@ export const WRAPPED_NATIVE_ADDRESSES: { [chainId: number]: string } = {
     [ChainId.ZKTESTNET]: '0x20b28b1e4665fff290650586ad76e977eab90c5d',
     [ChainId.GOERLI]: '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6',
     [ChainId.MUMBAI]: '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889',
+    [ChainId.BASETESTNET]: '0x4200000000000000000000000000000000000006',
+    [ChainId.LINEATESTNET]: '0x2C1b868d6596a18e32E61B901E4060C872647b6C',
 }
 
 export {
