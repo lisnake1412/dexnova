@@ -382,7 +382,7 @@ const BtnClose = styled.img`
     height: 20px;
     cursor: pointer;
     :hover {
-        background: #003b5c;
+        opacity: 70%;
     }
 `
 const WrapTitle = styled.div`
@@ -436,7 +436,7 @@ const Input = styled.input`
     top: 3px;
     height: 3px;
     -webkit-appearance: none;
-    background: linear-gradient(to right, #fff 25%, var(--btn1));
+    background: #00c4f4;
     width: 100%;
     ::-webkit-slider-thumb {
         appearance: none;
@@ -462,8 +462,10 @@ const WrapRemoveAmount = styled.div`
     padding: 15px 15px;
     height: 155px;
     margin-top: 20px;
-    background: var(--bg3);
-    border-radius: 6px;
+    background: var(--bg2);;
+    border-radius: 8px;
+    box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+    color: #000;
 `
 
 const RowContentRemove = styled.div`
@@ -477,6 +479,7 @@ const WrapContentRemove = styled.div`
     border-radius: 6px;
     padding: 15px;
     background: var(--bg3);
+    color: #000;
 `
 
 const BtnConfirm = styled.div<{ isDisabled?: boolean }>`
@@ -496,11 +499,13 @@ const Title = styled.div`
     font-size: 20px;
     display: flex;
     justify-content: center;
+    color:#000;
 `
 
 const WrapRemovePool = styled.div`
-    background: var(--bg1);
-    border: 2px solid #003b5c;
+    background-color: rgb(255 255 255 / 80%);
+    border: 1px solid #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     backdrop-filter: blur(25px);
     border-radius: 12px;
     padding: 20px;

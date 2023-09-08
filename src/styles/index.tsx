@@ -19,10 +19,10 @@ export const GlobalStyle = createGlobalStyle`
         --color-border-button: linear-gradient(44.7deg, #00FF00 14.53%, #00F322 20.2%, #00D378 33.65%, #00A5F7 51.36%, #171AFE 80.39%, #1B00FF 85.35%);
         --bg1: #fff;
         --bg2: #f5f6fc;
-        --bg3: #feeaf1;
+        --bg3: #f5f6fc;
         --bg4: #fff;
         --bg5: #fff;
-        --bg6: #fb118e;
+        --bg6: #000;
         --btn1: linear-gradient(#0dccea,#0d70ea);
         --btn2: #ffffff1c;
         --border1: #d2d9ee;

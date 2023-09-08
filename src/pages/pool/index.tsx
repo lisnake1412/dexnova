@@ -106,6 +106,7 @@ const HeadTitle = styled.div`
     .title {
         font-weight: 600;
         font-size: 35px;
+        color:#000;
         @media screen and (max-width: 576px) {
             font-size: 20px;
         }

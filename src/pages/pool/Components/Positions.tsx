@@ -263,8 +263,18 @@ const WrapAddAndRemove = styled.div`
     padding: 0px 15px;
     margin-bottom: 20px;
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    >div {
+        border-radius: 4px;
+        font-size: 1em;
+        height: 40px;
+    }
     @media(max-width: 576px) {
         margin-bottom: 10px;
+    >div {
+        height: 30px;
+    }
     }
 `
 const Value = styled.div``
@@ -281,6 +291,7 @@ const WrapContent = styled.div`
     align-items: center;
     padding: 0px 15px;
 
+
     @media(max-width: 576px) {
         margin: 10px 0;
     }
@@ -291,6 +302,7 @@ const ColMyPools = styled.div`
     backdrop-filter: blur(15px);
     border-radius: 12px;
     width: 100%;
+    color: #000;
 
     @media screen and (max-width: 840px) {
         max-width: 100%;
