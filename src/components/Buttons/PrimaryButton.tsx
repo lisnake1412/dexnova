@@ -57,7 +57,7 @@ export const Button = styled.button<{
     justify-content: center;
     width: ${({width}) => width ? width : '100%'};
     height: 40px;
-    border-radius: 16px;
+    border-radius: 4px;
     border: none;
     outline: none;
     background: ${({color}) => color ? color : 'var(--btn1)'};

@@ -60,7 +60,7 @@ const Footer = () => {
             </Top>
             <Bottom>
                 <span>${balance ? Number(balance).toFixed(4) : '0.0000'}</span>
-                <PrimaryButton onClick={() => navigate("/swap")} name="Buy ANC ->" width="200px" />
+                <PrimaryButton onClick={() => navigate("/swap")} name="Buy ANC" width="200px" />
             </Bottom>
         </FooterWrapper>
     )
@@ -75,7 +75,7 @@ const Bottom = styled(Row)`
 
 const Top = styled(Columns)`
     border-bottom: 1px solid var(--border1);
-    padding: 20px;
+    padding: 20px 20px 20px 0;
     gap: 20px;
     .logo {
         max-width: 150px;

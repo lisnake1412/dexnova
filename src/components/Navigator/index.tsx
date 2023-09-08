@@ -154,6 +154,15 @@ const Navigator = ({ burgerNav, setBurgerNav }: NavigationProps) => {
 
 const Lable = styled.div`
     padding: 15px;
+    @media screen and (min-width: 768px) {
+        position: relative;
+        
+        
+        &:hover {
+            color: #00c4f4;
+        }
+    }
+
     
 `
 
@@ -185,6 +194,7 @@ const NavModal = styled.div`
             background-image: linear-gradient(#0dccea,#0d70ea);
             color: #fff;
             text-decoration: none;
+            border-radius:4px;
         }
     }
 `
