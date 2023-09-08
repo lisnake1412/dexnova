@@ -60,7 +60,7 @@ const Footer = () => {
             </Top>
             <Bottom>
                 <span>${balance ? Number(balance).toFixed(4) : '0.0000'}</span>
-                <PrimaryButton onClick={() => navigate("/swap")} name="Buy ANC" width="200px" />
+                <PrimaryButton onClick={() => navigate("/swap")} name="Buy ACR" width="200px" />
             </Bottom>
         </FooterWrapper>
     )
