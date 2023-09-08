@@ -29,12 +29,12 @@ export const navs = [
         name: "Bridge",
         paths: [
             {
-                path: "https://portal.zksync.io/",
+                path: "https://www.orbiter.finance/?source=Ethereum&dest=Linea",
                 name: "Mainnet",
                 isExternal: true
             },
             {
-                path: "https://portal.zksync.io/?network=era-goerli",
+                path: "https://www.orbiter.finance/?source=Ethereum&dest=Linea",
                 name: "Testnet",
                 isExternal: true
             }
