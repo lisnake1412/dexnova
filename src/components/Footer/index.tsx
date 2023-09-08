@@ -15,24 +15,16 @@ import { useNavigate } from "react-router-dom"
 const links = [
     {
         img: imgIconDiscord,
-        url: "/",
+        url: "https://discord.gg/7QMjDAgqNF",
     },
     {
         img: imgIconTele,
-        url: "/",
+        url: "https://t.me/Ancora_Finance",
     },
     {
         img: imgIconTw,
-        url: "/",
+        url: "https://twitter.com/AncoraFinance",
     },
-    {
-        img: imgIconWeb,
-        url: "/",
-    },
-    {
-        img: imgIconYt,
-        url: "/",
-    }
 ]
 
 const Footer = () => {
