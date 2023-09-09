@@ -194,7 +194,7 @@ cursor: pointer;
 
     }
     ul {
-        padding: 15px;
+        padding: 0px;
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -215,6 +215,14 @@ cursor: pointer;
         justify-content: space-between;
         align-items: center;
         color:#000;
+        padding: 5px 10px;
+        transition: 0.5s;
+        &:hover{
+            background: var(--btn1);
+            transition: 0.5s;
+
+        }
+
         span {
             display: flex;
             justify-content: space-between;
@@ -247,7 +255,7 @@ cursor: pointer;
         }
         100% {
             opacity: 1;
-           height: 180px;
+           height: 160px;
 
             overflow: hidden;
         }

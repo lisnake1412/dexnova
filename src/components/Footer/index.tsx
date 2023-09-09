@@ -101,6 +101,19 @@ const Bottom = styled(Row)`
             transform: scale(1.2);
         }
     }
+    @media screen and (max-width: 767px) {
+        display: block;
+        .wp-left-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wp-right-footer {
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 10px 40px;
+        }
+    }
 `
 
 const Top = styled(Columns)`
@@ -142,6 +155,12 @@ const Top = styled(Columns)`
             }
         }
     }
+    @media screen and (max-width: 767px) {
+        justify-content: center;
+        ul{
+            display:none;
+        }
+    }
     .logo {
         max-width: 150px;
         img {
@@ -160,7 +179,8 @@ const FooterWrapper = styled.div`
     .container {
         padding: 0;
         margin: 0 auto;
-        width: 1200px;
+        max-width: 1200px;
+        width: 100%;
     }
 `
 
