@@ -95,14 +95,14 @@ export const navs = [
         name: "Info",
         paths: [
             {
-                path: "http://localhost:3000",
+                path: "/",
                 name: "Analytics",
                 isExternal: false
             },
             {
-                path: "/",
+                path: "https://docs.ancora.finance",
                 name: "Documents",
-                isExternal: false
+                isExternal: true
             }
         ]
     }
