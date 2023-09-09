@@ -66,9 +66,9 @@ const Popup = ({ setIsOpenPopup }) => {
                     <ul>
                         <li><span>Token:</span> <span>Ancora Token (ACR) on Linea</span></li>
                         <li><span>Total Supply:</span> <span>10.000.000 $ACR</span></li>
-                        <li><span>Address:</span> <span>0xe12575BAdf4F3cf649F4D2e6A68D6A671523EAf2</span></li>
-                        <li><span>Vesting:</span> <span>TGE 40%, vesting linear 10% over 6 months</span></li>
-                        <li><span>Price per 1 ETH:</span> <span>16666.666 $ACR</span></li>
+                        <li><span>Address:</span> <span>0xxxx</span></li>
+                        <li><span>Vesting:</span> <span>TGE 40%, vesting linear 15% over 6 months</span></li>
+                        <li><span>Price per 1 ETH:</span> <span>18.666 $ACR</span></li>
 
                     </ul>
                 </div>

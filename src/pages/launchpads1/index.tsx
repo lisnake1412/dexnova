@@ -534,8 +534,8 @@ async function getContractBalance() {
       const publicSaleContract = new ethers.Contract(contractAddress, publicSale_abi, signer);
 
       const a = await publicSaleContract.getContractBalance();
-      setTotalRaise((Number(ethers.utils.formatEther(a))+29.56652).toString());
-      setTotalRaisepercent(((Number(ethers.utils.formatEther(a))+29.56652)*100/70).toString());
+      setTotalRaise((Number(ethers.utils.formatEther(a))).toString());
+      setTotalRaisepercent(((Number(ethers.utils.formatEther(a)))*100/70).toFixed(2).toString());
 //    }
  }
 getContractBalance(); 
@@ -583,7 +583,7 @@ if(account){
                                     aria-valuemax="100"
                                     />
                                 </div>
-                                <p>{totalraise} / 50 ETH (70%)</p>
+                                <p>{totalraise} / 50 ETH ({totalraisepercent}%)</p>
                                 <h4 className="title_ico">
                                5546 participated 
                                 </h4>
