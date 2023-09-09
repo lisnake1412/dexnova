@@ -552,8 +552,8 @@ if(account){
         <div className="container">
             <div className="top-content">
                 <div className="title">
-                    <h3>Launchpad: INITIAL ALIEN OFFERING</h3>
-                    <p>Buy new tokens lauching on linea</p>
+                    <h3>Launchpad: INITIAL DEX OFFERING</h3>
+                    <p>Buy new tokens lauching on Linea</p>
                 </div>
 
             </div>
