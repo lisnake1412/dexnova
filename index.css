@@ -470,6 +470,12 @@ h3.title_timeline {
     box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
     margin-bottom: 25px;
 }
+.box-2 .item:last-child .content input::placeholder{
+  color: #939393 !important;
+}
+.box-2 .item:last-child .content input:focus-visible {
+  outline: inherit;
+}
 .wp-popups {
     position: relative;
     background: white;
@@ -1269,6 +1275,9 @@ section.launchpad {
     font-weight: 400;
     margin-bottom: 0;
   }
+  .close-btn {
+    cursor: pointer;
+}
 
   
   @media (max-width: 768px) {
@@ -1545,3 +1554,23 @@ section.launchpad {
 
 
   }
+
+  /* coming soon */
+  .box-2.box-wp-content.coming .item {
+    box-shadow: none;
+    text-align: center;
+}
+.link_comingsoon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.link_comingsoon a {
+  width: 150px !important;
+  
+}
+.link_comingsoon a:hover{
+  text-decoration: none;
+  opacity: 0.7;
+}

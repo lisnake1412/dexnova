@@ -109,9 +109,12 @@ const MiddleBox = styled.div<{width?: string}>`
     backdrop-filter: blur(4px);
     max-width: ${({width}) => width ? width : "400px"};
     height: fit-content;
-    border: 1px solid #003b5c;
+    border: 1px solid var(--border2);
     border-radius: 20px;
-    padding: 10px;
+    color: #000;
+    &:focus-visible {
+        outline: none;
+    }
 
     @media (max-width: 476px) {
         width: 90%;

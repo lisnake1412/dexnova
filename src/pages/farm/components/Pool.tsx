@@ -304,7 +304,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                         }
                         <WrapperActions isColumnView={isColumnView} className="havest-section">
                             <WrapperAction isColumnView={isColumnView}>
-                                <Row gap="8px" className='title-gdLdzk'>
+                                <Row gap="8px" className='title-gdLdzk' >
                                     <span style={{fontSize: 12}}>{ZKS_TOKEN[chainId || 324].symbol}</span>
                                     <span style={{fontSize: 12}}>EARNED</span>
                                 </Row>
@@ -349,10 +349,6 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                         {
                             (!isColumnView || isColumnViewDetails) && (
                                 <>
-                                    <Row jus="space-between" className='Liquidity-mobile'>
-                                        <div>Liquidity</div>
-                                        <div>{Number(divNumberWithDecimal(pool.totalStaked.toString(), 18)).toFixed(4)} {pool.isStakePool ? 'ZKS' : 'ZKS-LP'}</div>
-                                    </Row>
                                     {
                                         isPair && pair && (
                                             <Link 
@@ -442,6 +438,10 @@ const Multiplier = styled(Row)`
 const WrapperActions = styled(Row)<{isColumnView?: boolean}>`
     gap: 20px;
     font-weight: 900;
+    margin-bottom:15px;
+    .title-gdLdzk{
+        color: #9d9d9d;
+    }
    
     .wp-link{
         a{

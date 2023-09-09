@@ -251,7 +251,7 @@ const WrapButton = styled.div`
 `
 const Item = styled.div<{ setting: boolean }>`
     font-size: 1rem;
-    padding: 4px 6px;
+    padding: 0px 6px;
     border-radius: 8px;
     width: 100%;
     height: 27px;

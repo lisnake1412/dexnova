@@ -59,17 +59,17 @@ export const navs = [
         name: "NFT",
         paths: [
             {
-                path: "/",
+                path: "/comingsoon",
                 name: "Marketplace",
                 isExternal: false
             },
             {
-                path: "/",
+                path: "/comingsoon",
                 name: "Mint",
                 isExternal: false
             },
             {
-                path: "/",
+                path: "/comingsoon",
                 name: "NFTfi",
                 isExternal: false
             }
@@ -97,7 +97,12 @@ export const navs = [
             {
                 path: "http://localhost:3000",
                 name: "Analytics",
-                isExternal: true
+                isExternal: false
+            },
+            {
+                path: "/",
+                name: "Documents",
+                isExternal: false
             }
         ]
     }

@@ -15,6 +15,14 @@ export const Container = styled.div`
     padding: 20px 30px;
     backdrop-filter: blur(40px);
     z-index: 999;
+    color: #000;
+    .title {
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        font-size: 24px !important;
+        text-transform: capitalize;
+    }
 
     @media screen and (max-width: 576px) {
         width: 90%;

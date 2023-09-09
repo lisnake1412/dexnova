@@ -1,7 +1,7 @@
 import { Field, IFarmingPool } from "interfaces"
 import styled from "styled-components"
 import { Columns, Row } from "components/Layouts"
-import CloseIcon from "assets/icons/x.svg"
+import CloseIcon from "assets/icons/closes.png"
 import { useEffect, useMemo, useState } from "react"
 import Input from "components/Input"
 import SingleModal from "components/Modal/SingleModal"
@@ -291,8 +291,13 @@ const CalcWrapper = styled.div`
 
 const CalcHeader = styled(Row)`
     justify-content: space-between;
-    padding: 10px;
-    background: var(--bg2);
+    padding:20px;
+    background: #F2F4F3;
+    border-bottom: 1px solid #adccdd;
+    border-radius: 20px 20px 0 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
 `
 
 const CalcBody = styled(Columns)`
@@ -302,7 +307,7 @@ const CalcBody = styled(Columns)`
 
 const InputLp = styled(Columns)`    
     .input-panel {
-        background: var(--bg2);
+        background: #fff;
         border-radius: 12px;
         padding: 15px;
         border: 1px solid var(--border1);

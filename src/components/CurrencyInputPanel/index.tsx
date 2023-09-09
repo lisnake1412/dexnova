@@ -101,6 +101,11 @@ const Row = styled.div`
             text-align: right;
         }
     }
+    @media (max-width: 576px) {
+        .wp-left{
+            max-width: 200px;
+        }
+    }
 
 
     .t2 {

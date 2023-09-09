@@ -591,9 +591,6 @@ const Add = () => {
                     </>
                 )}
                 <Row jus="space-between">
-                    <BackLink to="/pools">
-                        <img src={BackArrow} alt="back arrow" />
-                    </BackLink>
                     <Title>Add Liquidity</Title>
                     <Setting />
                 </Row>
@@ -739,6 +736,8 @@ const Title = styled.div`
     font-size: 24px;
     width: 100%;
     text-align: center;
+    color: #000;
+    font-weight: 600;
 `
 
 const Icon = styled.div`

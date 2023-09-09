@@ -17,6 +17,7 @@ const LaunchpadS1 = React.lazy(() => import('pages/launchpads1'))
 const LaunchpadS2 = React.lazy(() => import('pages/launchpads2'))
 const Pools = React.lazy(() => import('pages/pool'))
 const Farms = React.lazy(() => import('pages/farm'))
+const Comingsoon = React.lazy(() => import('pages/ComingSoon'))
 
 const App = () => {
     const Updater = () => {
@@ -47,6 +48,7 @@ const App = () => {
                         <Route path="/public_sale" element={<LaunchpadS2 />} />
                         <Route path="/position" element={<Pools />} />
                         <Route path="/farms" element={<Farms />} />
+                        <Route path="/comingsoon" element={<Comingsoon />} />
                         <Route path="*" element={<Navigate to="/swap" />} />
                     </Routes>
                 </AppContainer>
@@ -59,7 +61,7 @@ const App = () => {
 const AppContainer = styled.div`
     position: relative;
     padding: 20px 0;
-    min-height: calc(100vh - 345px);
+    min-height: calc(100vh - 175px);
 `
 
 export default App

@@ -11,6 +11,8 @@ import imgIconWeb from "assets/icons/imgIconWeb.png";
 import imgIconYt from "assets/icons/imgIconYt.png";
 import PrimaryButton from "components/Buttons/PrimaryButton"
 import { useNavigate } from "react-router-dom"
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const links = [
     {
@@ -34,45 +36,60 @@ const Footer = () => {
 
     return(
         <FooterWrapper>
-            <Top>
-                <div className="logo">
-                    <img src={Logo} alt="logo footer" />
+            <div className="container">
+                <div className="wp-footer">
+                    <Top>
+                        <div className="logo">
+                            <img src={Logo} alt="logo footer" />
+                        </div>
+                        <ul>
+                            <li><Link to='/swap' >Trade</Link></li>
+                            <li><Link to='/farms' >Farm</Link></li>
+                            <li><Link to='/private_sale' >Launchpad</Link></li>
+                            <li><Link to='/comingsoon' >NFT</Link></li>
+                        </ul>
+                       
+                    </Top>
+                    <Bottom>
+                        <div className="wp-left-icon">
+                            <Row gap="20px" className="social">
+                                {
+                                    links.map(item => {
+                                        return (
+                                            <a href={item.url} className="icon" target="_blank">
+                                                <img src={item.img} alt={`social icons`} />
+                                            </a>
+                                        )
+                                    })
+                                }
+                            </Row>
+                        </div>
+                        <div className="wp-right-footer">
+                            <span>${balance ? Number(balance).toFixed(4) : '0.0000'}</span>
+                            <PrimaryButton onClick={() => navigate("/swap")} name="Buy ACR" width="200px" />
+                        </div>
+                    </Bottom>
                 </div>
-                <Row gap="20px" className="social">
-                    {
-                        links.map(item => {
-                            return (
-                                <a href={item.url} className="icon" target="_blank">
-                                    <img src={item.img} alt={`social icons`} />
-                                </a>
-                            )
-                        })
-                    }
-                </Row>
-            </Top>
-            <Bottom>
-                <span>${balance ? Number(balance).toFixed(4) : '0.0000'}</span>
-                <PrimaryButton onClick={() => navigate("/swap")} name="Buy ACR" width="200px" />
-            </Bottom>
+            </div>
         </FooterWrapper>
     )
 }
 
 const Bottom = styled(Row)`
-    justify-content: flex-end;
     align-items: center;
-    height: 100px;
     gap: 20px;
-`
-
-const Top = styled(Columns)`
-    border-bottom: 1px solid var(--border1);
-    padding: 20px 20px 20px 0;
-    gap: 20px;
-    .logo {
-        max-width: 150px;
-        img {
-            width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    .wp-right-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .wp-right-footer{
+        button{
+            margin-right:0;
+            margin-left:10px;
         }
     }
     .icon {
@@ -86,10 +103,65 @@ const Top = styled(Columns)`
     }
 `
 
+const Top = styled(Columns)`
+    padding: 20px 0px 20px 0;
+    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: inherit;
+    align-items: center;
+    border-bottom: 1px solid #f9f9f91f;
+    ul{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: flex-end;
+        list-style: none;
+        li{
+            list-style: none;
+            a{
+                text-decoration: none;
+                outline: 0 !important;
+                position: relative;
+                color: var(--whiteColor);
+                transition: var(--transition);
+                font-weight: 400;
+                font-size: 16px;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                display: block;
+                
+            }
+            &:last-child{
+                a{
+                    padding-right: 0px;
+                }
+            }
+        }
+    }
+    .logo {
+        max-width: 150px;
+        img {
+            width: 100%;
+        }
+    }
+    
+`
+
 const FooterWrapper = styled.div`
-    min-height: 300px;
     background-color: #2A9BD6;
-    padding: 20px;
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .container {
+        padding: 0;
+        margin: 0 auto;
+        width: 1200px;
+    }
 `
 
 export default Footer
