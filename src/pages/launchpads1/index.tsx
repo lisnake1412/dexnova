@@ -5,8 +5,10 @@ import { Row, Columns } from 'components/Layouts'
 import CountDownOne from "components/CountDown/privatesale";
 import Popup from "components/popuplaunch/private";
 import Timeline from "components/Timeline";
+import Faq from "components/faq";
 import LogoAco from 'assets/icons/logoaco.png'
 import imgDownArrowDark from 'assets/icons/icondown.png'
+import iconToken from 'assets/icons/imgIconDiscord.png'
 
 const getUrl = window.location;
 console.log(getUrl);
@@ -38,9 +40,7 @@ const [isOpenPopup, setIsOpenPopup] = useState(false);
                         </div>
                         <div className="content">
                             <div className="banner-progress-wrap">
-                                <ul>
-                                    <li>happening</li>
-                                </ul>
+
                                 <div className="progress">
                                     <div
                                     className="progress-bar"
@@ -51,17 +51,37 @@ const [isOpenPopup, setIsOpenPopup] = useState(false);
                                     aria-valuemax="100"
                                     />
                                 </div>
+                                <p>30 / 50 ETH (70%)</p>
                                 <h4 className="title_ico">
-                                Have raised 50 ETH 
+                               5546 participated 
                                 </h4>
                             </div>
-                            <div className="title">
+                            {/* <div className="title">
                                 <div className="banner-countdown-wrap text-center">
                                     <h3 className="title_coundown">Launchpad Will Start in..</h3>
                                     <CountDownOne />
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="desponsi">
+                                <div className="desponsi-item">
+                                    <div className="desponsi-img">
+                                        <img width={20} src={iconToken} alt="logo token" />
+                                    </div>
+                                    <div className="desponsi-text">
+                                        <h4>your ETH Committed</h4>
+                                        <p className='number'>172.497913</p>
+                                        <p className='total'>0,0032 % off total</p>
+                                    </div>
+                                </div>
+                                <div className="desponsi-item">
+                                    <div className="desponsi-img">
+                                    <img width={20} src={iconToken} alt="logo token" />
+                                    </div>
+                                    <div className="desponsi-text">
+                                        <h4>ANC To Receive</h4>
+                                        <p className='number'>697.55</p>
+                                    </div>
+                                </div>
             
                                 <input type="text" value="123" placeholder="Insert the amount" />
                                
@@ -69,8 +89,9 @@ const [isOpenPopup, setIsOpenPopup] = useState(false);
                                     Buy Now
                                 </button>
                                 <ul className='total_raise'>
-                                    <li><span>TOTAL COMMITTED:</span><span>~0 ETH (0.000000000%)</span></li>
-                                    <li><span>FUNDS TO RAISE:</span><span>150ETH</span></li>
+                                    <li><span>Min token entry</span><span>~0 ETH (0.000000000%)</span></li>
+                                    <li><span>Input amount</span><span>150 ETH</span></li>
+                                    <li><span>Price per ANC:</span><span>~0 ETH</span></li>
                                 </ul>
                             </div>
 
@@ -89,8 +110,7 @@ const [isOpenPopup, setIsOpenPopup] = useState(false);
 
                 <div className="section-2">
                     <Timeline/>
-
-
+                    <Faq/>
                 </div>
             </div>
         </div>

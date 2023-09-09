@@ -114,6 +114,8 @@ const CopyBtn = styled.div`
         transition: all 0.1s ease-in-out;
         opacity: 1;
         visibility: visible;
+        font-size: 10px;
+        border: 1px solid var(--border2);
     }
 `
 const Tooltip = styled.div`
