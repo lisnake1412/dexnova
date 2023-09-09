@@ -11,6 +11,7 @@ interface ModalProps {
     ) => ReactElement<any, string | JSXElementConstructor<any>>
     isOpen: boolean,
     setIsOpen: (bool: boolean) => void
+    width?: string
 }
 
 const SingleModal = (props: ModalProps) => {
@@ -24,7 +25,7 @@ const SingleModal = (props: ModalProps) => {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <MiddleBox>{props.children(() => props.setIsOpen(false))}</MiddleBox>
+                    <MiddleBox width={props.width}>{props.children(() => props.setIsOpen(false))}</MiddleBox>
                 </MuiModal>
             </ModalWrapper>
         </>
@@ -97,7 +98,7 @@ const Box = styled.div`
     }
 `
 
-const MiddleBox = styled.div`
+const MiddleBox = styled.div<{width?: string}>`
     position: fixed;
     top: 0;
     left: 0;
@@ -106,10 +107,10 @@ const MiddleBox = styled.div`
     margin: auto;
     background: var(--bg2);
     backdrop-filter: blur(4px);
-    max-width: 400px;
+    max-width: ${({width}) => width ? width : "400px"};
     height: fit-content;
     border: 1px solid #003b5c;
-    border-radius: 8px;
+    border-radius: 20px;
     padding: 10px;
 
     @media (max-width: 476px) {

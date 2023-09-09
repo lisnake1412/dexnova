@@ -8,7 +8,7 @@ import Timeline from "components/Timeline";
 import Faq from "components/faq";
 import LogoAco from 'assets/icons/logoaco.png'
 import imgDownArrowDark from 'assets/icons/icondown.png'
-import iconToken from 'assets/icons/imgIconDiscord.png'
+import iconToken from 'assets/icons/eth-logo.png'
 
 const getUrl = window.location;
 console.log(getUrl);
@@ -78,7 +78,7 @@ const [isOpenPopup, setIsOpenPopup] = useState(false);
                                     <img width={20} src={iconToken} alt="logo token" />
                                     </div>
                                     <div className="desponsi-text">
-                                        <h4>ANC To Receive</h4>
+                                        <h4>ACR To Receive</h4>
                                         <p className='number'>697.55</p>
                                     </div>
                                 </div>

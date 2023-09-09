@@ -10,7 +10,7 @@ import { OpacityModal } from 'components/Web3Status'
 
 const NetworkSelector = () => {
     const [networkModal, setNetworkModal] = useState(false)
-    const { chainId, account, connector } = useActiveWeb3React()
+    const { chainId, account, connector, isWrongNetwork } = useActiveWeb3React()
 
     const networkRef = useRef<any>()
     useOnClickOutside(networkRef, () => {
@@ -44,15 +44,14 @@ const NetworkSelector = () => {
     return (
         <NetworkSelectorWrapper>
             <NetworkButton
-                onClick={() => {
-                    setNetworkModal((i) => !i)
+                onClick={async () => {
+                        setNetworkModal((i) => !i)
                 }}
             >
-                {showNameNetworkCurrent(chainId)}
+                {!isWrongNetwork ? showNameNetworkCurrent(chainId) : 'Switch Network'}
             </NetworkButton>
             <DropdownModal networkModal={networkModal} ref={networkRef}>
                 <ul>
-                <li className='select_options'>Select a Network</li>
                     {ListNetwork.map((item, index) => {
                         return (
                             <li
@@ -96,6 +95,7 @@ const NetworkSelector = () => {
         </NetworkSelectorWrapper>
     )
 }
+
 
 const TextUnknownNetwork = styled.span`
     font-size: 13px;

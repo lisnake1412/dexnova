@@ -23,6 +23,7 @@ import ListRowWhite from 'assets/icons/list-row-white.svg'
 import ListColumnDark from 'assets/icons/list-column-dark.svg'
 import ListColumnWhite from 'assets/icons/list-column-white.svg'
 import { useFarmState, useSetIsListColumnView, useSetStakedOnly } from 'states/farm/hooks'
+import Calculator from './components/Calculator'
 
 const FarmPages = {
     FARM: "FARM",
@@ -80,8 +81,10 @@ const Farm = () => {
     const isAdmin = useIsFarmAdmin()
     const [page, setPage] = useState(FarmPages.FARM)
     const [poolOpen, setPoolOpen] = useState(-1)
+    const [isColumnViewDetails, setIsColumnViewDetails] = useState(-1)
     const [currentPool, setCurrentPool] = useState<IFarmingPool>()
     const [currentUnstakePool, setCurrentUnstakePool] = useState<IFarmingPool>()
+    const [currentCalcPool, setCurrentCalcPool] = useState<{pool: IFarmingPool, pairName: string}>()
     const [value, setValue] = useState('')
     const contract = useFarmingContract()
     const initDataTransaction = InitCompTransaction()
@@ -150,7 +153,6 @@ const Farm = () => {
             {(initDataTransaction.isOpenConfirmModal ||
                 initDataTransaction.isOpenResultModal ||
                 initDataTransaction.isOpenWaitingModal) && <Blur />}
-
             <FarmHero>
                 <div className='title'>
                     {
@@ -245,12 +247,15 @@ const Farm = () => {
                                                                             pool={pool} 
                                                                             isOpenDetail={poolOpen === pool.pid} 
                                                                             setIsOpenDetail={setPoolOpen} 
+                                                                            isColumnViewDetails={isColumnViewDetails === pool.pid}
+                                                                            setIsColumnViewDetails={setIsColumnViewDetails}
                                                                             onStake={setCurrentPool}
                                                                             onUnstake={setCurrentUnstakePool}
                                                                             index={index}
                                                                             isPair={true}
                                                                             searchQuery={searchQuery}
                                                                             isColumnView={isListColumnView}
+                                                                            setCalculator={setCurrentCalcPool}
                                                                         />
                                                                     )
                                                                 }
@@ -261,11 +266,14 @@ const Farm = () => {
                                                                             pool={pool} 
                                                                             isOpenDetail={poolOpen === pool.pid} 
                                                                             setIsOpenDetail={setPoolOpen} 
+                                                                            isColumnViewDetails={isColumnViewDetails === pool.pid}
+                                                                            setIsColumnViewDetails={setIsColumnViewDetails}
                                                                             onStake={setCurrentPool}
                                                                             onUnstake={setCurrentUnstakePool}
                                                                             index={index}
                                                                             searchQuery={searchQuery}
                                                                             isColumnView={isListColumnView}
+                                                                            setCalculator={setCurrentCalcPool}
                                                                         />
                                                                     )
 
@@ -325,6 +333,16 @@ const Farm = () => {
                         value={value}
                         setValue={setValue}
                         pool={currentUnstakePool}
+                    />
+                )
+            }
+            {
+                currentCalcPool && (
+                    <Calculator 
+                        isOpen={currentCalcPool !== undefined}
+                        setIsOpen={(bool: boolean) => !bool && setCurrentCalcPool(undefined)}
+                        pool={currentCalcPool?.pool}
+                        pairName={currentCalcPool?.pairName}
                     />
                 )
             }

@@ -109,7 +109,7 @@ export const usePoolApr = (
     totalStaked: number | undefined, 
     tokenPerBlock: number | undefined,
     isStakePool: boolean | undefined
-) : number => {
+) => {
     const { chainId } = useActiveWeb3React()
     const pairAddress = isStakePool ? undefined : lpToken
     const pair = usePairByAddresses([pairAddress])
@@ -193,8 +193,16 @@ export const usePoolApr = (
     }, [token0Price, token1Price, totalSupplyLp])
 
     return useMemo(() => {
-        if(!tokenPerBlock) return 50
+        if(!tokenPerBlock) return {
+            apr: 50,
+            rwTokenPrice: 1,
+            lpTokenPrice: 1,
+        }
         if(totalStaked && totalStaked < 1) totalStaked = 1
-        return getPoolApr(lpTokenPrice, rwTokenPrice, totalStaked || 1, tokenPerBlock, isStakePool)
+        return {
+            apr: getPoolApr(lpTokenPrice, rwTokenPrice, totalStaked || 1, tokenPerBlock, isStakePool),
+            rwTokenPrice,
+            lpTokenPrice
+        }
     }, [rwTokenPrice, lpTokenPrice, totalStaked, totalSupplyLp])
 }

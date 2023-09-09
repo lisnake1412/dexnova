@@ -25,13 +25,17 @@ import { getEtherscanLink } from 'utils'
 import { usePairByAddresses } from 'hooks/useAllPairs'
 import { useMintActionHandlers } from 'states/mint/hooks'
 import { Link } from 'react-router-dom'
+import Icon from "assets/icons/calculator.png"
+import { ChevronDown, ChevronUp } from 'react-feather'
 
-const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair, searchQuery, isColumnView } : { 
+const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair, searchQuery, isColumnView, setCalculator, isColumnViewDetails, setIsColumnViewDetails } : {
     pool: IFarmingPool, 
     isOpenDetail: boolean, 
     setIsOpenDetail: (b: number) => void,
+    setIsColumnViewDetails: (b: number) => void,
     onStake: (pool: IFarmingPool) => void,
     onUnstake: (pool: IFarmingPool) => void,
+    setCalculator: (a: any) => void,
     index: number,
     isPair?: boolean,
     searchQuery?: string,
@@ -45,7 +49,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
     const { addTxn } = useTransactionHandler()
     const [loading, setLoading] = useState(false)
     const contract = useFarmingContract()
-    const apr = usePoolApr(
+    const { apr } = usePoolApr(
         pool.lpToken, 
         ZKS_TOKEN[chainId]?.address, 
         Number(divNumberWithDecimal(pool.totalStaked.toString(), 18)), 
@@ -248,14 +252,20 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
    
 
                             <Columns al="flex-end">
-                                <div className='title_lable'>
-                                    APR
+                               
+                                <div className='title_lable CalcIcon'>
+                                    <span>APR</span>
+                                    
+                                    <CalcIcon onClick={() => setCalculator({pool, pairName})}>
+                                        <img src={Icon} alt="calculator icon" />
+                                    </CalcIcon>  
                                 </div>
                                 <Row  className='info-f'>
                                     <span className="to" style={{maxWidth: 90, display: "block"}}>
                                         {apr.toFixed(0)}
                                     </span>
                                     <span>%</span>
+                                    
                                 </Row>
                             </Columns>
                             <Columns al="flex-end">
@@ -273,8 +283,17 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                             isColumnView && (
                                 <>
                                     <Row jus="space-between">
-                                        <div className='title_lable'>APR</div>
-                                        <div className='info-f'>{apr.toFixed(0) || 0}%</div>
+                                        
+                                        <div className='title_lable CalcIcon '> 
+                                        <span>APR</span>
+                                        <CalcIcon onClick={() => setCalculator({pool, pairName})}>
+                                            <img src={Icon} alt="calculator icon" />
+                                        </CalcIcon> 
+                                        
+                                        </div>
+                                        <div className='info-f'>{apr.toFixed(0) || 0}%
+                                        
+                                        </div>
                                     </Row>
                                     <Row jus="space-between">
                                         <div className='title_lable' >Earn</div>
@@ -311,40 +330,87 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                                 </Row>
                             </WrapperAction>
                         </WrapperActions>
-                        <div className="wp-link">
-
-                    {
-                        isPair && pair && (
-                            <Link 
-                                className="link" 
-                                to={`/add/${pair.token0.address}/${pair.token1.address}`}
-                                onClick={() => {
-                                    onTokenSelection(Field.INPUT, pair.token0)
-                                    onTokenSelection(Field.OUTPUT, pair.token1)
-                                }}
-                            >
-                                <span>
-                                    Get {pair?.token0.symbol || '-'}-{pair?.token1.symbol || '-'}
-                                </span>
-                                <img src={ArrowLink} alt="link icon" />
-                            </Link>
-                        )
-                    }
-                    {
-                        lpToken && (
-                            <a className="link" href={getEtherscanLink(chainId || 324, lpToken.address, 'address')} target="_blank">
-                                <span>View Contract</span>
-                                <img src={ArrowLink} alt="link icon" />
-                            </a>
-                        )
-                    }
-                    </div>
+                        {
+                            isColumnView && (
+                                <Details onClick={() => {
+                                    if(isColumnViewDetails) {
+                                        setIsColumnViewDetails(-1)
+                                    } else {
+                                        setIsColumnViewDetails(pool.pid)
+                                    }
+                                }}>
+                                    <span>
+                                        {isColumnViewDetails ? 'Hide' : 'Details'}
+                                    </span>
+                                    {isColumnViewDetails ? <ChevronUp width={20} /> : <ChevronDown width={20} />}
+                                </Details>
+                            )
+                        }
+                        {
+                            (!isColumnView || isColumnViewDetails) && (
+                                <>
+                                    <Row jus="space-between" className='Liquidity-mobile'>
+                                        <div>Liquidity</div>
+                                        <div>{Number(divNumberWithDecimal(pool.totalStaked.toString(), 18)).toFixed(4)} {pool.isStakePool ? 'ZKS' : 'ZKS-LP'}</div>
+                                    </Row>
+                                    {
+                                        isPair && pair && (
+                                            <Link 
+                                                className="link" 
+                                                to={`/add/${pair.token0.address}/${pair.token1.address}`}
+                                                onClick={() => {
+                                                    onTokenSelection(Field.INPUT, pair.token0)
+                                                    onTokenSelection(Field.OUTPUT, pair.token1)
+                                                }}
+                                            >
+                                                <span>
+                                                    Get {pair?.token0.symbol || '-'}-{pair?.token1.symbol || '-'}
+                                                </span>
+                                                <img src={ArrowLink} alt="link icon" />
+                                            </Link>
+                                        )
+                                    }
+                                    {
+                                        lpToken && (
+                                            <a className="link" href={getEtherscanLink(chainId || 324, lpToken.address, 'address')} target="_blank">
+                                                <span>View Contract</span>
+                                                <img src={ArrowLink} alt="link icon" />
+                                            </a>
+                                        )
+                                    }
+                                </>
+                            )
+                        }
+                        
                     </PoolBody>
                 )
             }
         </PoolWrapper>
     )
 }
+
+const Details = styled(Row)`
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--border1);
+    padding: 20px 20px 0 20px;
+    color: #4862ab;
+`
+
+const CalcIcon = styled.div`
+    max-width: 18px;
+    transition: all ease-in-out 0.01s;
+    display:flex;
+
+    img {
+        width: 100%;
+    }
+
+    :hover {
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+`
 
 const Core = styled(Row)`
     border: 2px solid #289cd1;

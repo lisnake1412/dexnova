@@ -1,6 +1,7 @@
 import { Web3Provider } from '@ethersproject/providers'
 import { useWeb3React as useWeb3ReactCore } from '@web3-react/core'
 import { ChainId } from 'interfaces'
+import { useMemo } from 'react'
 import { useDispatch } from 'react-redux'
 import { updateSelectedWallet } from 'states/user/reducer'
 
@@ -17,14 +18,20 @@ export function useActiveWeb3React() {
         dispatch(updateSelectedWallet({ wallet: undefined }))
     }
 
+    const isWrongNetwork = useMemo(() => {
+        const result = chainId ? !Object.keys(ChainId).includes(chainId.toString()) : false
+        return result
+    }, [chainId]) 
+
     return {
         account: account,
         chainId:
             chainId && Object.keys(ChainId).includes(chainId.toString())
                 ? chainId
-                : 280,
+                : 0,
         provider: provider,
         disconnect,
         connector,
+        isWrongNetwork
     }
 }

@@ -8,7 +8,7 @@ import arrowDown from 'assets/icons/chevron-white.svg'
 import { useActiveWeb3React } from 'hooks'
 
 const Web3Status = () => {
-    const { account } = useActiveWeb3React()
+    const { account, isWrongNetwork } = useActiveWeb3React()
     const [toggleWalletModal, setToggleWalletModal] = useState<boolean>(false)
     const error = undefined
 
@@ -33,8 +33,9 @@ const Web3Status = () => {
                     onClick={() => {
                         setToggleWalletModal(!toggleWalletModal)
                     }}
+                    isWrongNetwork={isWrongNetwork}
                 >
-                    {formatConnectorName(account, error)}
+                  {isWrongNetwork ? 'Wrong Network' : formatConnectorName(account, error)}
                 </Web3StatusConnect>
             )
         } else if (error) {
@@ -118,26 +119,11 @@ const Icon = styled.img`
     border-radius: 50%;
 `
 
-const Web3StatusConnect = styled(Button)`
+const Web3StatusConnect = styled(Button)<{isWrongNetwork?: boolean}>`
     padding: 0 8px;
     width: unset;
     height: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    background-image: linear-gradient(#0dccea,#0d70ea);
-    padding: 0 10px;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    justify-content: space-between;
-    cursor: pointer;
-    align-items: center;
-    font-family: Montserrat,sans-serif;
-    box-shadow: rgba(0,0,0,0.3) 0 5px 15px;
-    height: 30px;
-    padding: 0px 8px;
+    background: ${({isWrongNetwork}) => isWrongNetwork && 'red'};
 `
 
 export const Web3StatusWrapper = styled.div``

@@ -6,30 +6,30 @@ const questionsAnswers = [
   {
     question: "What’s the difference between a Public Sale and Private Sale?",
     answer:
-      "In the current IFO format. There is a brand new Private Sale. To participate, participants will have to meet certain requirements presented on the IFO card. Each eligible participant will be able to commit any amount of CAKE up to the maximum commit limit, which is published along with the IFO voting proposal. The Private Sale has no participation fee.In the Public Sale, everyone with an active PancakeSwap profile can commit. However the maximum amount of CAKE users can commit, is equal to the number of iCAKE they have.Learn more about iCAKE here And there’s a fee for participation: see below.",
+      "In the current IDO format. There is a brand new Private Sale. To participate, participants will have to meet certain requirements presented on the IDO card. Each eligible participant will be able to commit any amount of ETH up to the maximum commit limit, which is published along with the IDO voting proposal. The Private Sale has no participation fee.In the Public Sale, everyone with an active AncoraFinance profile can commit. However the maximum amount of ETH users can commit, is equal to the number of iETH they have.Learn more about iETH here And there’s a fee for participation: see below.",
   },
   {
     question: "Which sale should I commit to? Can I do both?",
     answer:
-      "You can choose one or both at the same time! We recommend you to check if you are eligible to participate in the Private Sale first. In the Public Sale, if the amount you commit is too small, you may not receive a meaningful amount of IFO tokens.Just remember you need an active PancakeSwap Profile in order to participate.",
+      "You can choose one or both at the same time! We recommend you to check if you are eligible to participate in the Private Sale first. In the Public Sale, if the amount you commit is too small, you may not receive a meaningful amount of IDO tokens.Just remember you need an active AncoraFinance Profile in order to participate.",
   },
   {
     question: "How much is the participation fee?",
     answer: `There’s only a participation fee for the Public Sale: there’s no fee for the Private Sale.
 
-    The participation fee decreases in cliffs, based on the percentage of overflow from the “Public Sale” portion of the IFO. Note: Fees may vary between different IFOs. To learn more about the participation fees, please refer to the details in the IFO proposal (vote) for the specifics of the IFO you want to take part in.`,
+    The participation fee decreases in cliffs, based on the percentage of overflow from the “Public Sale” portion of the IDO. Note: Fees may vary between different IDOs. To learn more about the participation fees, please refer to the details in the IDO proposal (vote) for the specifics of the IDO you want to take part in.`,
   },
   {
     question: "Where does the participation fee go?",
-    answer: `The CAKE from the participation fee will be burnt as part of the weekly token burn.`,
+    answer: `The ETH from the participation fee will be burnt as part of the weekly token burn.`,
   },
   {
-    question: "How can I get an achievement for participating in the IFO?",
-    answer: `You need to contribute a minimum of about 10 USD worth of CAKE to either sale. You can contribute to one or both, it doesn’t matter: only your overall contribution is counted for the achievement.`,
+    question: "How can I get an achievement for participating in the IDO?",
+    answer: `You need to contribute a minimum of about 10 USD worth of ETH to either sale. You can contribute to one or both, it doesn’t matter: only your overall contribution is counted for the achievement.`,
   },
   {
-    question: "What is the difference between an IFO and a cIFO? ",
-    answer: `cIFOs are a new subtype of IFOs, designed to reward our loyal community, and also introduce our community to projects with slightly smaller raises. Learn more about cIFO`,
+    question: "What is the difference between an IDO and a cIDO? ",
+    answer: `cIDOs are a new subtype of IDOs, designed to reward our loyal community, and also introduce our community to projects with slightly smaller raises. Learn more about cIDO`,
   },
 ];
 

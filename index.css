@@ -1485,8 +1485,18 @@ section.launchpad {
   .faq dd {
     margin-bottom: 0;
   }
+  .title_lable.CalcIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title_lable.CalcIcon span{
+  margin-right: 5px;
+}
+
 
   @media (max-width: 768px) {
+
     .faq-area .col-lg-6 {
       flex: 0 0 auto;
       width: 100%;

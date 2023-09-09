@@ -18,8 +18,9 @@ const Timeline = () => {
                           <i className="fa fa-gift" />
                         </div>
                         <div className="timeline-text">
-                          <h3>Lorem ipsum dolor</h3>
-                          <p>follow socical media and link to your wallet</p>
+                          <h3>Activate your Profile</h3>
+                          <p>You’ll need connect to AncoraFinance to take part in an IFO!
+</p>
                         </div>
                       </div>
                     </div>
@@ -31,7 +32,7 @@ const Timeline = () => {
                           <i className="fa fa-business-time" />
                         </div>
                         <div className="timeline-text">
-                          <h3>Lorem ipsum dolor</h3>
+                          <h3>The Ethereum</h3>
                           <p>You have sufficient ETH token is your wallet</p>
                         </div>
                         <div className="timeline-icon d-md-block d-none">
@@ -57,7 +58,7 @@ const Timeline = () => {
                           <i className="fa fa-briefcase" />
                         </div>
                         <div className="timeline-text">
-                          <h3>Lorem ipsum dolor</h3>
+                          <h3>Join and Moon!</h3>
                           <p>Before the end of IDO, put in ETH token</p>
                         </div>
                       </div>
@@ -70,9 +71,9 @@ const Timeline = () => {
                           <i className="fa fa-cogs" />
                         </div>
                         <div className="timeline-text">
-                          <h3>Lorem ipsum dolor</h3>
+                          <h3>Moon With AncoraFinance</h3>
                           <p>Launchpad will be fully released according to the super
-fundraising model, and the overflowed tokens will be returned </p>
+fundraising model, and the tokens will be returned </p>
                         </div>
                         <div className="timeline-icon d-md-block d-none">
                           <i className="fa fa-cogs" />
