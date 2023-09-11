@@ -107,7 +107,7 @@ const ConfirmTransactionModal = ({
                                 // setConfirmTransaction(false)
                             }}
                             type="light-blue"
-                            name="Confirm Supply"
+                            name="Confirm"
                         />
                     </WrapButton>
                 </ContentBottom>
@@ -172,7 +172,7 @@ const ConfirmTransactionModal = ({
                                 // setConfirmTransaction(false)
                             }
                             type="light-blue"
-                            name="Confirm Supply"
+                            name="Confirm"
                         />
                     </WrapButton>
                 </ContentBottom>
