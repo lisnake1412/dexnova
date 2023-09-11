@@ -524,7 +524,7 @@ ul.total_raise li {
 .top-item .item-content {
     width: calc(100% / 3 - 8px);
     text-align: center;
-    padding: 20px 10px;
+    padding: 10px 10px;
     background: #dfdfdf;
     margin: 0 6px;
     margin-bottom: 12px;
@@ -542,6 +542,9 @@ ul.total_raise li {
 }
 .top-item .item-content p{
     color: #4D4D4E;
+    font-size: 12px;
+    height: 42px;
+    margin-top: 5px;
 }
 h1.title-popup {
     font-weight: 700;

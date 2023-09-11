@@ -9,6 +9,8 @@ import Faq from "components/faq";
 import LogoAco from 'assets/icons/logoaco.png'
 import imgDownArrowDark from 'assets/icons/icondown.png'
 import iconToken from 'assets/icons/eth-logo.png'
+import iconAcora from 'assets/icons/icon-acora.png'
+
 import { useActiveWeb3React } from 'hooks';
 import { ethers } from 'ethers';
 import { useETHBalances } from 'hooks/useCurrencyBalance';
@@ -607,7 +609,7 @@ if(account){
                                 </div>
                                 <div className="desponsi-item">
                                     <div className="desponsi-img">
-                                    <img width={20} src={iconToken} alt="logo token" />
+                                    <img width={20} src={iconAcora} alt="logo token" />
                                     </div>
                                     <div className="desponsi-text">
                                         <h4>ACR To Receive</h4>

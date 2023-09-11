@@ -51,15 +51,15 @@ const Popup = ({ setIsOpenPopup }) => {
                 <div className="top-item">
                     <div className="item-content">
                         <h4>Start Date</h4>
-                        <p>05/06/2023 15:00 UTC</p>
+                        <p>20/10/2023 15:00 UTC</p>
                     </div>
                     <div className="item-content">
-                        <h4>Start Date</h4>
-                        <p>05/06/2023 15:00 UTC</p>
+                        <h4>End Date</h4>
+                        <p>23/10/2023 15:00 UTC</p>
                     </div>
                     <div className="item-content">
-                        <h4>Start Date</h4>
-                        <p>05/06/2023 15:00 UTC</p>
+                        <h4>Status</h4>
+                        <p>Start</p>
                     </div>
                 </div>
                 <div className="main-item">
