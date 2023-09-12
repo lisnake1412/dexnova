@@ -22,7 +22,7 @@ const NetworkSelector = () => {
             return (
                 <>
                     <div>
-                        <TextUnknownNetwork>Unknown network</TextUnknownNetwork>
+                        <TextUnknownNetwork>Linea network</TextUnknownNetwork>
                     </div>
                     <DownArrow src={imgDownArrowWhite} alt="arrow-down" />
                 </>

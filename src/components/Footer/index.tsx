@@ -44,8 +44,8 @@ const Footer = () => {
                         </div>
                         <ul>
                             <li><Link to='/swap' >Trade</Link></li>
-                            <li><Link to='/farms' >Farm</Link></li>
-                            <li><Link to='/private_sale' >Launchpad</Link></li>
+                            <li><Link to='/comingsoon' >Farm</Link></li>
+                            <li><Link to='/comingsoon' >Launchpad</Link></li>
                             <li><Link to='/comingsoon' >NFT</Link></li>
                         </ul>
                        

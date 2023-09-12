@@ -159,18 +159,11 @@
     },
     {
         "address": "0x61Ed2c581cf6985FaFF0178617967f659AfaF27A",
-        "symbol": "ZKS",
+        "symbol": "Base",
         "decimals": 18,
         "logoURI": "https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/",
-        "name": "zkSync Era token",
-        "chainId": 84531
-    },
-    {
-        "address": "0x61Ed2c581cf6985FaFF0s178617967f659AfaF27A",
-        "symbol": "ZKsS",
-        "decimals": 18,
-        "logoURI": "https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/",
-        "name": "zkSync Erass token",
+        "name": "Base token",
         "chainId": 84531
     }
+
 ]

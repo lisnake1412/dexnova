@@ -1,4 +1,4 @@
-import LogoERA from 'assets/icons/era.svg'
+import LogoERA from 'assets/token-logos/era.svg'
 import LogoMatic from 'assets/token-logos/matic.svg'
 import LogoETH from 'assets/token-logos/eth.svg'
 import LogoLinea from 'assets/token-logos/Linea.svg'
@@ -19,47 +19,11 @@ export const ListNetwork = [
                     symbol: 'ETH',
                     decimals: 18,
                 },
-                rpcUrls: ['https://base-goerli.public.blastapi.io'],
-                blockExplorerUrls: ['https://lineascan.build'],
+                rpcUrls: ['https://linea-goerli.infura.io/v3/'],
+                blockExplorerUrls: ['https://goerli.lineascan.build/'],
             },
         ],
-    },
-    {
-        name: 'Mainnet',
-        chainId: 324,
-        logo: LogoERA,
-        switchNetwork: [
-            {
-                chainId: 324,
-                chainName: 'ZkSync',
-                nativeCurrency: {
-                    name: 'ETH',
-                    symbol: 'ETH',
-                    decimals: 18,
-                },
-                rpcUrls: ['https://zksync2-mainnet.zksync.io'],
-                blockExplorerUrls: ['https://explorer.zksync.io/'],
-            },
-        ],
-    },
-    {
-        name: 'Testnet',
-        chainId: 280,
-        logo: LogoERA,
-        switchNetwork: [
-            {
-                chainId: 280,
-                chainName: 'ZkSync Testnet',
-                nativeCurrency: {
-                    name: 'ETH',
-                    symbol: 'ETH',
-                    decimals: 18,
-                },
-                rpcUrls: ['https://zksync2-testnet.zksync.dev'],
-                blockExplorerUrls: ['https://zksync2-testnet.zkscan.io'],
-            },
-        ],
-    },
+    },  
     {
         name: 'Base Testnet',
         chainId: 84531,
@@ -79,14 +43,56 @@ export const ListNetwork = [
         ],
     },
 
+
+    {
+        name: 'zkSync Testnet',
+        chainId: 280,
+        logo: LogoERA,
+        switchNetwork: [
+            {
+                chainId: 280,
+                chainName: 'ZkSync Testnet',
+                nativeCurrency: {
+                    name: 'ETH',
+                    symbol: 'ETH',
+                    decimals: 18,
+                },
+                rpcUrls: ['https://zksync2-testnet.zksync.dev'],
+                blockExplorerUrls: ['https://zksync2-testnet.zkscan.io'],
+            },
+        ],
+    },
+    {
+        name: 'Ethereum Testnet',
+        chainId: 5,
+        logo: LogoETH,
+        switchNetwork: [
+            {
+                chainId: 5,
+                chainName: 'Ethereum Testnet',
+                nativeCurrency: {
+                    name: 'ETH',
+                    symbol: 'ETH',
+                    decimals: 18,
+                },
+                rpcUrls: ['https://goerli.infura.io/v3/'],
+                blockExplorerUrls: ['https://goerli.etherscan.io'],
+            },
+        ],
+    },
+
 ]
 
 export const InfoNetwork: {
     [chainId: number]: { name: string; logo: string }
 } = {
-    [ChainId.ZKMAINNET]: {
-        name: 'Mainnet',
-        logo: LogoERA,
+    // [ChainId.ZKMAINNET]: {
+    //     name: 'Mainnet',
+    //     logo: LogoERA,
+    // },
+    [ChainId.LINEATESTNET]: {
+        name: 'LINEA Testnet',
+        logo: LogoLinea,
     },
     [ChainId.ZKTESTNET]: {
         name: 'Testnet',
@@ -104,8 +110,8 @@ export const InfoNetwork: {
         name: 'Base Testnet',
         logo: LogoBase,
     },
-    [ChainId.LINEATESTNET]: {
-        name: 'LINEA Testnet',
-        logo: LogoLinea,
-    },
+    // [ChainId.LINEATESTNET]: {
+    //     name: 'LINEA Testnet',
+    //     logo: LogoLinea,
+    // },
 }

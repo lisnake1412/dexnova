@@ -44,12 +44,12 @@ export const navs = [
         name: "Earn",
         paths: [
             {
-                path: "/farms",
+                path: "/comingsoon",
                 name: "Farm",
                 isExternal: false
             },
             {
-                path: "/pools",
+                path: "/comingsoon",
                 name: "Pool",
                 isExternal: false
             }
@@ -80,12 +80,12 @@ export const navs = [
         name: "Launchpad",
         paths: [
             {
-                path: "/private_sale",
+                path: "/comingsoon",
                 name: "Private Sale",
                 isExternal: false
             },
             {
-                path: "/public_sale",
+                path: "/comingsoon",
                 name: "PubLic Sale",
                 isExternal: false
             }

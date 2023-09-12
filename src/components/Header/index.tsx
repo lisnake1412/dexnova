@@ -72,6 +72,7 @@ export const HeaderWrapper = styled.div`
         grid-template-columns: 120px 0 190px;
         padding: 10px;
         z-index:999;
+        justify-content: space-between;
     }
 
     @media(max-width: 375px) {

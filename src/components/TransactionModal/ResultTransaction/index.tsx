@@ -85,12 +85,12 @@ const WrapAddErc20 = styled.div`
     margin-bottom: 20px;
 `
 const AddErc20 = styled.button`
-    color: #008eff;
+    color: #fff;
     outline: none;
     border: none;
     font-size: 16px;
     border-radius: 8px;
-    padding: 6px 12px;
+    padding: 8px 12px;
     cursor: pointer;
 `
 

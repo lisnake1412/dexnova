@@ -23,7 +23,7 @@ const [isOpenPopup, setIsOpenPopup] = useState(false);
                         </div>
                         <div className="link_comingsoon">
                         <Link to='/swap' className='btn button'>Trade Now</Link>
-                        <Link to='/farms' className='button btn' >Farming</Link>
+                        {/* <Link to='/farms' className='button btn' >Farming</Link> */}
                         </div>
                     </div>
                 </div>

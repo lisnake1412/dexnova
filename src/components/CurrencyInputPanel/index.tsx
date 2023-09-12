@@ -51,7 +51,7 @@ const CurrencyInputPanel = ({
                     <Input value={value} field={field} onUserInput={onUserInput} />
                     <div className="t2 balance">
                     <span className="to">
-                        Balance: {balance ? balance?.toString() : 0}
+                        Balance: {balance ? Number(balance).toFixed(3)?.toString() : 0}
                     </span>
                     {!hideMaxButton && (
                         <span className="max-btn" onClick={handleOnMax}>
