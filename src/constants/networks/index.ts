@@ -1,9 +1,29 @@
 import LogoERA from 'assets/icons/era.svg'
 import LogoMatic from 'assets/token-logos/matic.svg'
 import LogoETH from 'assets/token-logos/eth.svg'
+import LogoLinea from 'assets/token-logos/Linea.svg'
+import LogoBase from 'assets/token-logos/base.svg'
 import { Token, TokenList, ChainId } from 'interfaces/index'
 
 export const ListNetwork = [
+    {
+        name: 'LINEA Testnet',
+        chainId: 59140,
+        logo: LogoLinea,
+        switchNetwork: [
+            {
+                chainId: 59140,
+                chainName: 'LINEA Testnet',
+                nativeCurrency: {
+                    name: 'ETH',
+                    symbol: 'ETH',
+                    decimals: 18,
+                },
+                rpcUrls: ['https://base-goerli.public.blastapi.io'],
+                blockExplorerUrls: ['https://lineascan.build'],
+            },
+        ],
+    },
     {
         name: 'Mainnet',
         chainId: 324,
@@ -43,7 +63,7 @@ export const ListNetwork = [
     {
         name: 'Base Testnet',
         chainId: 84531,
-        logo: LogoETH,
+        logo: LogoBase,
         switchNetwork: [
             {
                 chainId: 84531,
@@ -58,24 +78,7 @@ export const ListNetwork = [
             },
         ],
     },
-    {
-        name: 'LINEA Testnet',
-        chainId: 59140,
-        logo: LogoETH,
-        switchNetwork: [
-            {
-                chainId: 59140,
-                chainName: 'LINEA Testnet',
-                nativeCurrency: {
-                    name: 'ETH',
-                    symbol: 'ETH',
-                    decimals: 18,
-                },
-                rpcUrls: ['https://base-goerli.public.blastapi.io'],
-                blockExplorerUrls: ['https://goerli.base.org'],
-            },
-        ],
-    },
+
 ]
 
 export const InfoNetwork: {
@@ -99,10 +102,10 @@ export const InfoNetwork: {
     },
     [ChainId.BASETESTNET]: {
         name: 'Base Testnet',
-        logo: LogoETH,
+        logo: LogoBase,
     },
     [ChainId.LINEATESTNET]: {
         name: 'LINEA Testnet',
-        logo: LogoETH,
+        logo: LogoLinea,
     },
 }
