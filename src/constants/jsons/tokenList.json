@@ -164,6 +164,13 @@
         "logoURI": "https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/",
         "name": "Base token",
         "chainId": 84531
+    },
+    {
+        "address": "0x162C2b29D09E6C9a8ee66Ee9AaA0eD5dbc521440",
+        "symbol": "TTLinea",
+        "decimals": 18,
+        "logoURI": "https://bafkreidupnouzeoq22whlk3c4pv6th6pc2gi5xpjsud2rzv3drs34d4mjq.ipfs.nftstorage.link/",
+        "name": "Testing token",
+        "chainId": 59140
     }
-
 ]
