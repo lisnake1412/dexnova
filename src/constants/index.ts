@@ -58,6 +58,14 @@ export const NATIVE_COIN: { [chainId in number]: Token } = {
         logoURI: ETH_LOGO,
         decimals: 18,
     },
+    [ChainId.LINEAMAINNET]: {
+        address: '0x0000000000000000000000000000000000000000',
+        symbol: 'ETH',
+        chainId: ChainId.LINEAMAINNET,
+        name: 'Ethereum',
+        logoURI: ETH_LOGO,
+        decimals: 18,
+    },
 }
 
 export const URLSCAN_BY_CHAINID: { [chainId in number]: { url: string } } = {
@@ -78,6 +86,9 @@ export const URLSCAN_BY_CHAINID: { [chainId in number]: { url: string } } = {
     },
     [ChainId.LINEATESTNET]: {
         url: 'https://goerli.lineascan.build/',
+    },
+    [ChainId.LINEAMAINNET]: {
+        url: 'https://lineascan.build/',
     },
 }
 
@@ -130,6 +141,14 @@ export const WRAPPED_NATIVE_COIN: { [chainId in number]: Token } = {
         logoURI: ETH_LOGO,
         decimals: 18,
     },
+    [ChainId.LINEAMAINNET]: {
+        address: WRAPPED_NATIVE_ADDRESSES[ChainId.LINEAMAINNET],
+        symbol: 'ETH',
+        chainId: ChainId.LINEAMAINNET,
+        name: 'Ethereum',
+        logoURI: ETH_LOGO,
+        decimals: 18,
+    },
 }
 
 export const CommonBaseTokens: { [chainId in number]: Token[] } = {
@@ -169,6 +188,12 @@ export const CommonBaseTokens: { [chainId in number]: Token[] } = {
             .filter((token) => token.chainId === ChainId.LINEATESTNET)
             .slice(0, 5),
     ],
+    [ChainId.LINEAMAINNET]: [
+        NATIVE_COIN[ChainId.LINEAMAINNET],
+        ...tokenList
+            .filter((token) => token.chainId === ChainId.LINEAMAINNET)
+            .slice(0, 5),
+    ],
 }
 
 export const PRICE_TOKEN: { [chainId in number]: Token } = {
@@ -204,6 +229,14 @@ export const PRICE_TOKEN: { [chainId in number]: Token } = {
         "name": "Ethereum",
         "chainId": 59140
     },
+    [ChainId.LINEAMAINNET]: {
+        "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+        "symbol": "ETH",
+        "decimals": 18,
+        "logoURI": ETH_LOGO,
+        "name": "Ethereum",
+        "chainId": 59144 
+    },
 }
 
 export const DEFAULT_TOKEN_LIST: { [chainId in number]: TokenList } = {
@@ -213,6 +246,7 @@ export const DEFAULT_TOKEN_LIST: { [chainId in number]: TokenList } = {
     [ChainId.ZKTESTNET]: [NATIVE_COIN[ChainId.ZKTESTNET], ...tokenList],
     [ChainId.BASETESTNET]: [NATIVE_COIN[ChainId.BASETESTNET], ...tokenList],
     [ChainId.LINEATESTNET]: [NATIVE_COIN[ChainId.LINEATESTNET], ...tokenList],
+    [ChainId.LINEAMAINNET]: [NATIVE_COIN[ChainId.LINEAMAINNET], ...tokenList],
 
 }
 
@@ -223,6 +257,7 @@ export const ALL_SUPPORTED_CHAIN_IDS: ChainId[] = [
     ChainId.MUMBAI,
     ChainId.BASETESTNET,
     ChainId.LINEATESTNET,
+    ChainId.LINEAMAINNET,
 ]
 
 export const POOLS_SUBGRAPH_URL: { [chainId in number]: string } = {
@@ -232,6 +267,7 @@ export const POOLS_SUBGRAPH_URL: { [chainId in number]: string } = {
     [ChainId.ZKMAINNET]: '',
     [ChainId.BASETESTNET]: '',
     [ChainId.LINEATESTNET]:'',
+    [ChainId.LINEAMAINNET]:'',
 }
 
 export const ZKS_TOKEN: { [chainId in number]: Token } = {
@@ -277,11 +313,19 @@ export const ZKS_TOKEN: { [chainId in number]: Token } = {
     },
     [ChainId.LINEATESTNET]: {
         address: '0x61Ed2c581cf6985FaFF0178617967f659AfaF27A',
+        symbol: 'TLinea',
+        name: 'TLinea Token',
+        logoURI: 'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
+        decimals: 18,
+        chainId: 59140
+    },    
+    [ChainId.LINEAMAINNET]: {
+        address: '0x61Ed2c581cf6985FaFF0178617967f659AfaF27A',
         symbol: 'ZKS',
         name: 'zkSync Token',
         logoURI: 'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
         decimals: 18,
-        chainId: 59140
+        chainId: 59144 
     },
 }
 
@@ -292,4 +336,5 @@ export const SUPPORTED_SYNCSWAP_TOKENS: { [chainId in number]: string[] } = {
     [ChainId.ZKMAINNET]: ['USDC', 'ETH', 'WETH'],
     [ChainId.BASETESTNET]: [''],
     [ChainId.LINEATESTNET]: [''],
+    [ChainId.LINEAMAINNET]: ['USDC', 'ETH', 'WETH','USDT','DAI'],
 }

@@ -172,5 +172,14 @@
         "logoURI": "https://bafkreidupnouzeoq22whlk3c4pv6th6pc2gi5xpjsud2rzv3drs34d4mjq.ipfs.nftstorage.link/",
         "name": "Testing token",
         "chainId": 59140
+    },
+    {
+        "address": "0x176211869cA2b568f2A7D4EE941E073a821EE1ff",
+        "symbol": "USDC",
+        "decimals": 6,
+        "logoURI": "https://raw.githubusercontent.com/compound-finance/token-list/master/assets/asset_USDC.svg",
+        "name": "USD Coin",
+        "chainId": 59144 
     }
+
 ]

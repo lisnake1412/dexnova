@@ -7,6 +7,25 @@ import { Token, TokenList, ChainId } from 'interfaces/index'
 
 export const ListNetwork = [
     {
+        name: 'LINEA Mainnet',
+        chainId: 59144,
+        logo: LogoLinea,
+        switchNetwork: [
+            {
+                chainId: 59144,
+                chainName: 'LINEA Mainnet',
+                nativeCurrency: {
+                    name: 'ETH',
+                    symbol: 'ETH',
+                    decimals: 18,
+                },
+                rpcUrls: ['https://rpc.linea.build'],
+                blockExplorerUrls: ['https://lineascan.build/'],
+            },
+        ],
+    }
+    ,
+    {
         name: 'LINEA Testnet',
         chainId: 59140,
         logo: LogoLinea,
@@ -62,24 +81,24 @@ export const ListNetwork = [
             },
         ],
     },
-    {
-        name: 'Ethereum Testnet',
-        chainId: 5,
-        logo: LogoETH,
-        switchNetwork: [
-            {
-                chainId: 5,
-                chainName: 'Ethereum Testnet',
-                nativeCurrency: {
-                    name: 'ETH',
-                    symbol: 'ETH',
-                    decimals: 18,
-                },
-                rpcUrls: ['https://goerli.infura.io/v3/'],
-                blockExplorerUrls: ['https://goerli.etherscan.io'],
-            },
-        ],
-    },
+    // {
+    //     name: 'Ethereum Testnet',
+    //     chainId: 5,
+    //     logo: LogoETH,
+    //     switchNetwork: [
+    //         {
+    //             chainId: 5,
+    //             chainName: 'Ethereum Testnet',
+    //             nativeCurrency: {
+    //                 name: 'ETH',
+    //                 symbol: 'ETH',
+    //                 decimals: 18,
+    //             },
+    //             rpcUrls: ['https://goerli.infura.io/v3/'],
+    //             blockExplorerUrls: ['https://goerli.etherscan.io'],
+    //         },
+    //     ],
+    // },
 
 ]
 
@@ -89,7 +108,14 @@ export const InfoNetwork: {
     // [ChainId.ZKMAINNET]: {
     //     name: 'Mainnet',
     //     logo: LogoERA,
+    // },    // [ChainId.GOERLI]: {
+    //     name: 'Goerli',
+    //     logo: LogoETH,
     // },
+    [ChainId.LINEAMAINNET]: {
+        name: 'LINEA Mainnet',
+        logo: LogoLinea,
+    },
     [ChainId.LINEATESTNET]: {
         name: 'LINEA Testnet',
         logo: LogoLinea,
@@ -102,16 +128,10 @@ export const InfoNetwork: {
         name: 'Mumbai',
         logo: LogoMatic,
     },
-    [ChainId.GOERLI]: {
-        name: 'Goerli',
-        logo: LogoETH,
-    },
+
     [ChainId.BASETESTNET]: {
         name: 'Base Testnet',
         logo: LogoBase,
     },
-    // [ChainId.LINEATESTNET]: {
-    //     name: 'LINEA Testnet',
-    //     logo: LogoLinea,
-    // },
+  
 }

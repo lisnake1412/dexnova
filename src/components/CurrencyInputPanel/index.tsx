@@ -31,7 +31,7 @@ const CurrencyInputPanel = ({
     const handleOnMax = () => {
         if (balance) onUserInput(field, balance)
     }
-
+    // console.log(value)
     return (
         <Wrapper>
             <Row>
