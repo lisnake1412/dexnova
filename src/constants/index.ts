@@ -332,9 +332,15 @@ export const ZKS_TOKEN: { [chainId in number]: Token } = {
 export const SUPPORTED_SYNCSWAP_TOKENS: { [chainId in number]: string[] } = {
     [ChainId.GOERLI]: [''],
     [ChainId.MUMBAI]: [''],
-    [ChainId.ZKTESTNET]: ['USDC', 'ETH', 'WETH'],
-    [ChainId.ZKMAINNET]: ['USDC', 'ETH', 'WETH'],
+    [ChainId.ZKTESTNET]: [''],
+    [ChainId.ZKMAINNET]: ['USDC', 'ETH', 'WETH', 'USDT', 'DAI', 'ceBUSD', 'zkUSD', 'LUSD', 'USD+', 'crvUSD', 'TiUSD'],
     [ChainId.BASETESTNET]: [''],
     [ChainId.LINEATESTNET]: [''],
     [ChainId.LINEAMAINNET]: ['USDC', 'ETH', 'WETH','USDT','DAI'],
+}
+export const SUPPORTED_SYNCSWAP_STABLE_TOKENS: { [chainId in number]: string[] } = {
+    [ChainId.GOERLI]: [''],
+    [ChainId.MUMBAI]: [''],
+    [ChainId.ZKTESTNET]: [''],
+    [ChainId.ZKMAINNET]: ['USDC', 'USDT', 'DAI', 'ceBUSD', 'zkUSD', 'LUSD', 'USD+', 'crvUSD', 'TiUSD'],
 }

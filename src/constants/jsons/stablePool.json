@@ -1,0 +1,56 @@
+[
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "_tokenIn",
+                "type": "address"
+            },
+            {
+                "name": "_amountIn",
+                "type": "uint256"
+            },
+            {
+                "name": "_sender",
+                "type": "address"
+            }
+        ],
+        "name": "getAmountOut",
+        "outputs": [
+            {
+                "name": "_amountOut",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "_tokenOut",
+                "type": "address"
+            },
+            {
+                "name": "_amountOut",
+                "type": "uint256"
+            },
+            {
+                "name": "_sender",
+                "type": "address"
+            }
+        ],
+        "name": "getAmountIn",
+        "outputs": [
+            {
+                "name": "_amountIn",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

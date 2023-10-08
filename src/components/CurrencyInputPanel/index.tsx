@@ -14,6 +14,8 @@ interface CurrencyInputPanelProps {
     onUserInput: (field: Field, value: string) => void
     hideMaxButton?: boolean
     disabledSelect?: boolean
+    maxValue?: string
+    disabledInput?: boolean
 }
 
 const CurrencyInputPanel = ({
@@ -23,12 +25,19 @@ const CurrencyInputPanel = ({
     onUserInput,
     onUserSelect,
     hideMaxButton,
-    disabledSelect
+    disabledSelect,
+    maxValue,
+    disabledInput,
 }: CurrencyInputPanelProps) => {
     const { account, chainId } = useActiveWeb3React()
     const balance = useCurrencyBalance(account, token)
 
     const handleOnMax = () => {
+        if(maxValue){
+
+            onUserInput(field, maxValue) 
+            return
+        }
         if (balance) onUserInput(field, balance)
     }
     // console.log(value)
@@ -48,7 +57,7 @@ const CurrencyInputPanel = ({
                 )}
                  
                 <div className="wp-left">
-                    <Input value={value} field={field} onUserInput={onUserInput} />
+                    <Input value={value} field={field} onUserInput={onUserInput} disabled={disabledInput} />
                     <div className="t2 balance">
                     <span className="to">
                         Balance: {balance ? Number(balance).toFixed(3)?.toString() : 0}

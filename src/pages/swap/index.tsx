@@ -18,7 +18,7 @@ import WalletModal from 'components/WalletModal'
 
 import { ALL_SUPPORTED_CHAIN_IDS, WRAPPED_NATIVE_COIN } from 'constants/index'
 import { ROUTERS, SYNCSWAP_ROUTERS, WRAPPED_NATIVE_ADDRESSES } from 'constants/addresses'
-import { mulNumberWithDecimal } from 'utils/math'
+import { divNumberWithDecimal, mulNumberWithDecimal } from 'utils/math'
 import { useRouterContract, useSyncSwapRouterContract, useTokenContract } from 'hooks/useContract'
 import {
     calcSlippageAmount,
@@ -43,7 +43,9 @@ import { OpacityModal } from 'components/Web3Status'
 import { useEstimateGas } from 'hooks/useEstimateGas'
 import { useSyncSwapPair } from 'hooks/useSyncSwapPair'
 import { defaultAbiCoder } from 'ethers/lib/utils'
-import { BigNumber } from 'ethers'
+import STABLE_ABI from 'constants/jsons/stablePool.json'
+import { ethers } from 'ethers'
+import useDebounce from 'hooks/useDebounce'
 
 const Swap = () => {
     const swapState = useSwapState()
@@ -51,16 +53,22 @@ const Swap = () => {
     const { inputAmount, outputAmount, swapType, tokenIn, tokenOut } = swapState
     const { onUserInput, onSwitchTokens, onTokenSelection, onChangeSwapState } =
         useSwapActionHandlers()
-    const { chainId, account } = useActiveWeb3React()
+    const { chainId, account, provider } = useActiveWeb3React()
     const [isOpenWalletModal, setIsOpenWalletModal] = useState(false)
     let pair = usePair(chainId, tokenIn, tokenOut)
+    let isStable = false
     let routerContract = useRouterContract()
     let routerAddress = chainId ? ROUTERS[chainId] : undefined
+    const [isLoading, setIsLoading] = useState(false)
     const syncPair = useSyncSwapPair(chainId, tokenIn, tokenOut)
     const syncSwapRouterContract = useSyncSwapRouterContract()
+    const amountInStable = useDebounce(inputAmount, 600)
+    const amountOutStable = useDebounce(outputAmount, 600)
+
 
     if(syncPair !== undefined) {
         pair = syncPair
+        isStable = syncPair.isStable
         routerAddress = chainId ? SYNCSWAP_ROUTERS[chainId] : undefined
         routerContract = syncSwapRouterContract
     }
@@ -419,13 +427,46 @@ const Swap = () => {
     }
 
     useEffect(() => {
+        if(
+            amountInStable && pair && tokenIn && tokenOut && swapType === Field.INPUT && chainId && isStable
+        ) {
+            const amountInWithDel = mulNumberWithDecimal(
+                amountInStable,
+                tokenIn.decimals,
+            )
+            const poolContract = new ethers.Contract(pair.tokenLp.address, STABLE_ABI, provider)
+            setIsLoading(true)
+            poolContract.getAmountOut(tokenIn.address, amountInWithDel, account || ZERO_ADDRESS)
+            .then((res: any) => {
+                const amountOut = divNumberWithDecimal(res, tokenOut.decimals)
+                onChangeSwapState({
+                    ...swapState,
+                    outputAmount: amountOut,
+                })
+                setIsLoading(false)
+            })
+            .catch((err: any) => {
+                onChangeSwapState({
+                    ...swapState,
+                    outputAmount: '',
+                })
+                setIsLoading(false)
+                console.log('failed to fetch amount out of syncswap stable pool', err)
+            })
+        }
+    }, [
+        amountInStable,
+        chainId,
+        pair?.reserve0,
+        pair?.reserve1,
+        pair?.reserveLp,
+        pair?.tokenLp.address,
+        isStable
+    ])
+
+    useEffect(() => {
         if (
-            inputAmount &&
-            pair &&
-            tokenIn &&
-            tokenOut &&
-            swapType === Field.INPUT &&
-            chainId
+            inputAmount && pair && tokenIn && tokenOut && swapType === Field.INPUT && chainId && !isStable
         ) {
             const amountInWithDel = mulNumberWithDecimal(
                 inputAmount,
@@ -464,16 +505,50 @@ const Swap = () => {
         pair?.reserve1,
         pair?.reserveLp,
         pair?.tokenLp.address,
+        isStable
+    ])
+
+    useEffect(() => {
+        if(
+            amountOutStable && pair && tokenIn && tokenOut && swapType === Field.OUTPUT && chainId && isStable
+        ) {
+            const amountOutWithDel = mulNumberWithDecimal(
+                amountOutStable,
+                tokenOut.decimals,
+            )
+            const poolContract = new ethers.Contract(pair.tokenLp.address, STABLE_ABI, provider)
+            setIsLoading(true)
+            poolContract.getAmountIn(tokenOut.address, amountOutWithDel, account || ZERO_ADDRESS)
+            .then((res: any) => {
+                const amountIn = divNumberWithDecimal(res, tokenIn.decimals)
+                onChangeSwapState({
+                    ...swapState,
+                    inputAmount: amountIn,
+                })
+                setIsLoading(false)
+            })
+            .catch((err: any) => {
+                onChangeSwapState({
+                    ...swapState,
+                    inputAmount: '',
+                })
+                setIsLoading(false)
+                console.log('failed to fetch amount in of syncswap stable pool', err)
+            })
+        }
+    }, [
+        amountOutStable,
+        chainId,
+        pair?.reserve0,
+        pair?.reserve1,
+        pair?.reserveLp,
+        pair?.tokenLp.address,
+        isStable
     ])
 
     useEffect(() => {
         if (
-            outputAmount &&
-            pair &&
-            tokenIn &&
-            tokenOut &&
-            swapType === Field.OUTPUT &&
-            chainId
+            outputAmount && pair && tokenIn && tokenOut && swapType === Field.OUTPUT && chainId && !isStable
         ) {
             const amountOutWithDel = mulNumberWithDecimal(
                 outputAmount,
@@ -512,6 +587,7 @@ const Swap = () => {
         pair?.reserve1,
         pair?.reserveLp,
         pair?.tokenLp.address,
+        isStable
     ])
 
     const SwapButton = () => {
@@ -530,6 +606,7 @@ const Swap = () => {
                     <PrimaryButton
                         name="Connect Wallet"
                         onClick={openWalletModal}
+                        isLoading={isLoading}
                     />
                 ) : unSupportedNetwork ? (
                     <LabelButton name="Unsupported network" />
@@ -537,6 +614,8 @@ const Swap = () => {
                     <LabelButton name="Select a token" />
                 ) : isUndefinedAmount ? (
                     <LabelButton name="Enter an amount" />
+                ) : isLoading ? (
+                        <PrimaryButton disabled isLoading={true} name='Getting Price' />
                 ) : isInsufficientBalance ? (
                     <LabelButton name="Insufficient Balance" />
                 ) : isInffuficientLiquidity ? (
@@ -602,6 +681,7 @@ const Swap = () => {
                         onUserInput={handleOnUserInput}
                         onUserSelect={handleOnTokenSelection}
                         field={Field.INPUT}
+                        // disabledInput={isLoading}
                     />
                     <Icon>
                         <img
@@ -617,6 +697,7 @@ const Swap = () => {
                         onUserSelect={handleOnTokenSelection}
                         field={Field.OUTPUT}
                         hideMaxButton={true}
+                         // disabledInput={isLoading}
                     />
                 </Columns>
                 {pair && (

@@ -5,13 +5,19 @@ import {
     useMultipleContractSingleData,
 } from 'states/multicall/hooks'
 import { Pair } from 'utils/pair'
-import { useMulticallContract, useSyncSwapFactoryContract } from './useContract'
+import { useMulticallContract, useSyncSwapFactoryContract, useSyncSwapStableFactoryContract } from './useContract'
 import { useToken } from './useToken'
 import PAIR_INTERFACE from 'constants/jsons/syncswap-pair'
-import { SUPPORTED_SYNCSWAP_TOKENS, WRAPPED_NATIVE_COIN } from 'constants/index'
+import { SUPPORTED_SYNCSWAP_STABLE_TOKENS, SUPPORTED_SYNCSWAP_TOKENS, WRAPPED_NATIVE_COIN } from 'constants/index'
 import { ChainId } from 'interfaces'
 import { isNativeCoin } from 'utils'
 
+class SyncPair extends Pair {
+    isStable: boolean = false
+    setIsStable(bool: boolean) {
+        this.isStable = bool
+    }
+}
 /**
  * Returns a map of the given tokenA, tokenB to their eventually consistent Pair info.
  */
@@ -19,20 +25,33 @@ export function useSyncSwapPair(
     chainId: ChainId | undefined,
     tokenA: Token | undefined,
     tokenB: Token | undefined,
-): Pair | undefined {
+): SyncPair | undefined {
     tokenA =
         chainId && isNativeCoin(tokenA) ? WRAPPED_NATIVE_COIN[chainId] : tokenA
     tokenB =
         chainId && isNativeCoin(tokenB) ? WRAPPED_NATIVE_COIN[chainId] : tokenB
+    let isStable = false
     if(
-        !SUPPORTED_SYNCSWAP_TOKENS[chainId || 280].includes(tokenA?.symbol || '') && 
-        !SUPPORTED_SYNCSWAP_TOKENS[chainId || 280].includes(tokenB?.symbol || '')
+        tokenA && tokenB && (
+            !SUPPORTED_SYNCSWAP_TOKENS[chainId || 280].includes(tokenA.symbol) ||
+            !SUPPORTED_SYNCSWAP_TOKENS[chainId || 280].includes(tokenB.symbol)
+        )
     ) {
         tokenA = undefined
         tokenB = undefined
     }
+    if(
+        tokenA && tokenB && (
+            SUPPORTED_SYNCSWAP_STABLE_TOKENS[chainId || 280].includes(tokenA.symbol) &&
+            SUPPORTED_SYNCSWAP_STABLE_TOKENS[chainId || 280].includes(tokenB.symbol)
+        )
+    ) {
+        isStable = true
+    }
     const factory = useSyncSwapFactoryContract()
-    const lpAddressResult = useSingleCallResult(factory, 'getPool', [
+    const stableFactory = useSyncSwapStableFactoryContract()
+    const contract = isStable ? stableFactory : factory
+    const lpAddressResult = useSingleCallResult(contract, 'getPool', [
         tokenA?.address,
         tokenB?.address,
     ])
@@ -61,7 +80,7 @@ export function useSyncSwapPair(
             reserves &&
             balance &&
             tokenLp &&
-            new Pair({
+            new SyncPair({
                 token0: tokenA,
                 token1: tokenB,
                 tokenLp,
@@ -70,7 +89,7 @@ export function useSyncSwapPair(
                 reserveLp: Number(balance._hex),
                 fee: 0.003
             })
+        pair?.setIsStable(isStable)
         return pair
     }, [lpAddress, balanceResult, reservesResult])
 }
-

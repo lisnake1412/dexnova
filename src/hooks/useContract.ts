@@ -11,6 +11,7 @@ import {
     ROUTERS,
     FARMING_ADDRESSES,
     SYNCSWAP_FACTORIES,
+    SYNCSWAP_STABLE_FACTORIES,
     SYNCSWAP_ROUTERS
 } from 'constants/addresses'
 import ERC20 from 'constants/jsons/erc20.json'
@@ -73,6 +74,10 @@ export function useFarmingContract(): Contract | null {
 export function useSyncSwapFactoryContract(): Contract | null {
     const { chainId } = useActiveWeb3React()
     return useContract(SYNCSWAP_FACTORIES[chainId || 280] , SYNCSWAP_FACOTRY_ABI)
+}
+export function useSyncSwapStableFactoryContract(): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    return useContract(SYNCSWAP_STABLE_FACTORIES[chainId || 280] , SYNCSWAP_FACOTRY_ABI)
 }
 
 export function useSyncSwapRouterContract(): Contract | null {

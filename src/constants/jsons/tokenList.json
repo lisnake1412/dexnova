@@ -8,6 +8,14 @@
         "chainId": 324
     },
     {
+        "address": "0x493257fd37edb34451f62edf8d2a0c418852ba4c",
+        "symbol": "USDT",
+        "decimals": 6,
+        "logoURI": "https://raw.githubusercontent.com/forbitspace/icons/main/token/usdt.jpg",
+        "name": "USDT Coin",
+        "chainId": 324
+    },
+    {
         "address": "0x0e97C7a0F8B2C9885C8ac9fC6136e829CbC21d42",
         "symbol": "MUTE",
         "decimals": 18,
