@@ -8,6 +8,7 @@ import { Columns } from 'components/Layouts'
 import { useNavigate } from 'react-router-dom'
 import imgClose from 'assets/icons/x.svg'
 import iconMenu from 'assets/icons/menu.png'
+import { Link, useLocation } from 'react-router-dom'
 
 const Header = () => {
     const [burgerNav, setBurgerNav] = useState(false)
@@ -16,9 +17,11 @@ const Header = () => {
     return (
         <HeaderWrapper>
             <Columns>
+            <Link  to="https://ancora.finance/">
                 <Logo onClick={() => navigate('/')}>
                     <img src={BrandLogo} alt="logo" />
                 </Logo>
+            </Link>
             </Columns>
             <Columns al="start" jus="center">
                 <Navigator burgerNav={burgerNav} setBurgerNav={setBurgerNav} />

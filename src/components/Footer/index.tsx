@@ -40,7 +40,9 @@ const Footer = () => {
                 <div className="wp-footer">
                     <Top>
                         <div className="logo">
+                        <Link  to="https://ancora.finance/">
                             <img src={Logo} alt="logo footer" />
+                        </Link>
                         </div>
                         <ul>
                             <li><Link to='/swap' >Trade</Link></li>

@@ -29,12 +29,12 @@ export const navs = [
         name: "Bridge",
         paths: [
             {
-                path: "https://www.orbiter.finance/?source=Ethereum&dest=Linea",
+                path: "https://app.rhino.fi/bridge?token=ETH&chainOut=LINEA&chain=ETHEREUM",
                 name: "Mainnet",
                 isExternal: true
             },
             {
-                path: "https://www.orbiter.finance/?source=Ethereum&dest=Linea",
+                path: "https://app.rhino.fi/bridge?token=ETH&chainOut=LINEA&chain=ETHEREUM",
                 name: "Testnet",
                 isExternal: true
             }
