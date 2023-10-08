@@ -130,7 +130,7 @@
         "logoURI": "https://raw.githubusercontent.com/forbitspace/icons/main/token/usdt.jpg",
         "name": "USDT Coin",
         "chainId": 5
-    },   
+    },
     {
         "address": "0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4",
         "symbol": "USDC",
@@ -146,7 +146,7 @@
         "logoURI": "https://firebasestorage.googleapis.com/v0/b/token-library.appspot.com/o/link.svg?alt=media&token=1985e3d8-3aa7-4d04-8839-565d4c341615",
         "name": "DAI",
         "chainId": 84531
-    },    
+    },
     {
         "address": "0x14b92edf57277eBd00c3B7C3C3C714f7F7aa45AB",
         "symbol": "DAI",
@@ -187,7 +187,22 @@
         "decimals": 6,
         "logoURI": "https://raw.githubusercontent.com/compound-finance/token-list/master/assets/asset_USDC.svg",
         "name": "USD Coin",
-        "chainId": 59144 
+        "chainId": 59144
+    },
+    {
+        "address": "0xA219439258ca9da29E9Cc4cE5596924745e12B93",
+        "symbol": "USDT",
+        "decimals": 6,
+        "logoURI": "https://raw.githubusercontent.com/forbitspace/icons/main/token/usdt.jpg",
+        "name": "USDT Coin",
+        "chainId": 59144
+    },
+    {
+        "address": "0x4AF15ec2A0BD43Db75dd04E62FAA3B8EF36b00d5",
+        "symbol": "DAI",
+        "decimals": 18,
+        "logoURI": "https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.svg?v=025",
+        "name": "DAI",
+        "chainId": 59144
     }
-
 ]

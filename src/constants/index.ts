@@ -198,44 +198,44 @@ export const CommonBaseTokens: { [chainId in number]: Token[] } = {
 
 export const PRICE_TOKEN: { [chainId in number]: Token } = {
     [ChainId.ZKTESTNET]: {
-        "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-        "symbol": "ETH",
-        "decimals": 18,
-        "logoURI": ETH_LOGO,
-        "name": "Ethereum",
-        "chainId": 280
+        address: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+        symbol: 'ETH',
+        decimals: 18,
+        logoURI: ETH_LOGO,
+        name: 'Ethereum',
+        chainId: 280,
     },
     [ChainId.ZKMAINNET]: {
-        "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-        "symbol": "ETH",
-        "decimals": 18,
-        "logoURI": ETH_LOGO,
-        "name": "Ethereum",
-        "chainId": 324
+        address: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+        symbol: 'ETH',
+        decimals: 18,
+        logoURI: ETH_LOGO,
+        name: 'Ethereum',
+        chainId: 324,
     },
     [ChainId.BASETESTNET]: {
-        "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-        "symbol": "ETH",
-        "decimals": 18,
-        "logoURI": ETH_LOGO,
-        "name": "Ethereum",
-        "chainId": 84531
+        address: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+        symbol: 'ETH',
+        decimals: 18,
+        logoURI: ETH_LOGO,
+        name: 'Ethereum',
+        chainId: 84531,
     },
     [ChainId.LINEATESTNET]: {
-        "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-        "symbol": "ETH",
-        "decimals": 18,
-        "logoURI": ETH_LOGO,
-        "name": "Ethereum",
-        "chainId": 59140
+        address: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+        symbol: 'ETH',
+        decimals: 18,
+        logoURI: ETH_LOGO,
+        name: 'Ethereum',
+        chainId: 59140,
     },
     [ChainId.LINEAMAINNET]: {
-        "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-        "symbol": "ETH",
-        "decimals": 18,
-        "logoURI": ETH_LOGO,
-        "name": "Ethereum",
-        "chainId": 59144 
+        address: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+        symbol: 'ETH',
+        decimals: 18,
+        logoURI: ETH_LOGO,
+        name: 'Ethereum',
+        chainId: 59144,
     },
 }
 
@@ -247,7 +247,6 @@ export const DEFAULT_TOKEN_LIST: { [chainId in number]: TokenList } = {
     [ChainId.BASETESTNET]: [NATIVE_COIN[ChainId.BASETESTNET], ...tokenList],
     [ChainId.LINEATESTNET]: [NATIVE_COIN[ChainId.LINEATESTNET], ...tokenList],
     [ChainId.LINEAMAINNET]: [NATIVE_COIN[ChainId.LINEAMAINNET], ...tokenList],
-
 }
 
 export const ALL_SUPPORTED_CHAIN_IDS: ChainId[] = [
@@ -266,8 +265,8 @@ export const POOLS_SUBGRAPH_URL: { [chainId in number]: string } = {
     [ChainId.ZKTESTNET]: '',
     [ChainId.ZKMAINNET]: '',
     [ChainId.BASETESTNET]: '',
-    [ChainId.LINEATESTNET]:'',
-    [ChainId.LINEAMAINNET]:'',
+    [ChainId.LINEATESTNET]: '',
+    [ChainId.LINEAMAINNET]: '',
 }
 
 export const ZKS_TOKEN: { [chainId in number]: Token } = {
@@ -275,57 +274,64 @@ export const ZKS_TOKEN: { [chainId in number]: Token } = {
         address: '0x61Ed2c581cf6985FaFF0178617967f659AfaF27A',
         symbol: 'ZKS',
         name: 'zkSync Token',
-        logoURI: 'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
+        logoURI:
+            'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
         decimals: 18,
-        chainId: 5
+        chainId: 5,
     },
     [ChainId.MUMBAI]: {
         address: '0x61Ed2c581cf6985FaFF0178617967f659AfaF27A',
         symbol: 'ZKS',
         name: 'zkSync Token',
-        logoURI: 'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
+        logoURI:
+            'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
         decimals: 18,
-        chainId: 80001
+        chainId: 80001,
     },
     [ChainId.ZKTESTNET]: {
         address: '0x61F63BA22eEeE02E549F3f64abf19686691d7c9e',
         symbol: 'ZKS',
         name: 'zkSync Token',
-        logoURI: 'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
+        logoURI:
+            'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
         decimals: 18,
-        chainId: 280
-    },    
+        chainId: 280,
+    },
     [ChainId.ZKMAINNET]: {
         address: '0x61Ed2c581cf6985FaFF0178617967f659AfaF27A',
         symbol: 'ZKS',
         name: 'zkSync Token',
-        logoURI: 'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
+        logoURI:
+            'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
         decimals: 18,
-        chainId: 324
+        chainId: 324,
     },
     [ChainId.BASETESTNET]: {
         address: '0x61Ed2c581cf6985FaFF0178617967f659AfaF27A',
         symbol: 'ZKS',
         name: 'zkSync Token',
-        logoURI: 'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
+        logoURI:
+            'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
         decimals: 18,
-        chainId: 84531
+        chainId: 84531,
     },
     [ChainId.LINEATESTNET]: {
         address: '0x61Ed2c581cf6985FaFF0178617967f659AfaF27A',
         symbol: 'TLinea',
         name: 'TLinea Token',
-        logoURI: 'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
+        logoURI:
+            'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
         decimals: 18,
-        chainId: 59140
-    },    
+        chainId: 59140,
+    },
     [ChainId.LINEAMAINNET]: {
         address: '0x61Ed2c581cf6985FaFF0178617967f659AfaF27A',
         symbol: 'ZKS',
         name: 'zkSync Token',
-        logoURI: 'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
+        logoURI:
+            'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
         decimals: 18,
-        chainId: 59144 
+        chainId: 59144,
     },
 }
 
@@ -333,14 +339,49 @@ export const SUPPORTED_SYNCSWAP_TOKENS: { [chainId in number]: string[] } = {
     [ChainId.GOERLI]: [''],
     [ChainId.MUMBAI]: [''],
     [ChainId.ZKTESTNET]: [''],
-    [ChainId.ZKMAINNET]: ['USDC', 'ETH', 'WETH', 'USDT', 'DAI', 'ceBUSD', 'zkUSD', 'LUSD', 'USD+', 'crvUSD', 'TiUSD'],
+    [ChainId.ZKMAINNET]: [
+        'USDC',
+        'ETH',
+        'WETH',
+        'USDT',
+        'DAI',
+        'ceBUSD',
+        'zkUSD',
+        'LUSD',
+        'USD+',
+        'crvUSD',
+        'TiUSD',
+    ],
     [ChainId.BASETESTNET]: [''],
     [ChainId.LINEATESTNET]: [''],
-    [ChainId.LINEAMAINNET]: ['USDC', 'ETH', 'WETH','USDT','DAI'],
+    [ChainId.LINEAMAINNET]: ['USDC', 'ETH', 'WETH', 'USDT', 'DAI'],
 }
-export const SUPPORTED_SYNCSWAP_STABLE_TOKENS: { [chainId in number]: string[] } = {
+export const SUPPORTED_SYNCSWAP_STABLE_TOKENS: {
+    [chainId in number]: string[]
+} = {
     [ChainId.GOERLI]: [''],
     [ChainId.MUMBAI]: [''],
     [ChainId.ZKTESTNET]: [''],
-    [ChainId.ZKMAINNET]: ['USDC', 'USDT', 'DAI', 'ceBUSD', 'zkUSD', 'LUSD', 'USD+', 'crvUSD', 'TiUSD'],
+    [ChainId.ZKMAINNET]: [
+        'USDC',
+        'USDT',
+        'DAI',
+        'ceBUSD',
+        'zkUSD',
+        'LUSD',
+        'USD+',
+        'crvUSD',
+        'TiUSD',
+    ],
+    [ChainId.LINEAMAINNET]: [
+        'USDC',
+        'USDT',
+        'DAI',
+        'ceBUSD',
+        'zkUSD',
+        'LUSD',
+        'USD+',
+        'crvUSD',
+        'TiUSD',
+    ],
 }
