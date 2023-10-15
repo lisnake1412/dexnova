@@ -40,8 +40,8 @@ const CountDownOne = () => {
         </>
       );
     }
-  };
-  const coun = 1687248000000 - Date.now();
+  };           
+  const coun = 1697461200000 - Date.now();
   const CountdownWrapper = () => <Countdown date={Date.now() + coun} />;
 
   return (

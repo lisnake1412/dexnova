@@ -39,6 +39,9 @@ body {
 .title_lable {
   font-size: 14px;
 }
+.coming-time {
+  margin-bottom: 35px;
+}
 
 .sc-dcJsrY.gdLdzk.title-gdLdzk {
   color: #9d9d9d;
@@ -897,6 +900,7 @@ div#dexscreener-embed {
     .wp-container {
       margin-top: 55px;
   }
+  
     
 section.launchpad {
   margin-top: 30px;
@@ -1390,6 +1394,42 @@ section.launchpad {
   font-size: 12px;
   font-weight: 400;
   margin-bottom: 0;
+}
+.banner-countdown-wrap .coming-time .time-count {
+  min-width: 65px;
+  min-height: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+  margin: 15px 5px 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  background: #e7e7e7;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 5px;
+  color: #a4b4c3;
+  text-transform: capitalize;
+  min-width: 80px;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+  margin: 15px 3.5px 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  background: #e1e1e1;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 5px;
+  color: #000;
+  text-transform: capitalize;
 }
 .wp-popups {
   position: relative;

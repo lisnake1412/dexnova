@@ -15,9 +15,9 @@ const questionsAnswers = [
   },
   {
     question: "How much is the participation fee?",
-    answer: `There’s only a participation fee for the Public Sale: there’s no fee for the Private Sale.
+    answer: `There’s only a participation fee for the Private Sale: there’s no fee for the Private Sale.
 
-    The participation fee decreases in cliffs, based on the percentage of overflow from the “Public Sale” portion of the IDO. Note: Fees may vary between different IDOs. To learn more about the participation fees, please refer to the details in the IDO proposal (vote) for the specifics of the IDO you want to take part in.`,
+    The participation fee decreases in cliffs, based on the percentage of overflow from the Private Sale” portion of the IDO. Note: Fees may vary between different IDOs. To learn more about the participation fees, please refer to the details in the IDO proposal (vote) for the specifics of the IDO you want to take part in.`,
   },
   {
     question: "Where does the participation fee go?",
@@ -25,7 +25,7 @@ const questionsAnswers = [
   },
   {
     question: "How can I get an achievement for participating in the IDO?",
-    answer: `You need to contribute a minimum of about 10 USD worth of ETH to either sale. You can contribute to one or both, it doesn’t matter: only your overall contribution is counted for the achievement.`,
+    answer: `You need to contribute a minimum of about 0.1 ETH to either sale. You can contribute to one or both, it doesn’t matter: only your overall contribution is counted for the achievement.`,
   },
   {
     question: "What is the difference between an IDO and a cIDO? ",

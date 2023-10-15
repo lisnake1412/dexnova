@@ -80,7 +80,7 @@ export const navs = [
         name: "Launchpad",
         paths: [
             {
-                path: "/comingsoon",
+                path: "/private_sale",
                 name: "Private Sale",
                 isExternal: false
             },

@@ -66,6 +66,14 @@ export const NATIVE_COIN: { [chainId in number]: Token } = {
         logoURI: ETH_LOGO,
         decimals: 18,
     },
+    [ChainId.ETHMAINNET]: {
+        address: '0x0000000000000000000000000000000000000000',
+        symbol: 'ETH',
+        chainId: ChainId.LINEAMAINNET,
+        name: 'Ethereum',
+        logoURI: ETH_LOGO,
+        decimals: 18,
+    },
 }
 
 export const URLSCAN_BY_CHAINID: { [chainId in number]: { url: string } } = {
@@ -89,6 +97,9 @@ export const URLSCAN_BY_CHAINID: { [chainId in number]: { url: string } } = {
     },
     [ChainId.LINEAMAINNET]: {
         url: 'https://lineascan.build/',
+    },
+    [ChainId.ETHMAINNET]: {
+        url: 'https://etherscan.io',
     },
 }
 
@@ -194,6 +205,12 @@ export const CommonBaseTokens: { [chainId in number]: Token[] } = {
             .filter((token) => token.chainId === ChainId.LINEAMAINNET)
             .slice(0, 5),
     ],
+    [ChainId.ETHMAINNET]: [
+        NATIVE_COIN[ChainId.LINEAMAINNET],
+        ...tokenList
+            .filter((token) => token.chainId === ChainId.ETHMAINNET)
+            .slice(0, 5),
+    ],
 }
 
 export const PRICE_TOKEN: { [chainId in number]: Token } = {
@@ -237,6 +254,14 @@ export const PRICE_TOKEN: { [chainId in number]: Token } = {
         name: 'Ethereum',
         chainId: 59144,
     },
+    [ChainId.ETHMAINNET]: {
+        address: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+        symbol: 'ETH',
+        decimals: 18,
+        logoURI: ETH_LOGO,
+        name: 'Ethereum',
+        chainId: 1,
+    },
 }
 
 export const DEFAULT_TOKEN_LIST: { [chainId in number]: TokenList } = {
@@ -247,6 +272,7 @@ export const DEFAULT_TOKEN_LIST: { [chainId in number]: TokenList } = {
     [ChainId.BASETESTNET]: [NATIVE_COIN[ChainId.BASETESTNET], ...tokenList],
     [ChainId.LINEATESTNET]: [NATIVE_COIN[ChainId.LINEATESTNET], ...tokenList],
     [ChainId.LINEAMAINNET]: [NATIVE_COIN[ChainId.LINEAMAINNET], ...tokenList],
+    [ChainId.ETHMAINNET]: [NATIVE_COIN[ChainId.LINEAMAINNET], ...tokenList],
 }
 
 export const ALL_SUPPORTED_CHAIN_IDS: ChainId[] = [
@@ -257,6 +283,7 @@ export const ALL_SUPPORTED_CHAIN_IDS: ChainId[] = [
     ChainId.BASETESTNET,
     ChainId.LINEATESTNET,
     ChainId.LINEAMAINNET,
+    ChainId.ETHMAINNET,
 ]
 
 export const POOLS_SUBGRAPH_URL: { [chainId in number]: string } = {

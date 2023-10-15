@@ -43,24 +43,24 @@ export const ListNetwork = [
             },
         ],
     },  
-    {
-        name: 'Base Testnet',
-        chainId: 84531,
-        logo: LogoBase,
-        switchNetwork: [
-            {
-                chainId: 84531,
-                chainName: 'Base Testnet',
-                nativeCurrency: {
-                    name: 'ETH',
-                    symbol: 'ETH',
-                    decimals: 18,
-                },
-                rpcUrls: ['https://base-goerli.public.blastapi.io'],
-                blockExplorerUrls: ['https://goerli.base.org'],
-            },
-        ],
-    },
+    // {
+    //     name: 'Base Testnet',
+    //     chainId: 84531,
+    //     logo: LogoBase,
+    //     switchNetwork: [
+    //         {
+    //             chainId: 84531,
+    //             chainName: 'Base Testnet',
+    //             nativeCurrency: {
+    //                 name: 'ETH',
+    //                 symbol: 'ETH',
+    //                 decimals: 18,
+    //             },
+    //             rpcUrls: ['https://base-goerli.public.blastapi.io'],
+    //             blockExplorerUrls: ['https://goerli.base.org'],
+    //         },
+    //     ],
+    // },
 
 
     {
@@ -81,24 +81,24 @@ export const ListNetwork = [
             },
         ],
     },
-    // {
-    //     name: 'Ethereum Testnet',
-    //     chainId: 5,
-    //     logo: LogoETH,
-    //     switchNetwork: [
-    //         {
-    //             chainId: 5,
-    //             chainName: 'Ethereum Testnet',
-    //             nativeCurrency: {
-    //                 name: 'ETH',
-    //                 symbol: 'ETH',
-    //                 decimals: 18,
-    //             },
-    //             rpcUrls: ['https://goerli.infura.io/v3/'],
-    //             blockExplorerUrls: ['https://goerli.etherscan.io'],
-    //         },
-    //     ],
-    // },
+    {
+        name: 'Ethereum Mainnet',
+        chainId: 1,
+        logo: LogoETH,
+        switchNetwork: [
+            {
+                chainId: 1,
+                chainName: 'Ethereum Mainnet',
+                nativeCurrency: {
+                    name: 'ETH',
+                    symbol: 'ETH',
+                    decimals: 18,
+                },
+                rpcUrls: ['https://mainnet.infura.io/v3/'],
+                blockExplorerUrls: ['https://etherscan.io'],
+            },
+        ],
+    },
 
 ]
 
@@ -134,4 +134,8 @@ export const InfoNetwork: {
         logo: LogoBase,
     },
   
+    [ChainId.ETHMAINNET]: {
+        name: 'Ethereum Mainnet',
+        logo: LogoETH,
+    },
 }
