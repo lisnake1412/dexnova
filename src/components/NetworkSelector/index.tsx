@@ -16,7 +16,7 @@ const NetworkSelector = () => {
     useOnClickOutside(networkRef, () => {
         setNetworkModal(false)
     })
-
+    
     const showNameNetworkCurrent = (chainId: any) => {
         if (chainId && !InfoNetwork[chainId]) {
             return (
@@ -48,7 +48,7 @@ const NetworkSelector = () => {
                         setNetworkModal((i) => !i)
                 }}
             >
-                {!isWrongNetwork ? showNameNetworkCurrent(chainId) : 'Switch Network'}
+                {chainId==0? 'Ethereum Mainnet':(!isWrongNetwork ? showNameNetworkCurrent(chainId) : 'Switch Network')}
             </NetworkButton>
             <DropdownModal networkModal={networkModal} ref={networkRef}>
                 <ul>

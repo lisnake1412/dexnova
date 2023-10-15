@@ -617,11 +617,11 @@ const [totalraise, setTotalRaise] = useState("");
 const [totalraisepercent, setTotalRaisepercent] = useState("");
 // const tokenContract = new ethers.Contract(contractAddress, privateSale_abi, signer);
 async function callContract() {
-  if(chainId != 1){
-    console.log(chainId)
-    alert("Please change and bridge to Ethereum Mainnet");
-    return;
-  }
+  // if(chainId != 1){
+  //   console.log(chainId)
+  //   alert("Please change and bridge to Ethereum Mainnet");
+  //   return;
+  // }
   if(account){
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner();
@@ -655,14 +655,19 @@ async function claim() {
 async function getContractBalance() {
   // let value;
 //   if(account){
+      try{
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        const signer = provider.getSigner();
+        const publicSaleContract = new ethers.Contract(contractAddress, publicSale_abi, signer);
+  
+        const a = await publicSaleContract.getContractBalance();
+        setTotalRaise((Number(ethers.utils.formatEther(a))).toString());
+        setTotalRaisepercent(((Number(ethers.utils.formatEther(a)))*100/20).toFixed(2).toString());
+      }
+      catch(e){
+        return;
+    }
       
-      const provider = new ethers.providers.Web3Provider(window.ethereum)
-      const signer = provider.getSigner();
-      const publicSaleContract = new ethers.Contract(contractAddress, publicSale_abi, signer);
-
-      const a = await publicSaleContract.getContractBalance();
-      setTotalRaise((Number(ethers.utils.formatEther(a))).toString());
-      setTotalRaisepercent(((Number(ethers.utils.formatEther(a)))*100/70).toFixed(2).toString());
 //    }
  }
 getContractBalance(); 
@@ -713,8 +718,8 @@ if(account){
                                     aria-valuemax="100"
                                     />
                                 </div>
-                                {/* <p>{totalraise} / 20 ETH ({totalraisepercent}%)</p> */}
-                                <p>00 / 20 ETH ({totalraisepercent}%)</p>
+                                <p>{totalraise} / 20 ETH ({totalraisepercent}%)</p>
+                                {/* <p>00 / 20 ETH ({totalraisepercent}%)</p> */}
 
                             </div>
                             {/* <div className="title">
@@ -746,8 +751,8 @@ if(account){
             
                                 <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder={ethBalance[account]} />
                                
-                                {/* <button type="submit"onClick={() => callContract()}> */}
-                                <button type="submit">
+                                <button type="submit"onClick={() => callContract()}>
+                                {/* <button type="submit"> */}
                                     Buy Now
                                 </button>
                                 <ul className='total_raise'>

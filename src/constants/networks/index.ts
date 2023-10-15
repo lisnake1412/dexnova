@@ -134,8 +134,8 @@ export const InfoNetwork: {
         logo: LogoBase,
     },
   
-    [ChainId.ETHMAINNET]: {
-        name: 'Ethereum Mainnet',
-        logo: LogoETH,
-    },
+    // [ChainId.ETHMAINNET]: {
+    //     name: 'Ethereum Mainnet',
+    //     logo: LogoETH,
+    // },
 }

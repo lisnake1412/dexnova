@@ -91,6 +91,7 @@ const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
     [ChainId.BASETESTNET]: 'goerli.basescan.org/',
     [ChainId.LINEATESTNET]: 'goerli.lineascan.build',
     [ChainId.LINEAMAINNET]: 'goerli.lineascan.build',
+    // [ChainId.ETHMAINNET]: 'etherscan.io',
 }
 
 export function getEtherscanLink(

@@ -11,6 +11,7 @@ const MULTICALL_NETWORKS: { [chainId: number]: string } = {
     [ChainId.BASETESTNET]: '0x208037eBfCc7b11aFDaa4F1A0D66d6e454F4B2ac',
     [ChainId.LINEATESTNET]: '0xa477f812870aC05A8F7bA9227a698739EF4D37CF',
     [ChainId.LINEAMAINNET]: '0xCD3c3dDBC6C1bFBbDC39d55B8C94958A1ae289C9',
+    // [ChainId.ETHMAINNET]: '0xCD3c3dDBC6C1bFBbDC39d55B8C94958A1ae289C9',
 }
 
 const FACTORIES: { [chainId: number]: string } = {
@@ -21,6 +22,7 @@ const FACTORIES: { [chainId: number]: string } = {
     [ChainId.BASETESTNET]: '0xAED6f811108EfF6717656689F7A5b1a47C881539',
     [ChainId.LINEATESTNET]: '0x9523C1E37B2EE4539928F30a87A1a9f2d4250329',
     [ChainId.LINEAMAINNET]: '0xE7aC188E018f954A83c157ac686De7F66e819a51',
+    // [ChainId.ETHMAINNET]: '0xE7aC188E018f954A83c157ac686De7F66e819a51',
 }
 
 const ROUTERS: { [chainId: number]: string } = {
@@ -31,6 +33,7 @@ const ROUTERS: { [chainId: number]: string } = {
     [ChainId.BASETESTNET]: '0xD1825B645a4daeb932f2B3aa7ffE5e07EdbEea05',
     [ChainId.LINEATESTNET]: '0x9B044036CB007f6cC16B1591ee884B05B93D6c23',
     [ChainId.LINEAMAINNET]: '0xa043BfFcaA9Ebaa6708FcbFa4909B100Af47Fd15',
+    // [ChainId.ETHMAINNET]: '0xa043BfFcaA9Ebaa6708FcbFa4909B100Af47Fd15',
 }
 
 const SYNCSWAP_ROUTERS: { [chainId: number]: string } = {
@@ -64,6 +67,7 @@ const FARMING_ADDRESSES: { [chainId: number]: string } = {
     [ChainId.BASETESTNET]: '',
     [ChainId.LINEATESTNET]: '',
     [ChainId.LINEAMAINNET]: '',
+    // [ChainId.ETHMAINNET]: '',
 }
 
 const INIT_CODE_HASHES: { [chainId: number]: string } = {
@@ -81,6 +85,8 @@ const INIT_CODE_HASHES: { [chainId: number]: string } = {
         '0x0c18c0437decb2e9aeb8498fc7fd556cac1a8baef62ab1920708dc852189c9d7',
     [ChainId.LINEAMAINNET]:
         '0x0c18c0437decb2e9aeb8498fc7fd556cac1a8baef62ab1920708dc852189c9d7',
+    // [ChainId.ETHMAINNET]:
+    //     '0x0c18c0437decb2e9aeb8498fc7fd556cac1a8baef62ab1920708dc852189c9d7',
 }
 
 export const WRAPPED_NATIVE_ADDRESSES: { [chainId: number]: string } = {
@@ -91,6 +97,7 @@ export const WRAPPED_NATIVE_ADDRESSES: { [chainId: number]: string } = {
     [ChainId.BASETESTNET]: '0x4200000000000000000000000000000000000006',
     [ChainId.LINEATESTNET]: '0x2C1b868d6596a18e32E61B901E4060C872647b6C',
     [ChainId.LINEAMAINNET]: '0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f',
+    // [ChainId.ETHMAINNET]: '0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f',
 }
 
 export {

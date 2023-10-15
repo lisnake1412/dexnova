@@ -25,7 +25,7 @@ export enum ChainId {
     BASETESTNET = 84531,
     LINEATESTNET = 59140,
     LINEAMAINNET = 59144,
-    ETHMAINNET = 1,
+    // ETHMAINNET = 1,
 }
 
 export interface IFarmingPool {
