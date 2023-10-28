@@ -361,11 +361,10 @@ export const ZKS_TOKEN: { [chainId in number]: Token } = {
         chainId: 59140,
     },
     [ChainId.LINEAMAINNET]: {
-        address: '0x61Ed2c581cf6985FaFF0178617967f659AfaF27A',
-        symbol: 'ZKS',
-        name: 'zkSync Token',
-        logoURI:
-            'https://ipfs-2.thirdwebcdn.com/ipfs/QmRkhUD6J3B9WhT4hEWLrcFVTrBhx3CQgNC783aJsrwxSN/',
+        address: '0xEFcdB0a0F99BDa971744F4D2B0684797915fAc0F',
+        symbol: 'ACR',
+        name: 'AncoraFinance Token',
+        logoURI: 'https://www.gitbook.com/cdn-cgi/image/width=40,dpr=2,height=40,fit=contain,format=auto/https%3A%2F%2F1936614963-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FNbWFZZFYYlXqZDfsGrB0%252Ficon%252F4Km3eJBbvq9FLr7ITwrB%252Flogo-dex-ancora1.png%3Falt%3Dmedia%26token%3Db2741617-67c8-44b5-8ca5-6900d79d61ae',
         decimals: 18,
         chainId: 59144,
     },

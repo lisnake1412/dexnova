@@ -62,7 +62,10 @@ const PoolPriceBar = ({
                   Number(reserveIn),
               )
             : 0
-
+      if(tokenIn?.symbol === "ACR" && Number(priceImpact)>2){
+                console.log(Number(priceImpact));
+        alert("Reload page, decrease ACR to < 2% impact when swapping!")
+       }
     return (
         <>
             <PoolPriceWrapper>

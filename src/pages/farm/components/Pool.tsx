@@ -56,7 +56,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
         Number(pool.tokenPerBlock),
         pool.isStakePool
     )
-    
+    // console.log(apr);
     const totalSupplyLp = useSingleCallResult(
         lpTokenContract,
         'totalSupply',
@@ -158,7 +158,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
     const { onTokenSelection } = useMintActionHandlers()
     const pairName = isPair ? `${pair?.token0.symbol || '-'}-${pair?.token1.symbol || '-'}` : lpToken?.symbol
     const isHidden = searchQuery ? !pairName?.includes(searchQuery) : false
-
+    // console.log(pool.lpToken);
     return(
         <PoolWrapper isHidden={isHidden} isColumnView={isColumnView}>
             <ComponentsTransaction
@@ -227,7 +227,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                                     Earned
                                 </div>
                                 <div  className='info-f'>
-                                    {pendingReward} ZKS
+                                    {pendingReward} ACR
                                 </div>
                             </Columns>
                            
@@ -238,7 +238,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                                 Liquidity
                                 </div>
                                 <div  className='info-f'>
-                                {Number(divNumberWithDecimal(pool.totalStaked.toString(), 18)).toFixed(4)} {pool.isStakePool ? 'ZKS' : 'ZKS-LP'}
+                                {Number(divNumberWithDecimal(pool.totalStaked.toString(), 18)).toFixed(4)} {pool.isStakePool ? 'ACR' : 'ACR-LP'}
                                 </div>
                             </Columns>
                             <Columns al="flex-end">
@@ -262,7 +262,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                                 </div>
                                 <Row  className='info-f'>
                                     <span className="to" style={{maxWidth: 90, display: "block"}}>
-                                        {apr.toFixed(0)}
+                                        {(apr*10000).toFixed(0)}
                                     </span>
                                     <span>%</span>
                                     
@@ -291,13 +291,13 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                                         </CalcIcon> 
                                         
                                         </div>
-                                        <div className='info-f'>{apr.toFixed(0) || 0}%
+                                        <div className='info-f'>{(apr*1000).toFixed(0) || 0}%
                                         
                                         </div>
                                     </Row>
                                     <Row jus="space-between">
                                         <div className='title_lable' >Earn</div>
-                                        <div className='info-f'>{ZKS_TOKEN[chainId || 324].symbol} + Fees</div>
+                                        <div className='info-f'>{ZKS_TOKEN[chainId || 59144].symbol} + Fees</div>
                                     </Row>    
                                 </>
                             )
@@ -305,7 +305,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                         <WrapperActions isColumnView={isColumnView} className="havest-section">
                             <WrapperAction isColumnView={isColumnView}>
                                 <Row gap="8px" className='title-gdLdzk' >
-                                    <span style={{fontSize: 12}}>{ZKS_TOKEN[chainId || 324].symbol}</span>
+                                    <span style={{fontSize: 12}}>{ZKS_TOKEN[chainId || 59144].symbol}</span>
                                     <span style={{fontSize: 12}}>EARNED</span>
                                 </Row>
                                 <Row jus="center" al="center">
@@ -368,7 +368,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                                     }
                                     {
                                         lpToken && (
-                                            <a className="link" href={getEtherscanLink(chainId || 324, lpToken.address, 'address')} target="_blank">
+                                            <a className="link" href={getEtherscanLink(chainId || 59144, lpToken.address, 'address')} target="_blank">
                                                 <span>View Contract</span>
                                                 <img src={ArrowLink} alt="link icon" />
                                             </a>

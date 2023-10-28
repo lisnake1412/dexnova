@@ -55,6 +55,19 @@ const publicSale_abi = [
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "addAddressF",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address[]",
 				"name": "investors",
 				"type": "address[]"
@@ -66,26 +79,6 @@ const publicSale_abi = [
 			}
 		],
 		"name": "addInvestors",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "cancelPublicSale",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint128",
-				"name": "minprice",
-				"type": "uint128"
-			}
-		],
-		"name": "changeMin",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -122,6 +115,13 @@ const publicSale_abi = [
 		"type": "event"
 	},
 	{
+		"inputs": [],
+		"name": "cancelPublicSale",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -139,6 +139,19 @@ const publicSale_abi = [
 		],
 		"name": "CancelPublicSale",
 		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint128",
+				"name": "minprice",
+				"type": "uint128"
+			}
+		],
+		"name": "changeMin",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -592,6 +605,19 @@ const publicSale_abi = [
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "userClaim",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -609,19 +635,43 @@ const publicSale_abi = [
 		],
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "whitelistF",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
 	}
 ];
-const contractAddress = "0xBcEbe2DE1321c8f3eA5E6999afB6c1b8cfF0D56D";//
+const contractAddress = "0xC78C00a176B18712b819E0d91bcB68CaDD7512c2";//
 const [amount, setAmount] = useState("");
+const [userClaim, setUserclaim] = useState("");
+const [userDep, setUserdep] = useState("");
 const [totalraise, setTotalRaise] = useState("");
 const [totalraisepercent, setTotalRaisepercent] = useState("");
 // const tokenContract = new ethers.Contract(contractAddress, privateSale_abi, signer);
 async function callContract() {
-  // if(chainId != 1){
-  //   console.log(chainId)
-  //   alert("Please change and bridge to Ethereum Mainnet");
-  //   return;
-  // }
+  if(chainId != 1){
+    // console.log(chainId)
+    if(chainId != 0){
+      alert("Please change and bridge to Ethereum Mainnet");
+      return;
+    }
+    
+  }
   if(account){
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner();
@@ -660,9 +710,21 @@ async function getContractBalance() {
         const signer = provider.getSigner();
         const publicSaleContract = new ethers.Contract(contractAddress, publicSale_abi, signer);
   
-        const a = await publicSaleContract.getContractBalance();
-        setTotalRaise((Number(ethers.utils.formatEther(a))).toString());
-        setTotalRaisepercent(((Number(ethers.utils.formatEther(a)))*100/20).toFixed(2).toString());
+        // const a = await publicSaleContract.getContractBalance();
+        // setTotalRaise((Number(ethers.utils.formatEther(a))).toString());
+        // setTotalRaisepercent(((Number(ethers.utils.formatEther(a)))*100/20).toFixed(2).toString());
+        
+        if(account){
+          const b =  await publicSaleContract.userClaim();
+          setUserclaim((Number(ethers.utils.formatEther(b)).toFixed(2)).toString());
+          // console.log(userClaim);
+
+          const c = await publicSaleContract.deposits(account);
+          setUserdep((Number(ethers.utils.formatEther(c))).toString());
+          // console.log(c);
+        }
+        
+
       }
       catch(e){
         return;
@@ -695,11 +757,12 @@ if(account){
                     <div className="box-1">
                         <a href=""><img src={LogoAco} alt="logo" /></a>
                     </div>
-                    <h3 className="title_coundown">Launchpad Will Start In..</h3>
+                    <h3 className="title_coundown"> </h3>
+                    {/* <h3 className="title_coundown">Launchpad Will Start In..</h3>
                     <div className="banner-countdown-wrap text-center">
                         <CountDownOne />
                     </div>
-                    
+                     */}
                     <div className="item">
                         <div className="item_title">
                             <h2>Ancora Private Sale</h2>
@@ -712,13 +775,14 @@ if(account){
                                     <div
                                     className="progress-bar"
                                     role="progressbar"
-                                    style={{ width: totalraisepercent+"%" }}
-                                    aria-valuenow={totalraisepercent}
+                                    // style={{ width: totalraisepercent+"%" }}
+                                    style={{ width:"100%" }}
+                                    aria-valuenow="100"
                                     aria-valuemin="0"
                                     aria-valuemax="100"
                                     />
                                 </div>
-                                <p>{totalraise} / 20 ETH ({totalraisepercent}%)</p>
+                                <p>20.000379 / 20 ETH (100%)</p>
                                 {/* <p>00 / 20 ETH ({totalraisepercent}%)</p> */}
 
                             </div>
@@ -735,7 +799,7 @@ if(account){
                                     </div>
                                     <div className="desponsi-text">
                                         <h4>your ETH Committed</h4>
-                                        <p className='number'>0</p>
+                                        <p className='number'>{userDep}</p>
                                         {/* <p className='total'>0,0032 % off total</p> */}
                                     </div>
                                 </div>
@@ -745,19 +809,19 @@ if(account){
                                     </div>
                                     <div className="desponsi-text">
                                         <h4>ACR To Receive</h4>
-                                        <p className='number'>0</p>
+                                        <p className='number'>{userClaim}</p>
                                     </div>
                                 </div>
             
-                                <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder={ethBalance[account]} />
+                                {/* <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder={ethBalance[account]} /> */}
                                
-                                <button type="submit"onClick={() => callContract()}>
-                                {/* <button type="submit"> */}
-                                    Buy Now
+                                {/* <button type="submit"onClick={() => callContract()}> */}
+                                <button type="submit"onClick={() => claim()}>
+                                    Claim Now
                                 </button>
                                 <ul className='total_raise'>
                                     {/* <li><span>Min token entry</span><span>~0 ETH (0.000000000%)</span></li> */}
-                                    <li><span>Input amount</span><span>{ethBalance[account]}</span></li>
+                                    <li><span>Input amount</span><span></span></li>
                                     <li><span>Price:</span><span>0.004571$</span></li>
                                 </ul>
                             </div>

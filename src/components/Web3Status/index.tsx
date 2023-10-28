@@ -8,10 +8,10 @@ import arrowDown from 'assets/icons/chevron-white.svg'
 import { useActiveWeb3React } from 'hooks'
 
 const Web3Status = () => {
-    const { account, isWrongNetwork,chainId } = useActiveWeb3React()
+    const { account, isWrongNetwork } = useActiveWeb3React()
     const [toggleWalletModal, setToggleWalletModal] = useState<boolean>(false)
     const error = undefined
-    console.log(chainId)
+
     function formatConnectorName(account: any, error: any) {
         return (
             <Fragment>
@@ -25,7 +25,7 @@ const Web3Status = () => {
     }
 
     const Web3StatusInner = (account: any, error: any) => {
-        if (account && chainId != 0) {
+        if (account) {
             return (
                 <Web3StatusConnect
                     height={undefined}
@@ -46,7 +46,6 @@ const Web3Status = () => {
                 </Web3StatusConnect>
             )
         } else {
-            if(chainId != 0)
             return (
                 <Web3StatusConnect
                     height={undefined}
@@ -56,17 +55,6 @@ const Web3Status = () => {
                     Connect wallet
                 </Web3StatusConnect>
             )
-            else if(chainId ==0){
-                return (
-                <Web3StatusConnect
-                    height={undefined}
-                    id="connect-wallet"
-                    onClick={() => setToggleWalletModal(!toggleWalletModal)}
-                >
-                    {shortenAddress(account)}
-                </Web3StatusConnect>
-                )
-            }
         }
     }
 

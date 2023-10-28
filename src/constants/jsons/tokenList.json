@@ -204,5 +204,13 @@
         "logoURI": "https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.svg?v=025",
         "name": "DAI",
         "chainId": 59144
+    },
+    {
+        "address": "0xEFcdB0a0F99BDa971744F4D2B0684797915fAc0F",
+        "symbol": "ACR",
+        "decimals": 18,
+        "logoURI": "https://www.gitbook.com/cdn-cgi/image/width=40,dpr=2,height=40,fit=contain,format=auto/https%3A%2F%2F1936614963-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FNbWFZZFYYlXqZDfsGrB0%252Ficon%252F4Km3eJBbvq9FLr7ITwrB%252Flogo-dex-ancora1.png%3Falt%3Dmedia%26token%3Db2741617-67c8-44b5-8ca5-6900d79d61ae",
+        "name": "Ancora Finance Token",
+        "chainId": 59144
     }
 ]

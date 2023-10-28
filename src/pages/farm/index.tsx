@@ -91,7 +91,25 @@ const Farm = () => {
     const { addTxn } = useTransactionHandler()
     const location = useLocation()
     const isFarm = location.pathname === '/farms'
-
+    const [tvl, SetTVL] = useState("")
+    const getMoviesFromApi = async () => {
+        try {
+          let response = await fetch('https://api.llama.fi/protocol/ancora-finance');
+          let responseJson = await response.json().then(json => {                    // 2
+            console.log(json.currentChainTvls.Linea);
+            SetTVL((json.currentChainTvls.Linea).toString());
+            // console.log(1);
+             });
+        //   console.log(responseJson);
+        //   return responseJson.currentChainTvls.Linea;
+         } catch(error) {
+          console.error(error);
+        }
+      }
+      getMoviesFromApi();
+    //   const a = getMoviesFromApi(); 
+    //   console.log(a);
+    // SetTVL( (await getMoviesFromApi()).toString());  
     const onDeposit = async () => {
         try {
             if(!contract || !currentPool?.lpToken) return
@@ -164,11 +182,11 @@ const Farm = () => {
             <InfoWrapper jus="space-between" al="center" className='wp-top-farm'>
                 <Columns gap="10px" al="center">
                     <span className='label'>TVL</span>
-                    <span className='num'>$2,195,924</span>
+                    <span className='num'>${tvl}</span>
                 </Columns>
                 <Columns className="mobile-hidden" gap="10px" al="center">
                     <span className='label'>Circulating Supply</span>
-                    <span className='num'>$3,412,845</span>
+                    <span className='num'>$18,000,000</span>
                 </Columns>
                 <Columns className="mobile-hidden" gap="10px" al="center">
                     <span className='label'>Burned to date</span>

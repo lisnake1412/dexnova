@@ -51,24 +51,24 @@ const Popup = ({ setIsOpenPopup }) => {
                 <div className="top-item">
                     <div className="item-content">
                         <h4>Start Date</h4>
-                        <p>05/06/2023 15:00 UTC</p>
+                        <p>17/10/2023 13:00 UTC</p>
                     </div>
                     <div className="item-content">
-                        <h4>Start Date</h4>
-                        <p>05/06/2023 15:00 UTC</p>
+                        <h4>End Date</h4>
+                        <p>19/10/2023 13:00 UTC</p>
                     </div>
                     <div className="item-content">
-                        <h4>Start Date</h4>
-                        <p>05/06/2023 15:00 UTC</p>
+                        <h4>Startus</h4>
+                        <p>Up Coming</p>
                     </div>
                 </div>
                 <div className="main-item">
                     <ul>
                         <li><span>Token:</span> <span>Ancora Token (ACR) on Linea</span></li>
-                        <li><span>Total Supply:</span> <span>10.000.000 $ACR</span></li>
-                        <li><span>Address:</span> <span>0xe12575BAdf4F3cf649F4D2e6A68D6A671523EAf2</span></li>
-                        <li><span>Vesting:</span> <span>TGE 40%, vesting linear 10% over 6 months</span></li>
-                        <li><span>Price per 1 ETH:</span> <span>16666.666 $ACR</span></li>
+                        <li><span>Total Supply:</span> <span>300.000.000 $ACR</span></li>
+                        
+                        <li><span>Vesting:</span> <span>TGE 40%,cliff 2 months, vesting linear 10% over 6 months</span></li>
+                        <li><span>Price:</span> <span>0.005714$</span></li>
 
                     </ul>
                 </div>
