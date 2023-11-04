@@ -64,7 +64,7 @@ export const navs = [
                 isExternal: false
             },
             {
-                path: "/comingsoon",
+                path: "/nft",
                 name: "Mint",
                 isExternal: false
             },

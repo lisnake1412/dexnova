@@ -17,6 +17,7 @@ const LaunchpadS1 = React.lazy(() => import('pages/launchpads1'))
 const LaunchpadS2 = React.lazy(() => import('pages/launchpads2'))
 const Pools = React.lazy(() => import('pages/pool'))
 const Farms = React.lazy(() => import('pages/farm'))
+const Nft = React.lazy(() => import('pages/nft'))
 const Comingsoon = React.lazy(() => import('pages/ComingSoon'))
 
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
                         <Route path="/public_sale" element={<LaunchpadS2 />} />
                         <Route path="/position" element={<Pools />} />
                         <Route path="/farms" element={<Farms />} />
+                        <Route path="/nft" element={<Nft />} />
                         <Route path="/comingsoon" element={<Comingsoon />} />
                         <Route path="*" element={<Navigate to="/swap" />} />
                     </Routes>
