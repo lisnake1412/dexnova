@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { Link,useLocation } from 'react-router-dom';
 
 import { publicRoutes } from 'Routes';
-import logoImg from 'assetsV2/image/logo/starNovaLogo.png';
-import rightArrow from 'assetsV2/icon/rightArrow.svg';
+import logoImg from 'assets/image/logo/starNovaLogo.png';
+import rightArrow from 'assets/icon/rightArrow.svg';
 import Button from 'components/Button';
 import Web3Status from 'components/Web3Status';
 const cx = classNames.bind(styles);

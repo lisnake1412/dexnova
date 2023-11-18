@@ -52,7 +52,6 @@
         "install": "^0.13.0",
         "jsbi-calculator": "^0.3.6",
         "moment": "^2.29.4",
-        "npm": "^9.6.4",
         "react": "^18.2.0",
         "react-countdown": "^2.3.5",
         "react-date-range": "^1.4.0",
@@ -118,7 +117,6 @@
         "vite-plugin-require": "^1.1.10",
         "vite-tsconfig-paths": "^4.0.7",
         "vitest": "^0.29.8",
-        "webpack": "^5.82.0",
         "zksync-web3": "^0.14.3"
     }
 }

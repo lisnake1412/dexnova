@@ -16,6 +16,7 @@ let NUMBER_DATAs = {
     delegates: 5600,
     curDelegates: 0,
 };
+let NUMBER_DATAs_copy = NUMBER_DATAs
 
 const timeDuration = 0.8;
 const FPS = 200;
@@ -49,10 +50,10 @@ function FourthPage() {
 
     useEffect(() => {
         if (curFrame <= totalFrame && isAnimationStart) {
-            NUMBER_DATAs.curVolume += NUMBER_DATAs.volume / totalFrame;
-            NUMBER_DATAs.curTotal += NUMBER_DATAs.total / totalFrame;
-            NUMBER_DATAs.curIntegration += NUMBER_DATAs.integration / totalFrame;
-            NUMBER_DATAs.curDelegates += NUMBER_DATAs.delegates / totalFrame;
+            NUMBER_DATAs.curVolume += (NUMBER_DATAs.volume / totalFrame)%NUMBER_DATAs.volume;
+            NUMBER_DATAs.curTotal += NUMBER_DATAs.total / totalFrame%NUMBER_DATAs.total;
+            NUMBER_DATAs.curIntegration += NUMBER_DATAs.integration / totalFrame%NUMBER_DATAs.integration;
+            NUMBER_DATAs.curDelegates += NUMBER_DATAs.delegates / totalFrame%NUMBER_DATAs.delegates;
             nextFrame();
         }
     }, [curFrame]);
