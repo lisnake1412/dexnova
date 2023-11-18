@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { Row, Columns } from 'components/Layouts'
 import Setting from 'components/HeaderLiquidity'
 import CurrencyInputPanel from 'components/CurrencyInputPanel'
+import Header from 'components/HeaderV2'
+import { FilterBackground } from 'pages/swap'
 import { Field, Token } from 'interfaces'
 import PrimaryButton from 'components/Buttons/PrimaryButton'
 import LabelButton from 'components/Buttons/LabelButton'
@@ -572,6 +574,8 @@ const Add = () => {
 
     return (
         <>
+            <FilterBackground/>
+            <Header styles={{position:"relative"}}/>
             <ComponentsTransaction
                 data={initDataTransaction}
                 onConfirm={onConfirms}
@@ -590,7 +594,7 @@ const Add = () => {
                         />
                     </>
                 )}
-                <Row jus="space-between">
+                <Row jus="space-between" style={{margin:"10 0"}}>
                     <Title>Add Liquidity</Title>
                     <Setting />
                 </Row>
@@ -639,9 +643,10 @@ const Add = () => {
 const Tip = styled(Row)`
     text-align: left;
     padding: 15px;
-    border-radius: 12px;
+    border-radius: 12px; 
     color: #fff;
-    background-image: linear-gradient(#0dccea,#0d70ea);
+    background-image: var(--btn1);
+    margin: 0 0 10px 0;
 `
 
 const SwapContainer = styled(Columns)`
@@ -650,15 +655,20 @@ const SwapContainer = styled(Columns)`
     height: -moz-fit-content;
     height: fit-content;
     max-width: 520px;
-    background: var(--bg5) !important;
     border: 1.5px solid var(--border2);
     border-radius: 12px;
     padding: 20px 25px;
-    margin-top: 150px;
+    margin-top: 50px;
     background: linear-gradient( to top right, rgba(0,28,44,0.3), rgba(0,28,44,0.3) );
     gap: 15px;
     position: relative;
     z-index: 0;
+
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background: rgba(9,0,61,0.4);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
 
     @media (max-width: 500px) {
         width: 96%;
@@ -735,9 +745,10 @@ const CopyAccountAddress = styled.img`
 const Title = styled.div`
     font-size: 24px;
     width: 100%;
-    text-align: center;
-    color: #000;
+    text-align: left;
+    color: #fff;
     font-weight: 600;
+
 `
 
 const Icon = styled.div`
@@ -748,7 +759,6 @@ const Icon = styled.div`
     border-radius: 50%;
     transition: all ease-in-out 0.3s;
     background: var(--bg4);
-    border: 2px solid var(--border3);
     display: flex;
     align-items: center;
     justify-content: center;

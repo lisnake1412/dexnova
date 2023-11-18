@@ -214,7 +214,7 @@ const WrapExpectedOutput = styled.div<{ dropDown: boolean }>`
     height: 0;
     margin: 10px 0;
     padding-top: 25px;
-    border-top: 2px solid #0dcaea;
+    border-top: 3px solid #ff00e3;
 
     &.active {
         height: auto;
@@ -251,9 +251,9 @@ const ItemOutput = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #000;
+    color: #fff;
     padding: 5px 0;
-    font-size: 14px;
+    font-size: 16px;
     div {
         display: flex;
         align-items: center;

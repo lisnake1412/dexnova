@@ -8,8 +8,10 @@ import MulticallUpdater from 'states/multicall/updater'
 import ListUpdater from 'states/lists/updater'
 import Polling from 'components/Polling'
 import ToastMessage from 'components/ToastMessage'
-import Header from 'components/Header'
+import Header from 'components/HeaderV2'
 import Footer from 'components/Footer'
+import HomePage from 'pages/HomePage'
+import NetworkSelector from 'components/NetworkSelectorV2'
 
 const Swap = React.lazy(() => import('pages/swap'))
 const AddLiquidity = React.lazy(() => import('pages/add'))
@@ -36,12 +38,14 @@ const App = () => {
     return (
         <HashRouter>
             <Updater />
-            <Header />
+            
             <Suspense fallback={''}>
                 <AppContainer>
                     <ToastMessage />
                     <Routes>
+                        <Route path="/" element={<HomePage />} />
                         <Route path="/swap" element={<Swap />} />
+                        <Route path="/trade" element={<Swap />} />             
                         <Route path="/pools" element={<Farms />} />
                         <Route path="/add" element={<AddLiquidity />} />
                         <Route path="/add/:token0/:token1" element={<AddLiquidity />} />
@@ -53,17 +57,15 @@ const App = () => {
                         <Route path="/comingsoon" element={<Comingsoon />} />
                         <Route path="*" element={<Navigate to="/swap" />} />
                     </Routes>
+                    <NetworkSelector/>
                 </AppContainer>
             </Suspense>
-            <Footer />
         </HashRouter>
     )
 }
 
 const AppContainer = styled.div`
     position: relative;
-    padding: 20px 0;
-    min-height: calc(100vh - 175px);
 `
 
 export default App

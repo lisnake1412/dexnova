@@ -7,7 +7,7 @@ import { shortenAddress } from 'utils'
 import arrowDown from 'assets/icons/chevron-white.svg'
 import { useActiveWeb3React } from 'hooks'
 
-const Web3Status = () => {
+const Web3Status = ( {...allProps} ) => {
     const { account, isWrongNetwork } = useActiveWeb3React()
     const [toggleWalletModal, setToggleWalletModal] = useState<boolean>(false)
     const error = undefined
@@ -60,7 +60,7 @@ const Web3Status = () => {
 
     return (
         <Fragment>
-            <Web3StatusWrapper>
+            <Web3StatusWrapper {...allProps}>
                 {Web3StatusInner(account, error)}
             </Web3StatusWrapper>
             {toggleWalletModal ? (
@@ -85,6 +85,7 @@ export const OpacityModal = styled.div`
     height: 100%;
     z-index: 2;
     background-color: #00000073;
+    filter: blur(1);
     right: 0;
     top: 0;
 
@@ -122,10 +123,12 @@ const Icon = styled.img`
 const Web3StatusConnect = styled(Button)<{isWrongNetwork?: boolean}>`
     padding: 0 8px;
     width: unset;
-    height: 30px;
+    height: 36px;
     background: ${({isWrongNetwork}) => isWrongNetwork && 'red'};
 `
 
-export const Web3StatusWrapper = styled.div``
+export const Web3StatusWrapper = styled.div`
+
+`
 
 export default Web3Status

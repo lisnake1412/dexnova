@@ -10,7 +10,7 @@ export default defineConfig({
     react(),
     tsconfigPaths()
   ],
-  base: "/#/swap",
+  base: "/",
   define: {
     'process.env': {},
     'global': "globalThis",

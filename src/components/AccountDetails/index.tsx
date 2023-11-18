@@ -59,13 +59,14 @@ const AccountDetails = () => {
                                     </Tooltip>
                                 </CopyBtn>
                             )}
-                            <button
+                            <button className='logout-button'
                                 onClick={() => {
                                     disconnect()
                                 }}
                             >
                                 <img src={imgPower} alt="#" />
                             </button>
+                            
                         </WrapBtnHeader>
                     </Row>
                 </Header>
@@ -75,10 +76,10 @@ const AccountDetails = () => {
                     </NameBalance>
                     <Balance className={'to'}>
                         {balance ? Number(balance).toFixed(6) : 0}
-                    </Balance>
-                    <Balance>
+                        &nbsp;
                         {(chainId && NATIVE_COIN[chainId]?.symbol) || 'ETH'}
                     </Balance>
+                    
                 </WrapContent>
             </WrapConnectModal>
             <GlobalStyle />
@@ -99,8 +100,8 @@ const NameBalance = styled.div`
     }
 `
 const Balance = styled.div`
-    font-weight: 600;
-    font-size: 32px;
+    font-weight: 300;
+    font-size: 30px;
     line-height: 44px;
     text-align: center;
     @media screen and (max-width: 391px) {
@@ -116,6 +117,9 @@ const CopyBtn = styled.div`
         visibility: visible;
         font-size: 10px;
         border: 1px solid var(--border2);
+    }
+    img {
+        filter: invert(1);
     }
 `
 const Tooltip = styled.div`
@@ -135,6 +139,7 @@ const Tooltip = styled.div`
     background: rgba(157, 195, 230, 0.1);
     backdrop-filter: blur(3px);
 `
+
 const WrapBtnHeader = styled.div`
     display: flex;
     gap: 8px;
@@ -147,6 +152,11 @@ const WrapBtnHeader = styled.div`
         background: none;
         border: none;
         cursor: pointer;
+        box-shadow: unset;
+        transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) ;
+        > img {
+            filter: invert(1);
+        }
     }
 
     @media screen and (max-width: 399px) {
@@ -156,6 +166,9 @@ const WrapBtnHeader = styled.div`
             width: 12px;
             height: 12px;
         }
+    }
+    .logout-button:hover {
+        transform: scale(1.5);
     }
 `
 const WrapFooterBtn = styled.div`
@@ -170,7 +183,6 @@ const Container = styled.div<{ isConnected: boolean }>`
     border-radius: 10px;
     border: 1px solid var(--border1);
     backdrop-filter: blur(40px);
-    box-shadow: rgb(0 0 0 / 5%) 0px 4px 8px 0px;
     overflow: hidden;
     max-width: 500px;
     width: 100%;
@@ -210,7 +222,7 @@ const BtnClose = styled.img`
 
 const Header = styled.div`
     padding: 1rem 1.5rem;
-    border-bottom: 1px solid #918f8f;
+    border-bottom: 1px solid var(--primaryColorV2);
 
     span {
         cursor: pointer;
@@ -388,6 +400,7 @@ const IdAccount = styled.div``
 const CopyAccountAddress = styled.img`
     height: 12px;
     cursor: pointer;
+    filter: brightness(200);
 `
 
 const RowTransaction = styled.div`
@@ -416,13 +429,15 @@ const WrapConnectModal = styled(Container)`
     position: absolute;
     max-width: 300px;
     left: unset;
+    user-select: none;
     right: 20px;
-    top: 55px;
+    top: 75px;
     transform: unset;
     margin: unset;
     overflow: unset;
-    color: #000;
-
+    color: #fff;
+    background-color: var(--bgViolet);
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
 `
 

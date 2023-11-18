@@ -9,8 +9,8 @@
         "test": "vitest",
         "preview": "vite preview",
         "lint": "eslint .",
-        "prettier": "prettier --write src/**/*.{tsx,ts}",
-        "prettier:check": "prettier --list-different src/**/*.{tsx,ts}"
+        "prettier": "prettier --write src/**/*.{tsx,ts,js,jsx}",
+        "prettier:check": "prettier --list-different src/**/*.{tsx,ts,js}"
     },
     "dependencies": {
         "@apollo/client": "^3.7.12",
@@ -71,7 +71,16 @@
         "vite-plugin-babel-macros": "^1.0.6",
         "web3": "^4.1.1",
         "web3-eth-contract": "^1.10.0",
-        "web3-react-okexchain-connector": "^6.0.10"
+        "web3-react-okexchain-connector": "^6.0.10",
+        "@fortawesome/fontawesome-svg-core": "^6.4.2",
+        "@testing-library/user-event": "^13.5.0",
+        "classnames": "^2.3.2",
+        "customize-cra": "^1.0.0",
+        "normalize": "^0.3.1",
+        "react-app-rewired": "^2.2.1",
+        "react-scripts": "5.0.1",
+        "sass": "^1.64.1",
+        "web-vitals": "^2.1.4"
     },
     "devDependencies": {
         "@babel/preset-typescript": "^7.21.4",

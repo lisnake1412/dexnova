@@ -1,0 +1,142 @@
+@import "./src/components/GlobalStyle/responsive.module.scss";
+
+
+.wrapper {
+    background-color: rgba(68, 0, 69, 0.24);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: var(--contentMaxWidth);
+    margin: var(--containerMargin);
+    width: 100%;
+    
+    > h2 {
+        color: var(#fff);
+        text-align: center;
+        font-family: Inter;
+        font-size: var(--h2FontSize);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 129.7%; /* 51.88px */
+        text-transform: uppercase;
+    }
+}
+
+.content-wrapper {
+    display: grid;
+    gap: 70px;
+    margin: var(--contentMargin);
+    grid-template-columns: 1fr 0.8fr;
+}
+
+.left-content {
+    display: grid;
+    gap: 50px;
+    width: 100%;
+    > p {
+        font-size: var(--primaryTextFontSize);
+        font-family: Inter;
+        opacity: var(--primaryTextOpacity);
+        
+    }
+}
+
+.check-boxes {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.check-box {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    > p {
+        text-transform: capitalize;
+    }
+}
+
+.button-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.right-content {
+    width: 100%;
+    height: 100%;
+}
+
+.show-boxes {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 30px;
+}
+
+.show-box {
+    border-radius: 5px;
+    border: 2px solid #fcf9ff;
+    background: #15003f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    > p {
+        text-transform: capitalize;
+    }
+    > h2 {
+        font-size: 2.25rem;
+    }
+}
+
+.isAnimationStart {
+    animation: go_up 3s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+}
+
+@keyframes go_up {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@include responsive(tablet) {
+    .left-content {
+        > p {
+            text-align: center;
+        }
+    }
+    .content-wrapper {
+        grid-template-columns: unset;
+        grid-template-rows: 1fr 1fr;
+    }
+    .button-wrapper {
+       justify-content: center;
+    }
+}
+
+@include responsive(mobile) {
+    .right-content {
+        .show-boxes {
+            grid-template-columns: auto;
+            grid-template-rows: repeat(4, 1fr);
+        }
+    }
+    .show-box {
+        padding: 10px 0;
+    }
+    .button-wrapper {
+        flex-wrap: wrap;
+    }
+}

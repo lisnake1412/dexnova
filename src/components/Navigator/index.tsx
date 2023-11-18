@@ -126,6 +126,8 @@ const Navigator = ({ burgerNav, setBurgerNav }: NavigationProps) => {
                         <NavModal>
                             {
                                 nav.paths.map(path => {
+                                    console.log(path.path);
+                                    
                                     return (
                                         <>
                                             {

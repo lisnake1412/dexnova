@@ -1,0 +1,87 @@
+@import "./src/components/GlobalStyle/responsive.module.scss";
+
+.wrapper {
+    background-color: rgba(68, 0, 69, 0.24);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    max-width: var(--contentMaxWidth);
+    margin: var(--containerMargin);
+    width: 100%;
+    > h2 {
+        color: var(#fff);
+        text-align: center;
+        font-family: Inter;
+        font-size: var(--h2FontSize);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 129.7%; /* 51.88px */
+        text-transform: uppercase;
+    }
+    > p {
+        font-size: var(--primaryTextFontSize);
+        text-align: center;
+        margin: var(--contentMargin);
+    }
+}
+
+.content-wrapper {
+    display: grid;
+    margin: var(--contentMargin);
+    margin-top: 100px;
+    grid-template-columns: repeat(7, 1fr);
+    
+    > .show-box:nth-child(even),
+    .show-box:nth-child(15),
+    .show-box:nth-child(21) {
+        visibility: hidden;
+    }
+}
+
+.show-box {
+    position: relative;
+    transition: all 1s cubic-bezier(0, 0.63, 0.66, 1.32);
+    .show-box-bg {
+        width: 100%;
+    }
+    .show-box-img {
+        position: absolute;
+        width: 90%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        filter: contrast(0%) brightness(1000%);
+    }
+    &:nth-child(7), &:nth-child(9), &:nth-child(13) {
+        .show-box-img {
+            filter: none;
+
+        }
+    }
+    &:nth-child(1), &:nth-child(17) {
+        .show-box-img {
+            filter: contrast(40%);
+
+        }
+    }
+    &:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+}
+
+@include responsive(mobile) {
+    .content-wrapper {
+        margin-top: 60px;
+        row-gap: 20px;
+    }
+    .show-box {
+        transform: scale(1.6);
+        &:hover {
+            transform: scale(1.8);
+        }
+    }
+}

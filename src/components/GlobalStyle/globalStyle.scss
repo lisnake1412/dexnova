@@ -1,0 +1,55 @@
+@import 'normalize.css';
+@import url("https://fonts.googleapis.com/css?family=Inter:700,400|DM+Sans:500|Poppins:500");
+:root {
+    --primaryColor: #250942;
+    //default layout
+    --contentMaxWidth: 1280px;
+    --textOpacity: 1;
+    --tw-bg-opacity: 1;
+    --primaryFont: DM Sans, Inter, Verdana, Geneva, Tahoma, sans-serif;
+    --primaryFontSize: 1rem;
+    --primaryTextFontSize:20px;
+    --primaryGradientColor:linear-gradient(to left, #7451FE, #D15EF0, #FF00E3);
+    --primaryTextOpacity: 1;
+    --h2FontSize: 2rem;
+    --containerMargin: 3rem 0;
+    --contentMargin: 50px 0 50px 0;
+    --headerHeight: 100px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+   margin: 0;
+}
+
+body {
+    background-color: #060B27;
+    margin: 0;
+    padding: 0;
+    font-family:  var(--primaryFont);
+    font-size: var(--primaryFontSize);
+    color: #fff;
+    line-height: inherit;
+}
+
+button {
+    outline:none;
+    border:none;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+    cursor: pointer;
+}
+
+li {
+    list-style-type: none;
+}
+
+

@@ -1,0 +1,127 @@
+@import './src/components/GlobalStyle/responsive.module.scss';
+
+.wrapper {
+    background-color: #250942;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: var(--contentMaxWidth);
+    margin: var(--containerMargin);
+    padding: 40px 0 60px 0;
+    width: 100%;
+    display: flex;
+    &:hover {
+        .faded {
+            animation: light 2s ease-in-out backwards 1;
+        }
+    }
+}
+
+.planet-wrapper {
+    position: relative;
+    > img {
+        width: 420px;
+    }
+}
+
+.faded {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 37, 246, 0.6) 0%, rgba(255, 37, 246, 0) 100%);
+    width: 420px;
+    aspect-ratio: 1;
+    opacity: 0.5;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 50px;
+    .text-wrapper {
+        > h1 {
+            color: #fff;
+            /* heading2_tím */
+            font-family: DM Sans;
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 129.7%; /* 64.85px */
+            text-transform: uppercase;
+        }
+        > p {
+            color: #fff;
+
+            font-family: Inter;
+            font-size: var(--primaryTextFontSize);
+            font-style: normal;
+            font-weight: 100;
+            line-height: 160%; /* 35.2px */
+            opacity: var(--primaryTextOpacity);
+        }
+    }
+}
+
+.button-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+@keyframes light {
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+@include responsive(tablet) {
+    .container {
+        flex-direction: column;
+    }
+    .planet-wrapper {
+        margin: 0 auto;
+    }
+    .content {
+        margin: 20px 0 0 0;
+        gap: 50px;
+        .text-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .text-wrapper {
+            > h1 {
+                text-align: center;
+            }
+            > p {
+                text-align: center;
+            }
+        }
+    }
+    .button-wrapper {
+        justify-content: center;
+    }   
+}
+
+@include responsive(mobile) {
+    .planet-wrapper {
+        > img {
+            width: 300px;
+        }
+        > div {
+            width: 300px;
+        }
+    }
+    .content {
+        .text-wrapper {
+            > h1 {
+                font-size: 40px;
+            }
+        }
+    }
+}

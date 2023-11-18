@@ -109,7 +109,7 @@ const TokenListModal = ({
         return (
             <SelectTokenButton
                 token={token}
-                name={token?.symbol || 'Select a token'}
+                name={token?.symbol || 'SELECT TOKEN'}
                 onClick={ ()=> !disabledSelect && onOpen() }
             />
         )
@@ -226,6 +226,7 @@ const ModalContentWrapper = styled(Columns)`
         font-size: 18px;
         font-weight: 600;
         font-style: normal;
+        filter: invert(1)
     }
 `
 

@@ -1,0 +1,134 @@
+@import './src/components/GlobalStyle/responsive.module.scss';
+
+.wrapper {
+    width: 100%;
+    padding: 30px 0;
+    position: absolute;
+    z-index: 5;
+}
+.blackBackground {
+    background-color: black;
+}
+
+.container {
+    // max-width: var(--contentMaxWidth);
+    margin: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include responsive(tablet) {
+        margin: 0 30px;
+    }
+}
+
+.logo-wrapper {
+    display: block;
+    width: 173px;
+    height: 36px;
+    > img {
+        width: 173px;
+        height: 36px;
+    }
+}
+.content {
+    display: flex;
+}
+
+.page-lists {
+    display: flex;
+    .list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 48px;
+        cursor: pointer;
+        text-transform: capitalize;
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        &::after {
+            content: '';
+            background-image: var(--primaryGradientColor);
+            width: 0;
+            height: 2px;
+            transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+    .isUnderline {
+        &::after {
+            width: 100%;
+        }
+    }
+    @include responsive(tablet) {
+        display: none;
+    }
+}
+
+.menu-button {
+    display: none;
+    width: 30px;
+    > svg {
+        width: 36px;
+        fill: white;
+        height: 100%;
+    }
+}
+.isMenuButton {
+    display: flex;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    gap: 20px;
+    left: 0;
+    top: 96px;
+    background-color: black;
+    animation: disapear 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 1 forwards;
+    .list {
+        margin-left: 30px;
+        margin-right: 30px;
+        &::after {
+            margin-top: 15px;
+        }
+    }
+}
+@include responsive(tablet) {
+    .menu-button {
+        display: block;
+        margin-left: 30px;
+    }
+    .button-wrapper {
+        display: none;
+    }
+    .list {
+        text-align: center;
+    }
+}
+
+@include responsive(mobile) {
+    .logo-wrapper {
+        width: 36px;
+        overflow: hidden;
+    }
+    .button-wrapper {
+        display: none;
+    }
+    .menu-button {
+        display: block;
+    }
+    .list {
+        text-align: left;
+    }
+}
+
+@keyframes disapear {
+    0% {
+        width: 0vw;
+    }
+    100% {
+        width: 100vw;
+    }
+}

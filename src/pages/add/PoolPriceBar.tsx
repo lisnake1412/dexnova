@@ -49,7 +49,7 @@ const PoolPriceBar = ({
             <PoolPriceWrapper>
                 <Row gap="5px" jus="flex-end">
                     <Row gap="3px">
-                        <span>≈${gasFee || '--'} </span>
+                        <span>≈${gasFee || '0.0'} </span>
                         <img src={imageGas} alt="" />
                     </Row>
                 </Row>
@@ -173,10 +173,10 @@ const ItemOutput = styled.div`
     grid-template-columns: 1fr 2fr 1fr;
     justify-content: center;
     align-items: center;
-    color: var(--text1);
+    color: var(--text3);
 
     &.nums {
-        color: var(--text2);
+        color: var(--text5);
         font-size: 12px;
         text-align: center;
     }

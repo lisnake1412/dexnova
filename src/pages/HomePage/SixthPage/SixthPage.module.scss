@@ -1,0 +1,126 @@
+@import "./src/components/GlobalStyle/responsive.module.scss";
+
+
+.wrapper {
+    position: relative;
+    background-color: rgba(68, 0, 69, 0.24);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: var(--contentMaxWidth);
+    margin: var(--containerMargin);
+    width: 100%;
+    > h2 {
+        color: var(#fff);
+        text-align: center;
+        font-family: Inter;
+        font-size: var(--h2FontSize);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 129.7%; /* 51.88px */
+        text-transform: uppercase;
+        margin: var(--contentMargin);
+    }
+    > p {
+        font-size: var(--primaryTextFontSize);
+        text-align: center;
+        margin: var(--contentMargin);
+    }
+}
+
+.earth-bg {
+    position: absolute;
+    background-image: url(./src/assets/image/BackgroundImage/earth.png);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.faded {
+    background: linear-gradient(180deg, #15082f 0%, #15082f 0.01%, rgba(21, 8, 47, 0) 100%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: 0;
+}
+
+.content-wrapper {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    margin: var(--contentMargin);
+    margin-top: 100px;
+}
+
+.show-box {
+    background-image: linear-gradient(270deg, #7451fe24 0%, #d15ef024 48.96%, #ff00e324 98.44%);
+    border: 3px solid #ffffff24;
+    border-radius: 5px;
+    user-select: none;
+    transition: all 1s cubic-bezier(.4,0,.2,1);
+    .box-content {
+        display: flex;
+        justify-content: center;
+        margin: 40px 0;
+
+        .icon-wrapper {
+            display: flex;
+            align-items: center;
+            width: 40px;
+            
+            > svg {
+                height: 80%;
+                fill: #fff;
+            }
+        }
+        .text-wrapper {
+            margin-left: 20px;
+            > p:first-child {
+                font-family: Inter;
+                opacity: 0.8;
+            }
+            > p:last-child {
+                font-family: Inter;
+                font-size: 19px;
+            }
+        }
+    }
+
+    .box-title {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: calc(var(--primaryTextFontSize) + 1px);
+    }
+
+    &:hover {
+        border-color: #ffffffcc;
+        transform: translateY(-8px);
+    }
+}
+
+.button-wrapper {
+width: 184px;
+margin: 0 auto;
+}
+
+
+@include responsive(tablet) {
+    .content-wrapper {
+        grid-template-columns: 1fr 1fr;
+        margin-top: 60px;
+    }
+}
+
+@include responsive (mobile) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

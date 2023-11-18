@@ -25,6 +25,7 @@ const PrimaryButton = ({
     color,
     isLoading,
     size,
+    ...allprops
 }: PrimaryButtonProps) => {
     return (
         <Button
@@ -36,6 +37,7 @@ const PrimaryButton = ({
             color={color}
             isLoading={isLoading}
             size={size}
+            {...allprops}
         >
             {img && <img src={img} alt="button image" />} <span>{name}</span>
         </Button>
@@ -56,7 +58,7 @@ export const Button = styled.button<{
     align-items: center;
     justify-content: center;
     width: ${({width}) => width ? width : '100%'};
-    height: 40px;
+    height: 46px;
     border-radius: 4px;
     border: none;
     outline: none;
@@ -75,7 +77,7 @@ export const Button = styled.button<{
     }
 
     :hover {
-        opacity: 0.8;
+        box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.6) inset;
     }
 
     @media(max-width: 576px) {

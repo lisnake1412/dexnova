@@ -25,8 +25,9 @@ import { getEtherscanLink } from 'utils'
 import { usePairByAddresses } from 'hooks/useAllPairs'
 import { useMintActionHandlers } from 'states/mint/hooks'
 import { Link } from 'react-router-dom'
-import Icon from "assets/icons/calculator.png"
+import Icon from "assets/icons/calculator.svg"
 import { ChevronDown, ChevronUp } from 'react-feather'
+import ButtonV2  from 'components/Button'
 
 const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair, searchQuery, isColumnView, setCalculator, isColumnViewDetails, setIsColumnViewDetails } : {
     pool: IFarmingPool, 
@@ -135,7 +136,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
             <ButtonGroup gap="10px">
                 {
                     isInsufficientAllowance ?
-                    <PrimaryButton name={`Enable`} onClick={handleOnApprove} isLoading={loading} />
+                    <PrimaryButton  name={`Enable`} onClick={handleOnApprove} isLoading={loading} />
                     :
                     <PrimaryButton name="Stake" onClick={() => onStake(pool)} />
                 }
@@ -149,14 +150,14 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
     const HarvestButton = () => {
         return (
             <>
-                <PrimaryButton name="Havest" onClick={onHarvest} disabled={!pendingReward} />
+                <PrimaryButton name="Havest" onClick={onHarvest} disabled={!pendingReward} style={{boxShadow:"none"}} />
             </>
         )
     }
     let pairAddress = isPair ? pool.lpToken : undefined
     const pair = usePairByAddresses([pairAddress])?.[pairAddress || '']
     const { onTokenSelection } = useMintActionHandlers()
-    const pairName = isPair ? `${pair?.token0.symbol || '-'}-${pair?.token1.symbol || '-'}` : lpToken?.symbol
+    const pairName = isPair ? `${pair?.token0.symbol || '--'}/${pair?.token1.symbol || '--'}` : lpToken?.symbol
     const isHidden = searchQuery ? !pairName?.includes(searchQuery) : false
     // console.log(pool.lpToken);
     return(
@@ -194,7 +195,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                 </Row>
                 {
                     isColumnView && (
-                        <Columns al="flex-end" gap="5px">
+                        <Columns al="flex-end" gap="10px">
                             <div className="pool-name">
                                 {pairName}
                             </div>
@@ -213,7 +214,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                 {
                     !isColumnView && (
                         <>
-                         <Columns al="flex-end">
+                         <Columns al="flex-start">
                                 <Row gap="5px">
                                     <Core>
                                         <img src={CoreIcon} alt="core icon" />
@@ -222,7 +223,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                                     
                                 </Row>
                             </Columns>
-                            <Columns al="flex-end">
+                            <Columns al="flex-start">
                                 <div className='title_lable'>
                                     Earned
                                 </div>
@@ -233,7 +234,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                            
 
 
-                            <Columns al="flex-end">
+                            <Columns al="flex-start">
                                 <div className='title_lable'>
                                 Liquidity
                                 </div>
@@ -241,7 +242,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                                 {Number(divNumberWithDecimal(pool.totalStaked.toString(), 18)).toFixed(4)} {pool.isStakePool ? 'ACR' : 'ACR-LP'}
                                 </div>
                             </Columns>
-                            <Columns al="flex-end">
+                            <Columns al="flex-start">
                                 <div className='title_lable'>
                                 Multiplier
                                 </div>
@@ -251,16 +252,17 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                             </Columns>
    
 
-                            <Columns al="flex-end">
+                            <Columns al="flex-start">
                                
                                 <div className='title_lable CalcIcon'>
                                     <span>APR</span>
                                     
                                     <CalcIcon onClick={() => setCalculator({pool, pairName})}>
                                         <img src={Icon} alt="calculator icon" />
+                                        
                                     </CalcIcon>  
                                 </div>
-                                <Row  className='info-f'>
+                                <Row  className='info-f' style={{color:"#72FF99"}}>
                                     <span className="to" style={{maxWidth: 90, display: "block"}}>
                                         {(apr*10000).toFixed(0)}
                                     </span>
@@ -268,8 +270,9 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                                     
                                 </Row>
                             </Columns>
-                            <Columns al="flex-end">
-                                <img className={`chevron ${isOpenDetail && 'isOpenDetail'}`} src={Chevron} alt="chevron" />
+                            <Columns al="flex-end" className="manage-button">
+                                
+                                <ButtonV2  type="solid">Manage</ButtonV2>
                             </Columns>
                         </>
                     )
@@ -306,7 +309,7 @@ const Pool = ({ pool, isOpenDetail, setIsOpenDetail, onStake, onUnstake, isPair,
                             <WrapperAction isColumnView={isColumnView}>
                                 <Row gap="8px" className='title-gdLdzk' >
                                     <span style={{fontSize: 12}}>{ZKS_TOKEN[chainId || 59144].symbol}</span>
-                                    <span style={{fontSize: 12}}>EARNED</span>
+                                    <span style={{fontSize: 12, maxWidth:"unset"}}>EARNED</span>
                                 </Row>
                                 <Row jus="center" al="center">
                                     <span className='earn to'>{pendingReward}</span>
@@ -390,7 +393,7 @@ const Details = styled(Row)`
     justify-content: center;
     border-top: 1px solid var(--border1);
     padding: 20px 20px 0 20px;
-    color: #4862ab;
+    color: var(--text3);
 `
 
 const CalcIcon = styled.div`
@@ -409,17 +412,21 @@ const CalcIcon = styled.div`
 `
 
 const Core = styled(Row)`
-    border: 2px solid #289cd1;
-    padding: 4px 10px;
+    border: 1px solid #fff;
+    padding: 3px 8px;
     width: fit-content;
     border-radius: 16px;
     color: var(--text2);
     align-items: center;
     gap: 5px;
-    font-size: 14px;
+    font-size: 12px;
 
     img {
-        width: 16px;
+        width: 15px;
+        filter: brightness(200);
+    }   
+    > span {
+        color:white;
     }
 `
 
@@ -430,7 +437,7 @@ const Multiplier = styled(Row)`
     align-items: center;
     justify-content: center;
     font-size: 14px;
-    background-image: linear-gradient(#0dccea,#0d70ea);
+    background-image: var(--btn1);
     color: #fff;
 
 `
@@ -477,8 +484,9 @@ const WrapperAction = styled(Columns)<{isColumnView?: boolean}>`
     background: #1e1d20;
     border-radius: 10px;
     padding: 25px 15px;
-    background: #fff;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background: var(--bgViolet);
+    border:var(--borderV2);
+    
 
     .earn {
         max-width: 360px;
@@ -511,18 +519,19 @@ const PoolBody = styled(Columns)`
     overflow: hidden;
     padding: 20px;
     border: none;
-    background: #fff;
+    background: var(--bgviolet);
     display: grid;
     gap:0;
 
     .link {
         font-size: 16px;
-        font-weight: 600;
-        color: #4862ab;
+        font-weight: 500;
+        color: var(--text3);
         margin-right: 10px;
         img {
             width: 12px;
             margin-left: 10px;
+            filter: brightness(200);
         }
     }
 `
@@ -530,7 +539,7 @@ const PoolBody = styled(Columns)`
 const PoolHeader = styled.div<{isColumnView?: boolean}>`
     display: grid;
     align-items: center;
-    grid-template-columns: 200px 150px 150px 200px 200px 200px auto;
+    grid-template-columns: 2fr 1.5fr 1.5fr 2fr 2fr 2fr 2fr;
     width: 100%;
     padding: 20px;
     .sc-iGgWBj.gNtvMT{
@@ -547,7 +556,7 @@ const PoolHeader = styled.div<{isColumnView?: boolean}>`
         }
     }
     .pool-name {
-        font-weight: 700;
+        font-weight: 500;
         font-size: 18px;
     }
     .chevron {
@@ -561,11 +570,16 @@ const PoolHeader = styled.div<{isColumnView?: boolean}>`
     }
 
 
-    @media(max-width: 576px) {
+    @media(max-width: 888px) {
         font-size: 12px;
-        grid-template-columns: auto auto;
-        padding: 10px;
-    
+        grid-template-columns: repeat(3, 1fr);
+        padding: 20px;
+        gap: 10px;
+        justify-content: space-around;
+        > div {
+            justify-content: center;
+            align-items: center;
+        }
 
         .pool-name {
             font-size: 12px;
@@ -575,7 +589,7 @@ const PoolHeader = styled.div<{isColumnView?: boolean}>`
             width: 10px;
         }
         .dshdHH{
-            align-items: flex-start;
+            align-items: flex-end;
             &:last-child{
                 margin-top:15px;
                img{
@@ -583,6 +597,14 @@ const PoolHeader = styled.div<{isColumnView?: boolean}>`
                }
             }
         }
+        .manage-button {
+            grid-column: 1/4;
+            > a {
+                width: 100%;
+                min-width: unset;
+            }
+        }
+        
     }
 
     ${({isColumnView}) => isColumnView && (
@@ -602,9 +624,17 @@ const PoolWrapper = styled.div<{
     border-top: none;
     overflow: hidden;
     border:none;
-    background: #F2F4F3;
+    background: var(--bgViolet);
     margin-bottom: 10px;
-    border-radius: 12px;
+    border-radius: var(--borderRadiusV2);
+    border-width: 2px;
+    border: var(--borderV2);
+    .title_lable {
+        color:var(--text6);
+    }
+    .info-f {
+        font-weight: 500;
+    }
     @media(max-width: 576px) {
         font-size: 14px;
     }
