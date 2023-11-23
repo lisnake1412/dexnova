@@ -56,8 +56,11 @@ function FourthPage() {
             NUMBER_DATAs.curDelegates += NUMBER_DATAs.delegates / totalFrame%NUMBER_DATAs.delegates;
             nextFrame();
         }
+        else if (curFrame > totalFrame) {
+            NUMBER_DATAs = {...NUMBER_DATAs_copy}
+        }
     }, [curFrame]);
-
+    
     return (
         <>
             <div ref={ElementWrapper} id="fourthPage" className={cx('wrapper')}>
