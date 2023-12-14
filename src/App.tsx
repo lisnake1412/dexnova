@@ -10,9 +10,9 @@ import Polling from 'components/Polling'
 import ToastMessage from 'components/ToastMessage'
 import Header from 'components/HeaderV2'
 import Footer from 'components/Footer'
-import HomePage from 'pages/HomePage'
 import NetworkSelector from 'components/NetworkSelectorV2'
 
+const HomePage = React.lazy(() => import('pages/HomePage'))
 const Swap = React.lazy(() => import('pages/swap'))
 const AddLiquidity = React.lazy(() => import('pages/add'))
 const LaunchpadS1 = React.lazy(() => import('pages/launchpads1'))
